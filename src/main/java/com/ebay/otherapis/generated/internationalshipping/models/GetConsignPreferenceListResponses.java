@@ -1,0 +1,88 @@
+package com.ebay.otherapis.generated.internationalshipping.models;
+
+import com.microsoft.kiota.serialization.AdditionalDataHolder;
+import com.microsoft.kiota.serialization.Parsable;
+import com.microsoft.kiota.serialization.ParseNode;
+import com.microsoft.kiota.serialization.SerializationWriter;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+/**
+ * This type defines the response container of the &lt;b&gt;getConsignPreferences&lt;/b&gt; method.
+ */
+@jakarta.annotation.Generated("com.microsoft.kiota")
+public class GetConsignPreferenceListResponses implements AdditionalDataHolder, Parsable {
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
+    private Map<String, Object> additionalData;
+    /**
+     * This type defines the fields associated with a seller&apos;s consign addresses, including the location and contact details of the address, as well as its unique identifiers.
+     */
+    private GetConsignPreferenceListResponsesData consignPreferenceList;
+    /**
+     * Instantiates a new {@link GetConsignPreferenceListResponses} and sets the default values.
+     */
+    public GetConsignPreferenceListResponses() {
+        this.setAdditionalData(new HashMap<>());
+    }
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param parseNode The parse node to use to read the discriminator value and create the object
+     * @return a {@link GetConsignPreferenceListResponses}
+     */
+    @jakarta.annotation.Nonnull
+    public static GetConsignPreferenceListResponses createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
+        Objects.requireNonNull(parseNode);
+        return new GetConsignPreferenceListResponses();
+    }
+    /**
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return a {@link Map<String, Object>}
+     */
+    @jakarta.annotation.Nonnull
+    public Map<String, Object> getAdditionalData() {
+        return this.additionalData;
+    }
+    /**
+     * Gets the consignPreferenceList property value. This type defines the fields associated with a seller&apos;s consign addresses, including the location and contact details of the address, as well as its unique identifiers.
+     * @return a {@link GetConsignPreferenceListResponsesData}
+     */
+    @jakarta.annotation.Nullable
+    public GetConsignPreferenceListResponsesData getConsignPreferenceList() {
+        return this.consignPreferenceList;
+    }
+    /**
+     * The deserialization information for the current model
+     * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
+     */
+    @jakarta.annotation.Nonnull
+    public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(1);
+        deserializerMap.put("consignPreferenceList", (n) -> { this.setConsignPreferenceList(n.getObjectValue(GetConsignPreferenceListResponsesData::createFromDiscriminatorValue)); });
+        return deserializerMap;
+    }
+    /**
+     * Serializes information the current object
+     * @param writer Serialization writer to use to serialize this model
+     */
+    public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
+        Objects.requireNonNull(writer);
+        writer.writeObjectValue("consignPreferenceList", this.getConsignPreferenceList());
+        writer.writeAdditionalData(this.getAdditionalData());
+    }
+    /**
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
+        this.additionalData = value;
+    }
+    /**
+     * Sets the consignPreferenceList property value. This type defines the fields associated with a seller&apos;s consign addresses, including the location and contact details of the address, as well as its unique identifiers.
+     * @param value Value to set for the consignPreferenceList property.
+     */
+    public void setConsignPreferenceList(@jakarta.annotation.Nullable final GetConsignPreferenceListResponsesData value) {
+        this.consignPreferenceList = value;
+    }
+}

@@ -1,0 +1,88 @@
+package com.ebay.otherapis.generated.internationalshipping.models;
+
+import com.microsoft.kiota.serialization.AdditionalDataHolder;
+import com.microsoft.kiota.serialization.Parsable;
+import com.microsoft.kiota.serialization.ParseNode;
+import com.microsoft.kiota.serialization.SerializationWriter;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+/**
+ * This type defines the response containers of the &lt;b&gt;getActualCost&lt;/b&gt; method.
+ */
+@jakarta.annotation.Generated("com.microsoft.kiota")
+public class GetActualCostResponses implements AdditionalDataHolder, Parsable {
+    /**
+     * This array returns a list of actual costs associated with the packages matching the input criteria.
+     */
+    private java.util.List<GetActualCostResponsesData> actualCosts;
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
+    private Map<String, Object> additionalData;
+    /**
+     * Instantiates a new {@link GetActualCostResponses} and sets the default values.
+     */
+    public GetActualCostResponses() {
+        this.setAdditionalData(new HashMap<>());
+    }
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param parseNode The parse node to use to read the discriminator value and create the object
+     * @return a {@link GetActualCostResponses}
+     */
+    @jakarta.annotation.Nonnull
+    public static GetActualCostResponses createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
+        Objects.requireNonNull(parseNode);
+        return new GetActualCostResponses();
+    }
+    /**
+     * Gets the actualCosts property value. This array returns a list of actual costs associated with the packages matching the input criteria.
+     * @return a {@link java.util.List<GetActualCostResponsesData>}
+     */
+    @jakarta.annotation.Nullable
+    public java.util.List<GetActualCostResponsesData> getActualCosts() {
+        return this.actualCosts;
+    }
+    /**
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return a {@link Map<String, Object>}
+     */
+    @jakarta.annotation.Nonnull
+    public Map<String, Object> getAdditionalData() {
+        return this.additionalData;
+    }
+    /**
+     * The deserialization information for the current model
+     * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
+     */
+    @jakarta.annotation.Nonnull
+    public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(1);
+        deserializerMap.put("actualCosts", (n) -> { this.setActualCosts(n.getCollectionOfObjectValues(GetActualCostResponsesData::createFromDiscriminatorValue)); });
+        return deserializerMap;
+    }
+    /**
+     * Serializes information the current object
+     * @param writer Serialization writer to use to serialize this model
+     */
+    public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
+        Objects.requireNonNull(writer);
+        writer.writeCollectionOfObjectValues("actualCosts", this.getActualCosts());
+        writer.writeAdditionalData(this.getAdditionalData());
+    }
+    /**
+     * Sets the actualCosts property value. This array returns a list of actual costs associated with the packages matching the input criteria.
+     * @param value Value to set for the actualCosts property.
+     */
+    public void setActualCosts(@jakarta.annotation.Nullable final java.util.List<GetActualCostResponsesData> value) {
+        this.actualCosts = value;
+    }
+    /**
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
+        this.additionalData = value;
+    }
+}

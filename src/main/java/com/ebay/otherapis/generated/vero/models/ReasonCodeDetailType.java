@@ -1,0 +1,130 @@
+package com.ebay.otherapis.generated.vero.models;
+
+import com.microsoft.kiota.serialization.AdditionalDataHolder;
+import com.microsoft.kiota.serialization.Parsable;
+import com.microsoft.kiota.serialization.ParseNode;
+import com.microsoft.kiota.serialization.SerializationWriter;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+/**
+ * This type defines the brief and detailed description of a VeRO infringement, as well as the ID associated with the infringement.
+ */
+@jakarta.annotation.Generated("com.microsoft.kiota")
+public class ReasonCodeDetailType implements AdditionalDataHolder, Parsable {
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
+    private Map<String, Object> additionalData;
+    /**
+     * The short description of the infringement associated with the reason code.
+     */
+    private String briefText;
+    /**
+     * The long description of the infringement associated with the reason code.
+     */
+    private String detailedText;
+    /**
+     * The unique identifier of a VeRO reason code.
+     */
+    private String veroReasonCodeId;
+    /**
+     * Instantiates a new {@link ReasonCodeDetailType} and sets the default values.
+     */
+    public ReasonCodeDetailType() {
+        this.setAdditionalData(new HashMap<>());
+    }
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param parseNode The parse node to use to read the discriminator value and create the object
+     * @return a {@link ReasonCodeDetailType}
+     */
+    @jakarta.annotation.Nonnull
+    public static ReasonCodeDetailType createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
+        Objects.requireNonNull(parseNode);
+        return new ReasonCodeDetailType();
+    }
+    /**
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return a {@link Map<String, Object>}
+     */
+    @jakarta.annotation.Nonnull
+    public Map<String, Object> getAdditionalData() {
+        return this.additionalData;
+    }
+    /**
+     * Gets the briefText property value. The short description of the infringement associated with the reason code.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getBriefText() {
+        return this.briefText;
+    }
+    /**
+     * Gets the detailedText property value. The long description of the infringement associated with the reason code.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getDetailedText() {
+        return this.detailedText;
+    }
+    /**
+     * The deserialization information for the current model
+     * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
+     */
+    @jakarta.annotation.Nonnull
+    public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
+        deserializerMap.put("briefText", (n) -> { this.setBriefText(n.getStringValue()); });
+        deserializerMap.put("detailedText", (n) -> { this.setDetailedText(n.getStringValue()); });
+        deserializerMap.put("veroReasonCodeId", (n) -> { this.setVeroReasonCodeId(n.getStringValue()); });
+        return deserializerMap;
+    }
+    /**
+     * Gets the veroReasonCodeId property value. The unique identifier of a VeRO reason code.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getVeroReasonCodeId() {
+        return this.veroReasonCodeId;
+    }
+    /**
+     * Serializes information the current object
+     * @param writer Serialization writer to use to serialize this model
+     */
+    public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
+        Objects.requireNonNull(writer);
+        writer.writeStringValue("briefText", this.getBriefText());
+        writer.writeStringValue("detailedText", this.getDetailedText());
+        writer.writeStringValue("veroReasonCodeId", this.getVeroReasonCodeId());
+        writer.writeAdditionalData(this.getAdditionalData());
+    }
+    /**
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
+        this.additionalData = value;
+    }
+    /**
+     * Sets the briefText property value. The short description of the infringement associated with the reason code.
+     * @param value Value to set for the briefText property.
+     */
+    public void setBriefText(@jakarta.annotation.Nullable final String value) {
+        this.briefText = value;
+    }
+    /**
+     * Sets the detailedText property value. The long description of the infringement associated with the reason code.
+     * @param value Value to set for the detailedText property.
+     */
+    public void setDetailedText(@jakarta.annotation.Nullable final String value) {
+        this.detailedText = value;
+    }
+    /**
+     * Sets the veroReasonCodeId property value. The unique identifier of a VeRO reason code.
+     * @param value Value to set for the veroReasonCodeId property.
+     */
+    public void setVeroReasonCodeId(@jakarta.annotation.Nullable final String value) {
+        this.veroReasonCodeId = value;
+    }
+}

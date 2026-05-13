@@ -1,0 +1,85 @@
+package com.ebay.otherapis.generated.internationalshipping.packageescaped.item.confirm;
+
+import com.microsoft.kiota.BaseRequestBuilder;
+import com.microsoft.kiota.BaseRequestConfiguration;
+import com.microsoft.kiota.HttpMethod;
+import com.microsoft.kiota.RequestAdapter;
+import com.microsoft.kiota.RequestInformation;
+import com.microsoft.kiota.RequestOption;
+import com.microsoft.kiota.serialization.Parsable;
+import com.microsoft.kiota.serialization.ParsableFactory;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+/**
+ * Builds and executes requests for operations under /package/{order_line_item_-id}/confirm
+ */
+@jakarta.annotation.Generated("com.microsoft.kiota")
+public class ConfirmRequestBuilder extends BaseRequestBuilder {
+    /**
+     * Instantiates a new {@link ConfirmRequestBuilder} and sets the default values.
+     * @param pathParameters Path parameters for the request
+     * @param requestAdapter The request adapter to use to execute the requests.
+     */
+    public ConfirmRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
+        super(requestAdapter, "{+baseurl}/package/{order_line_item_%2Did}/confirm", pathParameters);
+    }
+    /**
+     * Instantiates a new {@link ConfirmRequestBuilder} and sets the default values.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @param requestAdapter The request adapter to use to execute the requests.
+     */
+    public ConfirmRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
+        super(requestAdapter, "{+baseurl}/package/{order_line_item_%2Did}/confirm", rawUrl);
+    }
+    /**
+     * &lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; This method is only available for Greater-China based sellers with an active eDIS account.&lt;/p&gt;&lt;/div&gt;&lt;br&gt;This method can be used to confirm the shipping order for a package.&lt;br&gt;&lt;br&gt;The &lt;b&gt;packageId&lt;/b&gt; value of the package to be confirmed must be input as a path parameter in the request.&lt;br&gt;&lt;br&gt;After confirmation the estimated cost will be frozen in your wallet and the pickup request will be submitted.
+     */
+    public void post() {
+        post(null);
+    }
+    /**
+     * &lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; This method is only available for Greater-China based sellers with an active eDIS account.&lt;/p&gt;&lt;/div&gt;&lt;br&gt;This method can be used to confirm the shipping order for a package.&lt;br&gt;&lt;br&gt;The &lt;b&gt;packageId&lt;/b&gt; value of the package to be confirmed must be input as a path parameter in the request.&lt;br&gt;&lt;br&gt;After confirmation the estimated cost will be frozen in your wallet and the pickup request will be submitted.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     */
+    public void post(@jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
+        final RequestInformation requestInfo = toPostRequestInformation(requestConfiguration);
+        this.requestAdapter.sendPrimitive(requestInfo, null, Void.class);
+    }
+    /**
+     * &lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; This method is only available for Greater-China based sellers with an active eDIS account.&lt;/p&gt;&lt;/div&gt;&lt;br&gt;This method can be used to confirm the shipping order for a package.&lt;br&gt;&lt;br&gt;The &lt;b&gt;packageId&lt;/b&gt; value of the package to be confirmed must be input as a path parameter in the request.&lt;br&gt;&lt;br&gt;After confirmation the estimated cost will be frozen in your wallet and the pickup request will be submitted.
+     * @return a {@link RequestInformation}
+     */
+    @jakarta.annotation.Nonnull
+    public RequestInformation toPostRequestInformation() {
+        return toPostRequestInformation(null);
+    }
+    /**
+     * &lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; This method is only available for Greater-China based sellers with an active eDIS account.&lt;/p&gt;&lt;/div&gt;&lt;br&gt;This method can be used to confirm the shipping order for a package.&lt;br&gt;&lt;br&gt;The &lt;b&gt;packageId&lt;/b&gt; value of the package to be confirmed must be input as a path parameter in the request.&lt;br&gt;&lt;br&gt;After confirmation the estimated cost will be frozen in your wallet and the pickup request will be submitted.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return a {@link RequestInformation}
+     */
+    @jakarta.annotation.Nonnull
+    public RequestInformation toPostRequestInformation(@jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
+        final RequestInformation requestInfo = new RequestInformation(HttpMethod.POST, urlTemplate, pathParameters);
+        requestInfo.configure(requestConfiguration, PostRequestConfiguration::new);
+        return requestInfo;
+    }
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @return a {@link ConfirmRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public ConfirmRequestBuilder withUrl(@jakarta.annotation.Nonnull final String rawUrl) {
+        Objects.requireNonNull(rawUrl);
+        return new ConfirmRequestBuilder(rawUrl, requestAdapter);
+    }
+    /**
+     * Configuration for the request such as headers, query parameters, and middleware options.
+     */
+    @jakarta.annotation.Generated("com.microsoft.kiota")
+    public class PostRequestConfiguration extends BaseRequestConfiguration {
+    }
+}
