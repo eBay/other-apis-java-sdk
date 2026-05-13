@@ -14,7 +14,7 @@ public final class OtherApisConfiguration {
     private String identityBaseUrl = "https://apiz.ebay.com/commerce/identity/v1";
     private String translationBaseUrl = "https://api.ebay.com/commerce/translation/v1_beta";
     private String veroBaseUrl = "https://api.ebay.com/commerce/vero/v1";
-    private String internationalShippingBaseUrl = "https://api.ebay.com/sell/edelivery/international_shipping";
+    private String internationalShippingBaseUrl = "https://api.ebay.com/sell/edelivery_international_shipping/v1";
 
     private String accessToken;  // static fallback; per-call token takes precedence
     private boolean diagnosticLogging = false;
