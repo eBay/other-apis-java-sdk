@@ -23,4 +23,8 @@ kiota generate -l java -d specs/sell_edelivery_international_shipping_oas3.yaml 
   -c InternationalShippingApiClient -n com.ebay.otherapis.generated.internationalshipping \
   -o src/main/java/com/ebay/otherapis/generated/internationalshipping --ebc --co
 
+
+echo "Adding license headers to generated files..."
+./add-license-headers.sh ./src
+
 echo "Code generation complete!"
