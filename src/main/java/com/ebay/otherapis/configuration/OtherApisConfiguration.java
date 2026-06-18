@@ -24,11 +24,13 @@ import java.util.HashSet;
  * and optional fallback access token.
  */
 public final class OtherApisConfiguration {
-    // Base URLs for each API
-    private String identityBaseUrl = "https://apiz.ebay.com/commerce/identity/v1";
-    private String translationBaseUrl = "https://api.ebay.com/commerce/translation/v1_beta";
-    private String veroBaseUrl = "https://api.ebay.com/commerce/vero/v1";
-    private String internationalShippingBaseUrl = "https://api.ebay.com/sell/edelivery_international_shipping/v1";
+    private static final Set<String> ALLOWED_HOSTS = Set.of("apiz.ebay.com", "api.ebay.com");
+
+    // Base URLs for each API (private final — set at construction time)
+    private final String identityBaseUrl;
+    private final String translationBaseUrl;
+    private final String veroBaseUrl;
+    private final String internationalShippingBaseUrl;
 
     private String accessToken;  // static fallback; per-call token takes precedence
     private boolean diagnosticLogging = false;
@@ -39,21 +41,47 @@ public final class OtherApisConfiguration {
      */
     private RequestOptions defaultRequestOptions = new RequestOptions();
 
-    // Getters and setters
-    public String getIdentityBaseUrl() { return identityBaseUrl; }
-    public void setIdentityBaseUrl(String identityBaseUrl) { this.identityBaseUrl = identityBaseUrl; }
-
-    public String getTranslationBaseUrl() { return translationBaseUrl; }
-    public void setTranslationBaseUrl(String translationBaseUrl) { this.translationBaseUrl = translationBaseUrl; }
-
-    public String getVeroBaseUrl() { return veroBaseUrl; }
-    public void setVeroBaseUrl(String veroBaseUrl) { this.veroBaseUrl = veroBaseUrl; }
-
-    public String getInternationalShippingBaseUrl() { return internationalShippingBaseUrl; }
-    public void setInternationalShippingBaseUrl(String internationalShippingBaseUrl) {
-        this.internationalShippingBaseUrl = internationalShippingBaseUrl;
+    /** No-arg constructor uses eBay production URLs. */
+    public OtherApisConfiguration() {
+        this.identityBaseUrl = "https://apiz.ebay.com/commerce/identity/v1";
+        this.translationBaseUrl = "https://api.ebay.com/commerce/translation/v1_beta";
+        this.veroBaseUrl = "https://api.ebay.com/commerce/vero/v1";
+        this.internationalShippingBaseUrl = "https://api.ebay.com/sell/edelivery/international_shipping";
     }
 
+    /**
+     * Constructor that accepts custom base URLs.
+     * Each URL host is validated against the eBay allowed-hosts list.
+     *
+     * @param identityBaseUrl             Identity API base URL
+     * @param translationBaseUrl          Translation API base URL
+     * @param veroBaseUrl                 VeRO API base URL
+     * @param internationalShippingBaseUrl International Shipping API base URL
+     */
+    public OtherApisConfiguration(
+            String identityBaseUrl,
+            String translationBaseUrl,
+            String veroBaseUrl,
+            String internationalShippingBaseUrl) {
+        this.identityBaseUrl = validateHost(identityBaseUrl);
+        this.translationBaseUrl = validateHost(translationBaseUrl);
+        this.veroBaseUrl = validateHost(veroBaseUrl);
+        this.internationalShippingBaseUrl = validateHost(internationalShippingBaseUrl);
+    }
+
+    // Getters (no setters for URL fields — private final)
+    public String getIdentityBaseUrl() { return identityBaseUrl; }
+    public String getTranslationBaseUrl() { return translationBaseUrl; }
+    public String getVeroBaseUrl() { return veroBaseUrl; }
+    public String getInternationalShippingBaseUrl() { return internationalShippingBaseUrl; }
+
+    /**
+     * Sets the fallback OAuth access token.
+     *
+     * <p><strong>Security note:</strong> Access tokens are held as plain {@code String} objects
+     * on the Java heap and cannot be zeroed after use. Minimise the token lifetime by preferring
+     * per-call tokens over a long-lived config token wherever possible.
+     */
     public String getAccessToken() { return accessToken; }
     public void setAccessToken(String accessToken) { this.accessToken = accessToken; }
 
@@ -75,6 +103,18 @@ public final class OtherApisConfiguration {
         hosts.add(extractHost(veroBaseUrl));
         hosts.add(extractHost(internationalShippingBaseUrl));
         return hosts;
+    }
+
+    private static String validateHost(String url) {
+        try {
+            String host = new java.net.URI(url).getHost();
+            if (host == null || !ALLOWED_HOSTS.contains(host)) {
+                throw new IllegalArgumentException("URL host not in allowed list: " + url);
+            }
+        } catch (java.net.URISyntaxException e) {
+            throw new IllegalArgumentException("Invalid URL: " + url, e);
+        }
+        return url;
     }
 
     private String extractHost(String url) {

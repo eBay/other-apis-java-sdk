@@ -57,13 +57,12 @@ public final class InternationalShippingClient {
             CancelPackagesRequest body,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.packageEscaped().bulkCancelPackages().post(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
-        });
+        }));
     }
 
     /**
@@ -73,13 +72,12 @@ public final class InternationalShippingClient {
             ConfirmPackagesRequest body,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.packageEscaped().bulkConfirmPackages().post(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
-        });
+        }));
     }
 
     /**
@@ -89,13 +87,12 @@ public final class InternationalShippingClient {
             DeletePackagesRequest body,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.packageEscaped().bulkDeletePackages().post(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
-        });
+        }));
     }
 
     /**
@@ -105,11 +102,13 @@ public final class InternationalShippingClient {
             String orderLineItemId,
             String accessToken,
             RequestOptions requestOptions) {
+        Params.requireValid("orderLineItemId", orderLineItemId);
         return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
-            Map<String, String> headers = mergedHeaders(requestOptions);
-            kiota.packageEscaped().byOrder_line_item_Id(orderLineItemId).cancel().post(config -> {
-                headers.forEach((k, v) -> config.headers.add(k, v));
+            TokenContext.runWith(accessToken, () -> {
+                Map<String, String> headers = mergedHeaders(requestOptions);
+                kiota.packageEscaped().byOrder_line_item_Id(orderLineItemId).cancel().post(config -> {
+                    headers.forEach((k, v) -> config.headers.add(k, v));
+                });
             });
             return null;
         });
@@ -122,13 +121,13 @@ public final class InternationalShippingClient {
             String orderLineItemId,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        Params.requireValid("orderLineItemId", orderLineItemId);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.packageEscaped().byOrder_line_item_Id(orderLineItemId).clone().post(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
-        });
+        }));
     }
 
     /**
@@ -138,11 +137,13 @@ public final class InternationalShippingClient {
             String orderLineItemId,
             String accessToken,
             RequestOptions requestOptions) {
+        Params.requireValid("orderLineItemId", orderLineItemId);
         return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
-            Map<String, String> headers = mergedHeaders(requestOptions);
-            kiota.packageEscaped().byOrder_line_item_Id(orderLineItemId).confirm().post(config -> {
-                headers.forEach((k, v) -> config.headers.add(k, v));
+            TokenContext.runWith(accessToken, () -> {
+                Map<String, String> headers = mergedHeaders(requestOptions);
+                kiota.packageEscaped().byOrder_line_item_Id(orderLineItemId).confirm().post(config -> {
+                    headers.forEach((k, v) -> config.headers.add(k, v));
+                });
             });
             return null;
         });
@@ -155,13 +156,12 @@ public final class InternationalShippingClient {
             AddPackageRequest body,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.packageEscaped().post(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
-        });
+        }));
     }
 
     /**
@@ -171,11 +171,13 @@ public final class InternationalShippingClient {
             String orderLineItemId,
             String accessToken,
             RequestOptions requestOptions) {
+        Params.requireValid("orderLineItemId", orderLineItemId);
         return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
-            Map<String, String> headers = mergedHeaders(requestOptions);
-            kiota.packageEscaped().byOrder_line_item_Id(orderLineItemId).delete(config -> {
-                headers.forEach((k, v) -> config.headers.add(k, v));
+            TokenContext.runWith(accessToken, () -> {
+                Map<String, String> headers = mergedHeaders(requestOptions);
+                kiota.packageEscaped().byOrder_line_item_Id(orderLineItemId).delete(config -> {
+                    headers.forEach((k, v) -> config.headers.add(k, v));
+                });
             });
             return null;
         });
@@ -188,13 +190,13 @@ public final class InternationalShippingClient {
             String orderLineItemId,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        Params.requireValid("orderLineItemId", orderLineItemId);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.packageEscaped().byOrder_line_item_Id(orderLineItemId).get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
-        });
+        }));
     }
 
     /**
@@ -204,13 +206,13 @@ public final class InternationalShippingClient {
             String orderLineItemId,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        Params.requireValid("orderLineItemId", orderLineItemId);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.packageEscaped().byOrder_line_item_Id(orderLineItemId).item().get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
-        });
+        }));
     }
 
     // ── Bundle Operations ─────────────────────────────────────────────────
@@ -222,11 +224,13 @@ public final class InternationalShippingClient {
             String bundleId,
             String accessToken,
             RequestOptions requestOptions) {
+        Params.requireValid("bundleId", bundleId);
         return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
-            Map<String, String> headers = mergedHeaders(requestOptions);
-            kiota.bundle().byBundle_id(bundleId).cancel().post(config -> {
-                headers.forEach((k, v) -> config.headers.add(k, v));
+            TokenContext.runWith(accessToken, () -> {
+                Map<String, String> headers = mergedHeaders(requestOptions);
+                kiota.bundle().byBundle_id(bundleId).cancel().post(config -> {
+                    headers.forEach((k, v) -> config.headers.add(k, v));
+                });
             });
             return null;
         });
@@ -239,13 +243,12 @@ public final class InternationalShippingClient {
             CreateBundleRequest body,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.bundle().post(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
-        });
+        }));
     }
 
     /**
@@ -255,13 +258,13 @@ public final class InternationalShippingClient {
             String bundleId,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        Params.requireValid("bundleId", bundleId);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.bundle().byBundle_id(bundleId).get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
-        });
+        }));
     }
 
     /**
@@ -271,13 +274,13 @@ public final class InternationalShippingClient {
             String bundleId,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        Params.requireValid("bundleId", bundleId);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.bundle().byBundle_id(bundleId).label().get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
-        });
+        }));
     }
 
     // ── Preference Operations ─────────────────────────────────────────────
@@ -289,13 +292,12 @@ public final class InternationalShippingClient {
             CreateAddressPreferenceRequest body,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.addressPreference().post(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
-        });
+        }));
     }
 
     /**
@@ -304,13 +306,12 @@ public final class InternationalShippingClient {
     public CompletableFuture<GetAddressPreferenceListResponses> getAddressPreferencesAsync(
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.addressPreference().get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
-        });
+        }));
     }
 
     /**
@@ -320,13 +321,12 @@ public final class InternationalShippingClient {
             CreateConsignPreferenceRequest body,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.consignPreference().post(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
-        });
+        }));
     }
 
     /**
@@ -335,13 +335,12 @@ public final class InternationalShippingClient {
     public CompletableFuture<GetConsignPreferenceListResponses> getConsignPreferencesAsync(
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.consignPreference().get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
-        });
+        }));
     }
 
     // ── Other Operations ──────────────────────────────────────────────────
@@ -354,10 +353,11 @@ public final class InternationalShippingClient {
             String accessToken,
             RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
-            Map<String, String> headers = mergedHeaders(requestOptions);
-            kiota.complaint().post(body, config -> {
-                headers.forEach((k, v) -> config.headers.add(k, v));
+            TokenContext.runWith(accessToken, () -> {
+                Map<String, String> headers = mergedHeaders(requestOptions);
+                kiota.complaint().post(body, config -> {
+                    headers.forEach((k, v) -> config.headers.add(k, v));
+                });
             });
             return null;
         });
@@ -372,8 +372,7 @@ public final class InternationalShippingClient {
             String transEndTime,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.actualCosts().get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
@@ -387,7 +386,7 @@ public final class InternationalShippingClient {
                     config.queryParameters.transEndTime = transEndTime;
                 }
             });
-        });
+        }));
     }
 
     /**
@@ -398,8 +397,7 @@ public final class InternationalShippingClient {
             String offset,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.agents().get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
@@ -410,7 +408,7 @@ public final class InternationalShippingClient {
                     config.queryParameters.offset = offset;
                 }
             });
-        });
+        }));
     }
 
     /**
@@ -421,8 +419,7 @@ public final class InternationalShippingClient {
             String offset,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.batteryQualifications().get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
@@ -433,7 +430,7 @@ public final class InternationalShippingClient {
                     config.queryParameters.offset = offset;
                 }
             });
-        });
+        }));
     }
 
     /**
@@ -444,8 +441,7 @@ public final class InternationalShippingClient {
             String offset,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.dropoffSites().get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
@@ -456,7 +452,7 @@ public final class InternationalShippingClient {
                     config.queryParameters.offset = offset;
                 }
             });
-        });
+        }));
     }
 
     /**
@@ -466,8 +462,7 @@ public final class InternationalShippingClient {
             String trackingNumbers,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.handoverSheet().get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
@@ -475,7 +470,7 @@ public final class InternationalShippingClient {
                     config.queryParameters.trackingNumbers = trackingNumbers;
                 }
             });
-        });
+        }));
     }
 
     /**
@@ -487,8 +482,7 @@ public final class InternationalShippingClient {
             String printPreference,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.labels().get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
@@ -502,7 +496,7 @@ public final class InternationalShippingClient {
                     config.queryParameters.printPreference = printPreference;
                 }
             });
-        });
+        }));
     }
 
     /**
@@ -513,8 +507,7 @@ public final class InternationalShippingClient {
             String offset,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.services().get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
@@ -525,7 +518,7 @@ public final class InternationalShippingClient {
                     config.queryParameters.offset = offset;
                 }
             });
-        });
+        }));
     }
 
     /**
@@ -535,8 +528,7 @@ public final class InternationalShippingClient {
             String trackingNumber,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.tracking().get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
@@ -544,6 +536,6 @@ public final class InternationalShippingClient {
                     config.queryParameters.trackingNumber = trackingNumber;
                 }
             });
-        });
+        }));
     }
 }

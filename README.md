@@ -110,6 +110,14 @@ sdk.identity.getUser("per-call-token", options);
 | `getTracking` | Get tracking information |
 | `bulkCancelPackages` | Bulk cancel packages |
 
+## Rate Limiting and Retry
+
+The SDK does not include built-in retry logic or rate-limit handling. eBay's APIs return HTTP 429 Too Many Requests when rate limits are exceeded. Implement exponential back-off in your application layer when calling bulk endpoints in loops.
+
+Refer to eBay's API call limits documentation for per-endpoint rate limit details.
+
+---
+
 ## Error Handling
 
 ```java
@@ -132,7 +140,71 @@ try {
 | `defaultRequestOptions` | `RequestOptions()` | Default headers applied to all SDK calls |
 | `diagnosticLogging` | `false` | Enable diagnostic request/response logging |
 
-## Regenerating the SDK
+```java
+import com.ebay.otherapis.configuration.RequestOptions;
+
+var options = new RequestOptions();
+options.addHeader("X-EBAY-C-MARKETPLACE-ID", "EBAY_US");
+options.addHeader("X-Request-ID", "correlation-123");
+
+var user = sdk.identity.getUser(accessToken, options);
+```
+
+### Default Headers
+
+Set headers for all requests via configuration:
+
+```java
+var config = new OtherApisConfiguration();
+config.getDefaultRequestOptions().addHeader("X-EBAY-C-MARKETPLACE-ID", "EBAY_US");
+
+try (var sdk = new OtherApisClient(config)) {
+    // All requests include the default header
+    var user = sdk.identity.getUser(accessToken, null);
+    
+    // Per-call headers override defaults
+    var options = new RequestOptions();
+    options.addHeader("X-EBAY-C-MARKETPLACE-ID", "EBAY_UK");
+    var userUK = sdk.identity.getUser(accessToken, options);
+}
+```
+
+## Configuration
+
+```java
+var config = new OtherApisConfiguration();
+
+// Override base URLs (optional)
+config.setIdentityBaseUrl("https://apiz.ebay.com/commerce/identity/v1");
+config.setTranslationBaseUrl("https://api.ebay.com/commerce/translation/v1_beta");
+config.setVeroBaseUrl("https://api.ebay.com/commerce/vero/v1");
+config.setInternationalShippingBaseUrl("https://api.ebay.com/sell/edelivery/international_shipping");
+
+// Set fallback access token
+config.setAccessToken("your-token");
+
+// Enable diagnostic logging
+config.setDiagnosticLogging(true);
+```
+
+## Architecture
+
+The SDK follows a consistent pattern:
+
+- **OtherApisClient**: Main facade exposing all API clients
+- **Configuration**: Centralized configuration with base URLs and auth settings
+- **TokenContext**: ThreadLocal carrier for per-call tokens
+- **RequestOptions**: Per-call custom headers support
+- **KiotaAuthProvider**: Bridges TokenContext and config into Kiota auth
+- **REST Clients**: Hand-crafted wrappers over Kiota-generated code
+  - `IdentityClient`: Identity API operations
+  - `TranslationClient`: Translation API operations
+  - `VeroClient`: VeRO API operations
+  - `InternationalShippingClient`: International Shipping API operations
+
+## Code Generation
+
+The SDK uses Microsoft Kiota to generate type-safe REST clients from OpenAPI specs:
 
 ```bash
 ./generate.sh

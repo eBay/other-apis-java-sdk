@@ -60,13 +60,12 @@ public final class VeroClient {
             VeroReportItemsRequest body,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.veroReport().post(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
-        });
+        }));
     }
 
     /**
@@ -81,13 +80,13 @@ public final class VeroClient {
             String veroReasonCodeId,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        Params.requireValid("veroReasonCodeId", veroReasonCodeId);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.veroReasonCode().byVero_reason_code_id(veroReasonCodeId).get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
-        });
+        }));
     }
 
     /**
@@ -100,13 +99,12 @@ public final class VeroClient {
     public CompletableFuture<VeroReasonCodeDetailResponse> getVeroReasonCodesAsync(
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.veroReasonCode().get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
-        });
+        }));
     }
 
     /**
@@ -123,8 +121,8 @@ public final class VeroClient {
             String includeItemDetails,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        Params.requireValid("veroReportId", veroReportId);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.veroReport().byVero_report_id(veroReportId).get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
@@ -132,7 +130,7 @@ public final class VeroClient {
                     config.queryParameters.includeItemDetails = includeItemDetails;
                 }
             });
-        });
+        }));
     }
 
     /**
@@ -153,8 +151,7 @@ public final class VeroClient {
             String offset,
             String accessToken,
             RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.veroReportItems().get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
@@ -171,6 +168,6 @@ public final class VeroClient {
                     config.queryParameters.offset = offset;
                 }
             });
-        });
+        }));
     }
 }

@@ -56,12 +56,11 @@ public final class IdentityClient {
      * @return CompletableFuture containing UserResponse with account profile information
      */
     public CompletableFuture<UserResponse> getUserAsync(String accessToken, RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.user().emptyPathSegment().get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
-        });
+        }));
     }
 }
