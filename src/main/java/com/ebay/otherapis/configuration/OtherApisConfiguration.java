@@ -14,6 +14,7 @@
 
 package com.ebay.otherapis.configuration;
 
+import jakarta.annotation.Nullable;
 import java.net.URI;
 import java.util.Set;
 import java.util.HashSet;
@@ -32,7 +33,7 @@ public final class OtherApisConfiguration {
     private final String veroBaseUrl;
     private final String internationalShippingBaseUrl;
 
-    private String accessToken;  // static fallback; per-call token takes precedence
+    private @Nullable String accessToken;  // static fallback; per-call token takes precedence
     private boolean diagnosticLogging = false;
 
     /**
@@ -82,8 +83,8 @@ public final class OtherApisConfiguration {
      * on the Java heap and cannot be zeroed after use. Minimise the token lifetime by preferring
      * per-call tokens over a long-lived config token wherever possible.
      */
-    public String getAccessToken() { return accessToken; }
-    public void setAccessToken(String accessToken) { this.accessToken = accessToken; }
+    public @Nullable String getAccessToken() { return accessToken; }
+    public void setAccessToken(@Nullable String accessToken) { this.accessToken = accessToken; }
 
     public boolean isDiagnosticLogging() { return diagnosticLogging; }
     public void setDiagnosticLogging(boolean diagnosticLogging) { this.diagnosticLogging = diagnosticLogging; }
