@@ -31,7 +31,7 @@ public class CreateConsignPreferenceRequest implements AdditionalDataHolder, Par
      */
     private Map<String, Object> additionalData;
     /**
-     * This type is used to specify the address details used to create a consign address.
+     * This container is used to specify the address details used to create a consign address.
      */
     private CreateConsignPreferenceRequestData consignAddress;
     /**
@@ -59,7 +59,7 @@ public class CreateConsignPreferenceRequest implements AdditionalDataHolder, Par
         return this.additionalData;
     }
     /**
-     * Gets the consignAddress property value. This type is used to specify the address details used to create a consign address.
+     * Gets the consignAddress property value. This container is used to specify the address details used to create a consign address.
      * @return a {@link CreateConsignPreferenceRequestData}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class CreateConsignPreferenceRequest implements AdditionalDataHolder, Par
         this.additionalData = value;
     }
     /**
-     * Sets the consignAddress property value. This type is used to specify the address details used to create a consign address.
+     * Sets the consignAddress property value. This container is used to specify the address details used to create a consign address.
      * @param value Value to set for the consignAddress property.
      */
     public void setConsignAddress(@jakarta.annotation.Nullable final CreateConsignPreferenceRequestData value) {

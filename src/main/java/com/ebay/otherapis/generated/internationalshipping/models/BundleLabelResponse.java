@@ -31,7 +31,7 @@ public class BundleLabelResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * This type defines the base64 string value used to download a bundle label PDF file.
+     * This container returns the bundle label information, such as the base64 string value, for the specified bundle.
      */
     private BundleLabelResponseData label;
     /**
@@ -69,7 +69,7 @@ public class BundleLabelResponse implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the label property value. This type defines the base64 string value used to download a bundle label PDF file.
+     * Gets the label property value. This container returns the bundle label information, such as the base64 string value, for the specified bundle.
      * @return a {@link BundleLabelResponseData}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class BundleLabelResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the label property value. This type defines the base64 string value used to download a bundle label PDF file.
+     * Sets the label property value. This container returns the bundle label information, such as the base64 string value, for the specified bundle.
      * @param value Value to set for the label property.
      */
     public void setLabel(@jakarta.annotation.Nullable final BundleLabelResponseData value) {

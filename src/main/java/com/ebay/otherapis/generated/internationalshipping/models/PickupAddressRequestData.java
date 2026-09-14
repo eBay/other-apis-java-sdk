@@ -31,7 +31,7 @@ public class PickupAddressRequestData implements AdditionalDataHolder, Parsable 
      */
     private Map<String, Object> additionalData;
     /**
-     * The city code of the pickup address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;API&lt;/a&gt; for valid city codes.
+     * The city code of the pickup address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;eDIS Address Code Reference Data&lt;/a&gt; for valid city codes.
      */
     private String city;
     /**
@@ -47,7 +47,7 @@ public class PickupAddressRequestData implements AdditionalDataHolder, Parsable 
      */
     private String countryCode;
     /**
-     * The district code of the pickup address. &lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;API&lt;/a&gt; for valid district codes.
+     * The district code of the pickup address. &lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;eDIS Address Code Reference Data&lt;/a&gt; for valid district codes.
      */
     private String district;
     /**
@@ -63,7 +63,7 @@ public class PickupAddressRequestData implements AdditionalDataHolder, Parsable 
      */
     private String postcode;
     /**
-     * The province code of the the pickup address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;API&lt;/a&gt; for valid province codes.
+     * The province code of the the pickup address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;eDIS Address Code Reference Data&lt;/a&gt; for valid province codes.
      */
     private String province;
     /**
@@ -103,7 +103,7 @@ public class PickupAddressRequestData implements AdditionalDataHolder, Parsable 
         return this.additionalData;
     }
     /**
-     * Gets the city property value. The city code of the pickup address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;API&lt;/a&gt; for valid city codes.
+     * Gets the city property value. The city code of the pickup address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;eDIS Address Code Reference Data&lt;/a&gt; for valid city codes.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -135,7 +135,7 @@ public class PickupAddressRequestData implements AdditionalDataHolder, Parsable 
         return this.countryCode;
     }
     /**
-     * Gets the district property value. The district code of the pickup address. &lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;API&lt;/a&gt; for valid district codes.
+     * Gets the district property value. The district code of the pickup address. &lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;eDIS Address Code Reference Data&lt;/a&gt; for valid district codes.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -188,7 +188,7 @@ public class PickupAddressRequestData implements AdditionalDataHolder, Parsable 
         return this.postcode;
     }
     /**
-     * Gets the province property value. The province code of the the pickup address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;API&lt;/a&gt; for valid province codes.
+     * Gets the province property value. The province code of the the pickup address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;eDIS Address Code Reference Data&lt;/a&gt; for valid province codes.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -247,7 +247,7 @@ public class PickupAddressRequestData implements AdditionalDataHolder, Parsable 
         this.additionalData = value;
     }
     /**
-     * Sets the city property value. The city code of the pickup address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;API&lt;/a&gt; for valid city codes.
+     * Sets the city property value. The city code of the pickup address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;eDIS Address Code Reference Data&lt;/a&gt; for valid city codes.
      * @param value Value to set for the city property.
      */
     public void setCity(@jakarta.annotation.Nullable final String value) {
@@ -275,7 +275,7 @@ public class PickupAddressRequestData implements AdditionalDataHolder, Parsable 
         this.countryCode = value;
     }
     /**
-     * Sets the district property value. The district code of the pickup address. &lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;API&lt;/a&gt; for valid district codes.
+     * Sets the district property value. The district code of the pickup address. &lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;eDIS Address Code Reference Data&lt;/a&gt; for valid district codes.
      * @param value Value to set for the district property.
      */
     public void setDistrict(@jakarta.annotation.Nullable final String value) {
@@ -303,7 +303,7 @@ public class PickupAddressRequestData implements AdditionalDataHolder, Parsable 
         this.postcode = value;
     }
     /**
-     * Sets the province property value. The province code of the the pickup address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;API&lt;/a&gt; for valid province codes.
+     * Sets the province property value. The province code of the the pickup address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;eDIS Address Code Reference Data&lt;/a&gt; for valid province codes.
      * @param value Value to set for the province property.
      */
     public void setProvince(@jakarta.annotation.Nullable final String value) {

@@ -31,7 +31,7 @@ public class GetAgentListResponses implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * This type defines the fields in a paginated result set of agents associated with a seller&apos;s eDIS account. The response consists of 0 or more sequenced pages that are returned from the complete result set, where each page consists of 0 or more items.
+     * This container returns a list of all EU AR agents associated with your eDIS account and their information.
      */
     private GetAgentListResponsesData agentList;
     /**
@@ -59,7 +59,7 @@ public class GetAgentListResponses implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the agentList property value. This type defines the fields in a paginated result set of agents associated with a seller&apos;s eDIS account. The response consists of 0 or more sequenced pages that are returned from the complete result set, where each page consists of 0 or more items.
+     * Gets the agentList property value. This container returns a list of all EU AR agents associated with your eDIS account and their information.
      * @return a {@link GetAgentListResponsesData}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class GetAgentListResponses implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the agentList property value. This type defines the fields in a paginated result set of agents associated with a seller&apos;s eDIS account. The response consists of 0 or more sequenced pages that are returned from the complete result set, where each page consists of 0 or more items.
+     * Sets the agentList property value. This container returns a list of all EU AR agents associated with your eDIS account and their information.
      * @param value Value to set for the agentList property.
      */
     public void setAgentList(@jakarta.annotation.Nullable final GetAgentListResponsesData value) {

@@ -31,7 +31,7 @@ public class AddComplaintRequestData implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * This array specifies a list of packages, specified by their &lt;b&gt;packageId&lt;/b&gt;, affected by the issue causing the complaint.&lt;br&gt;&lt;br&gt;Package ID values are returned when creating a package through the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/package/methods/createPackage&quot; target=&quot;_blank&quot;&gt;createPackage&lt;/a&gt; method&lt;br&gt;&lt;br&gt;This array is required if the complaint being filed is for a missing package.
+     * This array specifies a list of packages, specified by their &lt;b&gt;packageId&lt;/b&gt;, affected by the issue causing the complaint.&lt;br&gt;&lt;br&gt;Package ID values are returned when creating a package through the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-package-createpackage&quot;&gt;createPackage&lt;/a&gt; method&lt;br&gt;&lt;br&gt;This array is required if the complaint being filed is for a missing package.
      */
     private java.util.List<String> affectedPackages;
     /**
@@ -43,9 +43,9 @@ public class AddComplaintRequestData implements AdditionalDataHolder, Parsable {
      */
     private String complaintReason;
     /**
-     * The type of complaint being filed.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;ABNORMAL_COLLECTION_COMPLAINT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;LOST_PACKAGE_COMPLAINT&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:ComplaintTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The type of complaint being filed.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;ABNORMAL_COLLECTION_COMPLAINT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;LOST_PACKAGE_COMPLAINT&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      */
-    private String complaintType;
+    private ComplaintTypeEnum complaintType;
     /**
      * The unique identifier of the address associated with the complaint.&lt;br&gt;&lt;br&gt;This field is required if the complain being filed is associated with a specific address.
      */
@@ -79,7 +79,7 @@ public class AddComplaintRequestData implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the affectedPackages property value. This array specifies a list of packages, specified by their &lt;b&gt;packageId&lt;/b&gt;, affected by the issue causing the complaint.&lt;br&gt;&lt;br&gt;Package ID values are returned when creating a package through the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/package/methods/createPackage&quot; target=&quot;_blank&quot;&gt;createPackage&lt;/a&gt; method&lt;br&gt;&lt;br&gt;This array is required if the complaint being filed is for a missing package.
+     * Gets the affectedPackages property value. This array specifies a list of packages, specified by their &lt;b&gt;packageId&lt;/b&gt;, affected by the issue causing the complaint.&lt;br&gt;&lt;br&gt;Package ID values are returned when creating a package through the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-package-createpackage&quot;&gt;createPackage&lt;/a&gt; method&lt;br&gt;&lt;br&gt;This array is required if the complaint being filed is for a missing package.
      * @return a {@link java.util.List<String>}
      */
     @jakarta.annotation.Nullable
@@ -103,11 +103,11 @@ public class AddComplaintRequestData implements AdditionalDataHolder, Parsable {
         return this.complaintReason;
     }
     /**
-     * Gets the complaintType property value. The type of complaint being filed.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;ABNORMAL_COLLECTION_COMPLAINT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;LOST_PACKAGE_COMPLAINT&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:ComplaintTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the complaintType property value. The type of complaint being filed.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;ABNORMAL_COLLECTION_COMPLAINT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;LOST_PACKAGE_COMPLAINT&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+     * @return a {@link ComplaintTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getComplaintType() {
+    public ComplaintTypeEnum getComplaintType() {
         return this.complaintType;
     }
     /**
@@ -120,7 +120,7 @@ public class AddComplaintRequestData implements AdditionalDataHolder, Parsable {
         deserializerMap.put("affectedPackages", (n) -> { this.setAffectedPackages(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("complaintDate", (n) -> { this.setComplaintDate(n.getStringValue()); });
         deserializerMap.put("complaintReason", (n) -> { this.setComplaintReason(n.getStringValue()); });
-        deserializerMap.put("complaintType", (n) -> { this.setComplaintType(n.getStringValue()); });
+        deserializerMap.put("complaintType", (n) -> { this.setComplaintType(n.getEnumValue(ComplaintTypeEnum::forValue)); });
         deserializerMap.put("preferenceId", (n) -> { this.setPreferenceId(n.getIntegerValue()); });
         deserializerMap.put("remark", (n) -> { this.setRemark(n.getStringValue()); });
         return deserializerMap;
@@ -150,7 +150,7 @@ public class AddComplaintRequestData implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfPrimitiveValues("affectedPackages", this.getAffectedPackages());
         writer.writeStringValue("complaintDate", this.getComplaintDate());
         writer.writeStringValue("complaintReason", this.getComplaintReason());
-        writer.writeStringValue("complaintType", this.getComplaintType());
+        writer.writeEnumValue("complaintType", this.getComplaintType());
         writer.writeIntegerValue("preferenceId", this.getPreferenceId());
         writer.writeStringValue("remark", this.getRemark());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -163,7 +163,7 @@ public class AddComplaintRequestData implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the affectedPackages property value. This array specifies a list of packages, specified by their &lt;b&gt;packageId&lt;/b&gt;, affected by the issue causing the complaint.&lt;br&gt;&lt;br&gt;Package ID values are returned when creating a package through the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/package/methods/createPackage&quot; target=&quot;_blank&quot;&gt;createPackage&lt;/a&gt; method&lt;br&gt;&lt;br&gt;This array is required if the complaint being filed is for a missing package.
+     * Sets the affectedPackages property value. This array specifies a list of packages, specified by their &lt;b&gt;packageId&lt;/b&gt;, affected by the issue causing the complaint.&lt;br&gt;&lt;br&gt;Package ID values are returned when creating a package through the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-package-createpackage&quot;&gt;createPackage&lt;/a&gt; method&lt;br&gt;&lt;br&gt;This array is required if the complaint being filed is for a missing package.
      * @param value Value to set for the affectedPackages property.
      */
     public void setAffectedPackages(@jakarta.annotation.Nullable final java.util.List<String> value) {
@@ -184,10 +184,10 @@ public class AddComplaintRequestData implements AdditionalDataHolder, Parsable {
         this.complaintReason = value;
     }
     /**
-     * Sets the complaintType property value. The type of complaint being filed.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;ABNORMAL_COLLECTION_COMPLAINT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;LOST_PACKAGE_COMPLAINT&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:ComplaintTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the complaintType property value. The type of complaint being filed.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;ABNORMAL_COLLECTION_COMPLAINT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;LOST_PACKAGE_COMPLAINT&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      * @param value Value to set for the complaintType property.
      */
-    public void setComplaintType(@jakarta.annotation.Nullable final String value) {
+    public void setComplaintType(@jakarta.annotation.Nullable final ComplaintTypeEnum value) {
         this.complaintType = value;
     }
     /**

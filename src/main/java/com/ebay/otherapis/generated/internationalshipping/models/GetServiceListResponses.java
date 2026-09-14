@@ -31,7 +31,7 @@ public class GetServiceListResponses implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * This type defines the details returned for the retrieved shipping service(s).
+     * This container returns shipping service metadata associated with a seller&apos;s eDIS account.
      */
     private GetServiceListResponsesData serviceList;
     /**
@@ -69,7 +69,7 @@ public class GetServiceListResponses implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the serviceList property value. This type defines the details returned for the retrieved shipping service(s).
+     * Gets the serviceList property value. This container returns shipping service metadata associated with a seller&apos;s eDIS account.
      * @return a {@link GetServiceListResponsesData}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class GetServiceListResponses implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the serviceList property value. This type defines the details returned for the retrieved shipping service(s).
+     * Sets the serviceList property value. This container returns shipping service metadata associated with a seller&apos;s eDIS account.
      * @param value Value to set for the serviceList property.
      */
     public void setServiceList(@jakarta.annotation.Nullable final GetServiceListResponsesData value) {

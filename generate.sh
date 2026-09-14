@@ -20,22 +20,27 @@ echo "Generating Other APIs Java SDK with Kiota..."
 rm -rf src/main/java/com/ebay/otherapis/generated
 
 echo "Generating IdentityApiClient..."
-kiota generate -l java -d specs/openapi/identity.yaml \
+kiota generate -l java -d specs/openapi/identity.json \
   -c IdentityApiClient -n com.ebay.otherapis.generated.identity \
   -o src/main/java/com/ebay/otherapis/generated/identity --ebc --co
 
 echo "Generating InternationalShippingApiClient..."
-kiota generate -l java -d specs/openapi/international-shipping.yaml \
+kiota generate -l java -d specs/openapi/international-shipping.json \
   -c InternationalShippingApiClient -n com.ebay.otherapis.generated.internationalshipping \
   -o src/main/java/com/ebay/otherapis/generated/internationalshipping --ebc --co
 
 echo "Generating TranslationApiClient..."
-kiota generate -l java -d specs/openapi/translation.yaml \
+kiota generate -l java -d specs/openapi/translation.json \
   -c TranslationApiClient -n com.ebay.otherapis.generated.translation \
   -o src/main/java/com/ebay/otherapis/generated/translation --ebc --co
 
+echo "Generating VeroApiV2ApiClient..."
+kiota generate -l java -d specs/openapi/vero-api-v2.json \
+  -c VeroApiV2ApiClient -n com.ebay.otherapis.generated.veroapiv2 \
+  -o src/main/java/com/ebay/otherapis/generated/veroapiv2 --ebc --co
+
 echo "Generating VeroApiClient..."
-kiota generate -l java -d specs/openapi/vero.yaml \
+kiota generate -l java -d specs/openapi/vero.json \
   -c VeroApiClient -n com.ebay.otherapis.generated.vero \
   -o src/main/java/com/ebay/otherapis/generated/vero --ebc --co
 

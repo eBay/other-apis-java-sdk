@@ -31,9 +31,17 @@ public class SkuRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The unique identifier of the battery&apos;s electric qualification, which indicates that the battery has a certificate of approval for global shipping.&lt;br&gt;&lt;br&gt;This value is returned in the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/battery_qualifications/methods/getBatteryQualifications&quot; target=&quot;_blank&quot;&gt;getBatteryQualifications&lt;/a&gt; method.
+     * The unique identifier of a CPSC profile.
+     */
+    private String cpscProfileId;
+    /**
+     * The unique identifier of the battery&apos;s electric qualification, which indicates that the battery has a certificate of approval for global shipping.&lt;br&gt;&lt;br&gt;This value is returned in the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-battery_qualifications-getbatteryqualifications&quot;&gt;getBatteryQualifications&lt;/a&gt; method.
      */
     private String elecQualificationId;
+    /**
+     * The exemption type associated with the CPSC profile.
+     */
+    private ExemptionTypeEnum exemptionType;
     /**
      * This array lists the FDC SKUs associated with the item. An FDC SKU is the SKU label in a forward deployment center.&lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; Please contact customer service before using these fields.&lt;/p&gt;&lt;/div&gt;
      */
@@ -51,9 +59,9 @@ public class SkuRequest implements AdditionalDataHolder, Parsable {
      */
     private Double length;
     /**
-     * If the item contains a battery, this field indicates the type of battery the item contains. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:LiBatteryTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * If the item contains a battery, this field indicates the type of battery the item contains.
      */
-    private String liBatteryType;
+    private LiBatteryTypeEnum liBatteryType;
     /**
      * The English name of the item.
      */
@@ -67,7 +75,7 @@ public class SkuRequest implements AdditionalDataHolder, Parsable {
      */
     private String origin;
     /**
-     * This type defines the monetary value of an amount. 
+     * The declared price of the item.
      */
     private Amount price;
     /**
@@ -115,12 +123,28 @@ public class SkuRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the elecQualificationId property value. The unique identifier of the battery&apos;s electric qualification, which indicates that the battery has a certificate of approval for global shipping.&lt;br&gt;&lt;br&gt;This value is returned in the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/battery_qualifications/methods/getBatteryQualifications&quot; target=&quot;_blank&quot;&gt;getBatteryQualifications&lt;/a&gt; method.
+     * Gets the cpscProfileId property value. The unique identifier of a CPSC profile.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getCpscProfileId() {
+        return this.cpscProfileId;
+    }
+    /**
+     * Gets the elecQualificationId property value. The unique identifier of the battery&apos;s electric qualification, which indicates that the battery has a certificate of approval for global shipping.&lt;br&gt;&lt;br&gt;This value is returned in the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-battery_qualifications-getbatteryqualifications&quot;&gt;getBatteryQualifications&lt;/a&gt; method.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getElecQualificationId() {
         return this.elecQualificationId;
+    }
+    /**
+     * Gets the exemptionType property value. The exemption type associated with the CPSC profile.
+     * @return a {@link ExemptionTypeEnum}
+     */
+    @jakarta.annotation.Nullable
+    public ExemptionTypeEnum getExemptionType() {
+        return this.exemptionType;
     }
     /**
      * Gets the fdcSkus property value. This array lists the FDC SKUs associated with the item. An FDC SKU is the SKU label in a forward deployment center.&lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; Please contact customer service before using these fields.&lt;/p&gt;&lt;/div&gt;
@@ -136,13 +160,15 @@ public class SkuRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(17);
+        deserializerMap.put("cpscProfileId", (n) -> { this.setCpscProfileId(n.getStringValue()); });
         deserializerMap.put("elecQualificationId", (n) -> { this.setElecQualificationId(n.getStringValue()); });
+        deserializerMap.put("exemptionType", (n) -> { this.setExemptionType(n.getEnumValue(ExemptionTypeEnum::forValue)); });
         deserializerMap.put("fdcSkus", (n) -> { this.setFdcSkus(n.getCollectionOfObjectValues(FDCSkuRequest::createFromDiscriminatorValue)); });
         deserializerMap.put("height", (n) -> { this.setHeight(n.getDoubleValue()); });
         deserializerMap.put("isLiBattery", (n) -> { this.setIsLiBattery(n.getBooleanValue()); });
         deserializerMap.put("length", (n) -> { this.setLength(n.getDoubleValue()); });
-        deserializerMap.put("liBatteryType", (n) -> { this.setLiBatteryType(n.getStringValue()); });
+        deserializerMap.put("liBatteryType", (n) -> { this.setLiBatteryType(n.getEnumValue(LiBatteryTypeEnum::forValue)); });
         deserializerMap.put("nameEn", (n) -> { this.setNameEn(n.getStringValue()); });
         deserializerMap.put("nameZh", (n) -> { this.setNameZh(n.getStringValue()); });
         deserializerMap.put("origin", (n) -> { this.setOrigin(n.getStringValue()); });
@@ -179,11 +205,11 @@ public class SkuRequest implements AdditionalDataHolder, Parsable {
         return this.length;
     }
     /**
-     * Gets the liBatteryType property value. If the item contains a battery, this field indicates the type of battery the item contains. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:LiBatteryTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the liBatteryType property value. If the item contains a battery, this field indicates the type of battery the item contains.
+     * @return a {@link LiBatteryTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getLiBatteryType() {
+    public LiBatteryTypeEnum getLiBatteryType() {
         return this.liBatteryType;
     }
     /**
@@ -211,7 +237,7 @@ public class SkuRequest implements AdditionalDataHolder, Parsable {
         return this.origin;
     }
     /**
-     * Gets the price property value. This type defines the monetary value of an amount. 
+     * Gets the price property value. The declared price of the item.
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -264,12 +290,14 @@ public class SkuRequest implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeStringValue("cpscProfileId", this.getCpscProfileId());
         writer.writeStringValue("elecQualificationId", this.getElecQualificationId());
+        writer.writeEnumValue("exemptionType", this.getExemptionType());
         writer.writeCollectionOfObjectValues("fdcSkus", this.getFdcSkus());
         writer.writeDoubleValue("height", this.getHeight());
         writer.writeBooleanValue("isLiBattery", this.getIsLiBattery());
         writer.writeDoubleValue("length", this.getLength());
-        writer.writeStringValue("liBatteryType", this.getLiBatteryType());
+        writer.writeEnumValue("liBatteryType", this.getLiBatteryType());
         writer.writeStringValue("nameEn", this.getNameEn());
         writer.writeStringValue("nameZh", this.getNameZh());
         writer.writeStringValue("origin", this.getOrigin());
@@ -289,11 +317,25 @@ public class SkuRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the elecQualificationId property value. The unique identifier of the battery&apos;s electric qualification, which indicates that the battery has a certificate of approval for global shipping.&lt;br&gt;&lt;br&gt;This value is returned in the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/battery_qualifications/methods/getBatteryQualifications&quot; target=&quot;_blank&quot;&gt;getBatteryQualifications&lt;/a&gt; method.
+     * Sets the cpscProfileId property value. The unique identifier of a CPSC profile.
+     * @param value Value to set for the cpscProfileId property.
+     */
+    public void setCpscProfileId(@jakarta.annotation.Nullable final String value) {
+        this.cpscProfileId = value;
+    }
+    /**
+     * Sets the elecQualificationId property value. The unique identifier of the battery&apos;s electric qualification, which indicates that the battery has a certificate of approval for global shipping.&lt;br&gt;&lt;br&gt;This value is returned in the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-battery_qualifications-getbatteryqualifications&quot;&gt;getBatteryQualifications&lt;/a&gt; method.
      * @param value Value to set for the elecQualificationId property.
      */
     public void setElecQualificationId(@jakarta.annotation.Nullable final String value) {
         this.elecQualificationId = value;
+    }
+    /**
+     * Sets the exemptionType property value. The exemption type associated with the CPSC profile.
+     * @param value Value to set for the exemptionType property.
+     */
+    public void setExemptionType(@jakarta.annotation.Nullable final ExemptionTypeEnum value) {
+        this.exemptionType = value;
     }
     /**
      * Sets the fdcSkus property value. This array lists the FDC SKUs associated with the item. An FDC SKU is the SKU label in a forward deployment center.&lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; Please contact customer service before using these fields.&lt;/p&gt;&lt;/div&gt;
@@ -324,10 +366,10 @@ public class SkuRequest implements AdditionalDataHolder, Parsable {
         this.length = value;
     }
     /**
-     * Sets the liBatteryType property value. If the item contains a battery, this field indicates the type of battery the item contains. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:LiBatteryTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the liBatteryType property value. If the item contains a battery, this field indicates the type of battery the item contains.
      * @param value Value to set for the liBatteryType property.
      */
-    public void setLiBatteryType(@jakarta.annotation.Nullable final String value) {
+    public void setLiBatteryType(@jakarta.annotation.Nullable final LiBatteryTypeEnum value) {
         this.liBatteryType = value;
     }
     /**
@@ -352,7 +394,7 @@ public class SkuRequest implements AdditionalDataHolder, Parsable {
         this.origin = value;
     }
     /**
-     * Sets the price property value. This type defines the monetary value of an amount. 
+     * Sets the price property value. The declared price of the item.
      * @param value Value to set for the price property.
      */
     public void setPrice(@jakarta.annotation.Nullable final Amount value) {

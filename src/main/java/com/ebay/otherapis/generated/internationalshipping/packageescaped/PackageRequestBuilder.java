@@ -16,6 +16,7 @@ package com.ebay.otherapis.generated.internationalshipping.packageescaped;
 
 import com.ebay.otherapis.generated.internationalshipping.models.AddPackageRequest;
 import com.ebay.otherapis.generated.internationalshipping.models.AddPackageResponses;
+import com.ebay.otherapis.generated.internationalshipping.models.Error;
 import com.ebay.otherapis.generated.internationalshipping.packageescaped.bulk_cancel_packages.BulkCancelPackagesRequestBuilder;
 import com.ebay.otherapis.generated.internationalshipping.packageescaped.bulk_confirm_packages.BulkConfirmPackagesRequestBuilder;
 import com.ebay.otherapis.generated.internationalshipping.packageescaped.bulk_delete_packages.BulkDeletePackagesRequestBuilder;
@@ -63,7 +64,7 @@ public class PackageRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Gets an item from the com.ebay.otherapis.generated.internationalshipping.package.item collection
-     * @param order_line_item_Id This path parameter specifies the unique identifier of the package being retrieved.&lt;br&gt;&lt;br&gt;This ID value is returned when creating a package through the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/package/methods/createPackage&quot; target=&quot;_blank&quot;&gt;createPackage&lt;/a&gt; method.
+     * @param order_line_item_Id This path parameter specifies the unique identifier of the package being retrieved.&lt;br&gt;&lt;br&gt;This ID value is returned when creating a package through the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-package-createpackage&quot;&gt;createPackage&lt;/a&gt; method.
      * @return a {@link OrderLineItemItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull
@@ -93,6 +94,9 @@ public class PackageRequestBuilder extends BaseRequestBuilder {
      * &lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; This method is only available for Greater-China based sellers with an active eDIS account.&lt;/p&gt;&lt;/div&gt;&lt;br&gt;This method can be used to create a package for an order.&lt;br&gt;&lt;br&gt;To create a package, the package&apos;s shipping information, such as the dimensions, weight, ship from, and ship to address, as well as information about the item(s) it contains must be specified in the request.&lt;br&gt;&lt;br&gt;If the call is successful, the &lt;b&gt;packageId&lt;/b&gt; and tracking number for the newly created package will be returned.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; Sellers should keep track of the returned &lt;b&gt;packageId&lt;/b&gt;, as there is no programmatic way to retrieve this value at this time.&lt;/span&gt;
      * @param body This type defines the request container used in the &lt;b&gt;createPackage&lt;/b&gt; method.
      * @return a {@link AddPackageResponses}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 401 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public AddPackageResponses post(@jakarta.annotation.Nonnull final AddPackageRequest body) {
@@ -103,12 +107,19 @@ public class PackageRequestBuilder extends BaseRequestBuilder {
      * @param body This type defines the request container used in the &lt;b&gt;createPackage&lt;/b&gt; method.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link AddPackageResponses}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 401 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public AddPackageResponses post(@jakarta.annotation.Nonnull final AddPackageRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, AddPackageResponses::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("401", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, AddPackageResponses::createFromDiscriminatorValue);
     }
     /**
      * &lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; This method is only available for Greater-China based sellers with an active eDIS account.&lt;/p&gt;&lt;/div&gt;&lt;br&gt;This method can be used to create a package for an order.&lt;br&gt;&lt;br&gt;To create a package, the package&apos;s shipping information, such as the dimensions, weight, ship from, and ship to address, as well as information about the item(s) it contains must be specified in the request.&lt;br&gt;&lt;br&gt;If the call is successful, the &lt;b&gt;packageId&lt;/b&gt; and tracking number for the newly created package will be returned.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; Sellers should keep track of the returned &lt;b&gt;packageId&lt;/b&gt;, as there is no programmatic way to retrieve this value at this time.&lt;/span&gt;

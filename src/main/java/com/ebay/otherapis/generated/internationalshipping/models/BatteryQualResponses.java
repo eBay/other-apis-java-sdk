@@ -31,9 +31,9 @@ public class BatteryQualResponses implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The type of the battery. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:LiBatteryTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The type of the battery.
      */
-    private String batteryType;
+    private LiBatteryTypeEnum batteryType;
     /**
      * The unique identifier of the battery&apos;s electric qualification, which indicates that the battery has a certificate of approval for global shipping.
      */
@@ -75,11 +75,11 @@ public class BatteryQualResponses implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the batteryType property value. The type of the battery. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:LiBatteryTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the batteryType property value. The type of the battery.
+     * @return a {@link LiBatteryTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getBatteryType() {
+    public LiBatteryTypeEnum getBatteryType() {
         return this.batteryType;
     }
     /**
@@ -113,7 +113,7 @@ public class BatteryQualResponses implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
-        deserializerMap.put("batteryType", (n) -> { this.setBatteryType(n.getStringValue()); });
+        deserializerMap.put("batteryType", (n) -> { this.setBatteryType(n.getEnumValue(LiBatteryTypeEnum::forValue)); });
         deserializerMap.put("elecQualificationId", (n) -> { this.setElecQualificationId(n.getStringValue()); });
         deserializerMap.put("elecQualificationName", (n) -> { this.setElecQualificationName(n.getStringValue()); });
         deserializerMap.put("expireDate", (n) -> { this.setExpireDate(n.getStringValue()); });
@@ -134,7 +134,7 @@ public class BatteryQualResponses implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("batteryType", this.getBatteryType());
+        writer.writeEnumValue("batteryType", this.getBatteryType());
         writer.writeStringValue("elecQualificationId", this.getElecQualificationId());
         writer.writeStringValue("elecQualificationName", this.getElecQualificationName());
         writer.writeStringValue("expireDate", this.getExpireDate());
@@ -149,10 +149,10 @@ public class BatteryQualResponses implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the batteryType property value. The type of the battery. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:LiBatteryTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the batteryType property value. The type of the battery.
      * @param value Value to set for the batteryType property.
      */
-    public void setBatteryType(@jakarta.annotation.Nullable final String value) {
+    public void setBatteryType(@jakarta.annotation.Nullable final LiBatteryTypeEnum value) {
         this.batteryType = value;
     }
     /**

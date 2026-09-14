@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This container defines the response container for the &lt;b&gt;getTracking&lt;/b&gt; method.
+ * This type defines the response container for the &lt;b&gt;getTracking&lt;/b&gt; method.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class GetTrackingDetailResponses implements AdditionalDataHolder, Parsable {

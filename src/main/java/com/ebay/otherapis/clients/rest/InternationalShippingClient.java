@@ -22,6 +22,8 @@ import com.ebay.otherapis.generated.internationalshipping.models.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import java.io.InputStream;
+import com.microsoft.kiota.serialization.UntypedNode;
 
 public final class InternationalShippingClient {
     private final InternationalShippingApiClient kiota;
@@ -138,13 +140,14 @@ public final class InternationalShippingClient {
         }));
     }
 
-    public CompletableFuture<Object> createComplaintAsync(
+    public CompletableFuture<Void> createComplaintAsync(
             AddComplaintRequest body, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.complaint().post(body, config -> {
+            kiota.complaint().post(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
+            return null;
         }));
     }
 
@@ -164,6 +167,18 @@ public final class InternationalShippingClient {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.consignPreference().post(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<GetCpscProfilesResponse> getCpscProfilesAsync(
+            String limit, String offset, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.cpscProfiles().get(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+                if (limit != null) config.queryParameters.limit = limit;
+                if (offset != null) config.queryParameters.offset = offset;
             });
         }));
     }

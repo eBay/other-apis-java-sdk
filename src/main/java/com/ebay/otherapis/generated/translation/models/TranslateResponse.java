@@ -31,15 +31,15 @@ public class TranslateResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The enumeration value indicates the language of the input text. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/translation/types/api:LanguageEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The enumeration value indicates the language of the input text.
      */
-    private String from;
+    private LanguageEnum from;
     /**
-     * The enumeration value indicates the language of the translated text. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/translation/types/api:LanguageEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The enumeration value indicates the language of the translated text.
      */
-    private String to;
+    private LanguageEnum to;
     /**
-     * An array showing the input and translated text. Only one input string can be translated at this time. Support for multiple continuous text strings is expected in the future.
+     * An array showing the input and translated text. Only one input string can be translated at this time. Support for multiple continuous text strings are expected in the future.
      */
     private java.util.List<Translation> translations;
     /**
@@ -73,29 +73,29 @@ public class TranslateResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
-        deserializerMap.put("from", (n) -> { this.setFrom(n.getStringValue()); });
-        deserializerMap.put("to", (n) -> { this.setTo(n.getStringValue()); });
+        deserializerMap.put("from", (n) -> { this.setFrom(n.getEnumValue(LanguageEnum::forValue)); });
+        deserializerMap.put("to", (n) -> { this.setTo(n.getEnumValue(LanguageEnum::forValue)); });
         deserializerMap.put("translations", (n) -> { this.setTranslations(n.getCollectionOfObjectValues(Translation::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
-     * Gets the from property value. The enumeration value indicates the language of the input text. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/translation/types/api:LanguageEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the from property value. The enumeration value indicates the language of the input text.
+     * @return a {@link LanguageEnum}
      */
     @jakarta.annotation.Nullable
-    public String getFrom() {
+    public LanguageEnum getFrom() {
         return this.from;
     }
     /**
-     * Gets the to property value. The enumeration value indicates the language of the translated text. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/translation/types/api:LanguageEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the to property value. The enumeration value indicates the language of the translated text.
+     * @return a {@link LanguageEnum}
      */
     @jakarta.annotation.Nullable
-    public String getTo() {
+    public LanguageEnum getTo() {
         return this.to;
     }
     /**
-     * Gets the translations property value. An array showing the input and translated text. Only one input string can be translated at this time. Support for multiple continuous text strings is expected in the future.
+     * Gets the translations property value. An array showing the input and translated text. Only one input string can be translated at this time. Support for multiple continuous text strings are expected in the future.
      * @return a {@link java.util.List<Translation>}
      */
     @jakarta.annotation.Nullable
@@ -108,8 +108,8 @@ public class TranslateResponse implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("from", this.getFrom());
-        writer.writeStringValue("to", this.getTo());
+        writer.writeEnumValue("from", this.getFrom());
+        writer.writeEnumValue("to", this.getTo());
         writer.writeCollectionOfObjectValues("translations", this.getTranslations());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -121,21 +121,21 @@ public class TranslateResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the from property value. The enumeration value indicates the language of the input text. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/translation/types/api:LanguageEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the from property value. The enumeration value indicates the language of the input text.
      * @param value Value to set for the from property.
      */
-    public void setFrom(@jakarta.annotation.Nullable final String value) {
+    public void setFrom(@jakarta.annotation.Nullable final LanguageEnum value) {
         this.from = value;
     }
     /**
-     * Sets the to property value. The enumeration value indicates the language of the translated text. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/translation/types/api:LanguageEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the to property value. The enumeration value indicates the language of the translated text.
      * @param value Value to set for the to property.
      */
-    public void setTo(@jakarta.annotation.Nullable final String value) {
+    public void setTo(@jakarta.annotation.Nullable final LanguageEnum value) {
         this.to = value;
     }
     /**
-     * Sets the translations property value. An array showing the input and translated text. Only one input string can be translated at this time. Support for multiple continuous text strings is expected in the future.
+     * Sets the translations property value. An array showing the input and translated text. Only one input string can be translated at this time. Support for multiple continuous text strings are expected in the future.
      * @param value Value to set for the translations property.
      */
     public void setTranslations(@jakarta.annotation.Nullable final java.util.List<Translation> value) {

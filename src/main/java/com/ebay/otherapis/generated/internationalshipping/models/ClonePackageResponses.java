@@ -31,7 +31,7 @@ public class ClonePackageResponses implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * This type specifies the package ID, payment cost, tracking number, and last-mile tracking number (if applicable) for the cloned package.
+     * This container returns the package ID, payment cost, and tracking number for the cloned package.
      */
     private ClonePackageResponsesData clonePackageResult;
     /**
@@ -59,7 +59,7 @@ public class ClonePackageResponses implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the clonePackageResult property value. This type specifies the package ID, payment cost, tracking number, and last-mile tracking number (if applicable) for the cloned package.
+     * Gets the clonePackageResult property value. This container returns the package ID, payment cost, and tracking number for the cloned package.
      * @return a {@link ClonePackageResponsesData}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class ClonePackageResponses implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the clonePackageResult property value. This type specifies the package ID, payment cost, tracking number, and last-mile tracking number (if applicable) for the cloned package.
+     * Sets the clonePackageResult property value. This container returns the package ID, payment cost, and tracking number for the cloned package.
      * @param value Value to set for the clonePackageResult property.
      */
     public void setClonePackageResult(@jakarta.annotation.Nullable final ClonePackageResponsesData value) {

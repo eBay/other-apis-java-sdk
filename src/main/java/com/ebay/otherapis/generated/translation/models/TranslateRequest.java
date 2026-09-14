@@ -31,21 +31,21 @@ public class TranslateRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The language of the input text to be translated. Not all &lt;b&gt;LanguageEnum&lt;/b&gt; values are supported in this field. For a full list of supported language pairings, see the Supported languages &lt;a href=&quot;/develop/guides-v2/other-apis/other-apis-guide#supported-languages&quot;target=&quot;_blank &quot;&gt;table&lt;/a&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/translation/types/api:LanguageEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The language of the input text to be translated. Not all &lt;b&gt;LanguageEnum&lt;/b&gt; values are supported in this field. For a full list of supported language pairings, see the Supported languages &lt;a href=&quot;https://developer.ebay.com/develop/guides-v2/other-apis/other-apis-guide#supported-languages&quot; target=&quot;_blank &quot;&gt;table&lt;/a&gt;.
      */
-    private String from;
+    private LanguageEnum from;
     /**
-     * The input text to translate. The maximum number of characters permitted is determined by the &lt;b&gt;translationContext&lt;/b&gt; value:&lt;ul&gt;&lt;li&gt;&lt;code&gt;ITEM_TITLE&lt;/code&gt;: 1000 characters maximum&lt;/li&gt;&lt;li&gt;&lt;code&gt;ITEM_DESCRIPTION&lt;/code&gt;: 20,000 characters maximum.&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; When translating &lt;code&gt;ITEM_DESCRIPTION&lt;/code&gt; text, HTML/CSS markup and links can be included and will not count toward this 20,000 character limit.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; Currently, only one input string can be translated per API call. Support for multiple continuous text strings is expected in the future.&lt;/span&gt;
+     * The input text to translate. The maximum number of characters permitted is determined by the &lt;b&gt;translationContext&lt;/b&gt; value:&lt;ul&gt;&lt;li&gt;&lt;code&gt;ITEM_TITLE&lt;/code&gt;: 1000 characters maximum&lt;/li&gt;&lt;li&gt;&lt;code&gt;ITEM_DESCRIPTION&lt;/code&gt;: 20,000 characters maximum.&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; When translating &lt;code&gt;ITEM_DESCRIPTION&lt;/code&gt; text, HTML/CSS markup and links can be included and will not count toward this 20,000 character limit.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; Currently, only one input string can be translated per API call. Support for multiple continuous text strings are expected in the future.&lt;/span&gt;
      */
     private java.util.List<String> text;
     /**
-     * The target language for the translation of the input text. Not all &lt;b&gt;LanguageEnum&lt;/b&gt; values are supported in this field. For a full list of supported language pairings, see the Supported languages &lt;a href=&quot;/develop/guides-v2/other-apis/other-apis-guide#supported-languages&quot;target=&quot;_blank &quot;&gt;table&lt;/a&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/translation/types/api:LanguageEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The target language for the translation of the input text. Not all &lt;b&gt;LanguageEnum&lt;/b&gt; values are supported in this field. For a full list of supported language pairings, see the Supported languages &lt;a href=&quot;https://developer.ebay.com/develop/guides-v2/other-apis/other-apis-guide#supported-languages&quot; target=&quot;_blank &quot;&gt;table&lt;/a&gt;.
      */
-    private String to;
+    private LanguageEnum to;
     /**
-     * Input the listing entity to be translated.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid Values:&lt;/b&gt; &lt;code&gt;ITEM_TITLE&lt;/code&gt; and &lt;code&gt;ITEM_DESCRIPTION&lt;/code&gt;&lt;/p&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/translation/types/api:TranslationContextEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Input the listing entity to be translated.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid Values:&lt;/b&gt; &lt;code&gt;ITEM_TITLE&lt;/code&gt; and &lt;code&gt;ITEM_DESCRIPTION&lt;/code&gt;&lt;/p&gt;
      */
-    private String translationContext;
+    private TranslationContextEnum translationContext;
     /**
      * Instantiates a new {@link TranslateRequest} and sets the default values.
      */
@@ -77,22 +77,22 @@ public class TranslateRequest implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(4);
-        deserializerMap.put("from", (n) -> { this.setFrom(n.getStringValue()); });
+        deserializerMap.put("from", (n) -> { this.setFrom(n.getEnumValue(LanguageEnum::forValue)); });
         deserializerMap.put("text", (n) -> { this.setText(n.getCollectionOfPrimitiveValues(String.class)); });
-        deserializerMap.put("to", (n) -> { this.setTo(n.getStringValue()); });
-        deserializerMap.put("translationContext", (n) -> { this.setTranslationContext(n.getStringValue()); });
+        deserializerMap.put("to", (n) -> { this.setTo(n.getEnumValue(LanguageEnum::forValue)); });
+        deserializerMap.put("translationContext", (n) -> { this.setTranslationContext(n.getEnumValue(TranslationContextEnum::forValue)); });
         return deserializerMap;
     }
     /**
-     * Gets the from property value. The language of the input text to be translated. Not all &lt;b&gt;LanguageEnum&lt;/b&gt; values are supported in this field. For a full list of supported language pairings, see the Supported languages &lt;a href=&quot;/develop/guides-v2/other-apis/other-apis-guide#supported-languages&quot;target=&quot;_blank &quot;&gt;table&lt;/a&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/translation/types/api:LanguageEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the from property value. The language of the input text to be translated. Not all &lt;b&gt;LanguageEnum&lt;/b&gt; values are supported in this field. For a full list of supported language pairings, see the Supported languages &lt;a href=&quot;https://developer.ebay.com/develop/guides-v2/other-apis/other-apis-guide#supported-languages&quot; target=&quot;_blank &quot;&gt;table&lt;/a&gt;.
+     * @return a {@link LanguageEnum}
      */
     @jakarta.annotation.Nullable
-    public String getFrom() {
+    public LanguageEnum getFrom() {
         return this.from;
     }
     /**
-     * Gets the text property value. The input text to translate. The maximum number of characters permitted is determined by the &lt;b&gt;translationContext&lt;/b&gt; value:&lt;ul&gt;&lt;li&gt;&lt;code&gt;ITEM_TITLE&lt;/code&gt;: 1000 characters maximum&lt;/li&gt;&lt;li&gt;&lt;code&gt;ITEM_DESCRIPTION&lt;/code&gt;: 20,000 characters maximum.&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; When translating &lt;code&gt;ITEM_DESCRIPTION&lt;/code&gt; text, HTML/CSS markup and links can be included and will not count toward this 20,000 character limit.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; Currently, only one input string can be translated per API call. Support for multiple continuous text strings is expected in the future.&lt;/span&gt;
+     * Gets the text property value. The input text to translate. The maximum number of characters permitted is determined by the &lt;b&gt;translationContext&lt;/b&gt; value:&lt;ul&gt;&lt;li&gt;&lt;code&gt;ITEM_TITLE&lt;/code&gt;: 1000 characters maximum&lt;/li&gt;&lt;li&gt;&lt;code&gt;ITEM_DESCRIPTION&lt;/code&gt;: 20,000 characters maximum.&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; When translating &lt;code&gt;ITEM_DESCRIPTION&lt;/code&gt; text, HTML/CSS markup and links can be included and will not count toward this 20,000 character limit.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; Currently, only one input string can be translated per API call. Support for multiple continuous text strings are expected in the future.&lt;/span&gt;
      * @return a {@link java.util.List<String>}
      */
     @jakarta.annotation.Nullable
@@ -100,19 +100,19 @@ public class TranslateRequest implements AdditionalDataHolder, Parsable {
         return this.text;
     }
     /**
-     * Gets the to property value. The target language for the translation of the input text. Not all &lt;b&gt;LanguageEnum&lt;/b&gt; values are supported in this field. For a full list of supported language pairings, see the Supported languages &lt;a href=&quot;/develop/guides-v2/other-apis/other-apis-guide#supported-languages&quot;target=&quot;_blank &quot;&gt;table&lt;/a&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/translation/types/api:LanguageEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the to property value. The target language for the translation of the input text. Not all &lt;b&gt;LanguageEnum&lt;/b&gt; values are supported in this field. For a full list of supported language pairings, see the Supported languages &lt;a href=&quot;https://developer.ebay.com/develop/guides-v2/other-apis/other-apis-guide#supported-languages&quot; target=&quot;_blank &quot;&gt;table&lt;/a&gt;.
+     * @return a {@link LanguageEnum}
      */
     @jakarta.annotation.Nullable
-    public String getTo() {
+    public LanguageEnum getTo() {
         return this.to;
     }
     /**
-     * Gets the translationContext property value. Input the listing entity to be translated.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid Values:&lt;/b&gt; &lt;code&gt;ITEM_TITLE&lt;/code&gt; and &lt;code&gt;ITEM_DESCRIPTION&lt;/code&gt;&lt;/p&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/translation/types/api:TranslationContextEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the translationContext property value. Input the listing entity to be translated.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid Values:&lt;/b&gt; &lt;code&gt;ITEM_TITLE&lt;/code&gt; and &lt;code&gt;ITEM_DESCRIPTION&lt;/code&gt;&lt;/p&gt;
+     * @return a {@link TranslationContextEnum}
      */
     @jakarta.annotation.Nullable
-    public String getTranslationContext() {
+    public TranslationContextEnum getTranslationContext() {
         return this.translationContext;
     }
     /**
@@ -121,10 +121,10 @@ public class TranslateRequest implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("from", this.getFrom());
+        writer.writeEnumValue("from", this.getFrom());
         writer.writeCollectionOfPrimitiveValues("text", this.getText());
-        writer.writeStringValue("to", this.getTo());
-        writer.writeStringValue("translationContext", this.getTranslationContext());
+        writer.writeEnumValue("to", this.getTo());
+        writer.writeEnumValue("translationContext", this.getTranslationContext());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -135,31 +135,31 @@ public class TranslateRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the from property value. The language of the input text to be translated. Not all &lt;b&gt;LanguageEnum&lt;/b&gt; values are supported in this field. For a full list of supported language pairings, see the Supported languages &lt;a href=&quot;/develop/guides-v2/other-apis/other-apis-guide#supported-languages&quot;target=&quot;_blank &quot;&gt;table&lt;/a&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/translation/types/api:LanguageEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the from property value. The language of the input text to be translated. Not all &lt;b&gt;LanguageEnum&lt;/b&gt; values are supported in this field. For a full list of supported language pairings, see the Supported languages &lt;a href=&quot;https://developer.ebay.com/develop/guides-v2/other-apis/other-apis-guide#supported-languages&quot; target=&quot;_blank &quot;&gt;table&lt;/a&gt;.
      * @param value Value to set for the from property.
      */
-    public void setFrom(@jakarta.annotation.Nullable final String value) {
+    public void setFrom(@jakarta.annotation.Nullable final LanguageEnum value) {
         this.from = value;
     }
     /**
-     * Sets the text property value. The input text to translate. The maximum number of characters permitted is determined by the &lt;b&gt;translationContext&lt;/b&gt; value:&lt;ul&gt;&lt;li&gt;&lt;code&gt;ITEM_TITLE&lt;/code&gt;: 1000 characters maximum&lt;/li&gt;&lt;li&gt;&lt;code&gt;ITEM_DESCRIPTION&lt;/code&gt;: 20,000 characters maximum.&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; When translating &lt;code&gt;ITEM_DESCRIPTION&lt;/code&gt; text, HTML/CSS markup and links can be included and will not count toward this 20,000 character limit.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; Currently, only one input string can be translated per API call. Support for multiple continuous text strings is expected in the future.&lt;/span&gt;
+     * Sets the text property value. The input text to translate. The maximum number of characters permitted is determined by the &lt;b&gt;translationContext&lt;/b&gt; value:&lt;ul&gt;&lt;li&gt;&lt;code&gt;ITEM_TITLE&lt;/code&gt;: 1000 characters maximum&lt;/li&gt;&lt;li&gt;&lt;code&gt;ITEM_DESCRIPTION&lt;/code&gt;: 20,000 characters maximum.&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; When translating &lt;code&gt;ITEM_DESCRIPTION&lt;/code&gt; text, HTML/CSS markup and links can be included and will not count toward this 20,000 character limit.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; Currently, only one input string can be translated per API call. Support for multiple continuous text strings are expected in the future.&lt;/span&gt;
      * @param value Value to set for the text property.
      */
     public void setText(@jakarta.annotation.Nullable final java.util.List<String> value) {
         this.text = value;
     }
     /**
-     * Sets the to property value. The target language for the translation of the input text. Not all &lt;b&gt;LanguageEnum&lt;/b&gt; values are supported in this field. For a full list of supported language pairings, see the Supported languages &lt;a href=&quot;/develop/guides-v2/other-apis/other-apis-guide#supported-languages&quot;target=&quot;_blank &quot;&gt;table&lt;/a&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/translation/types/api:LanguageEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the to property value. The target language for the translation of the input text. Not all &lt;b&gt;LanguageEnum&lt;/b&gt; values are supported in this field. For a full list of supported language pairings, see the Supported languages &lt;a href=&quot;https://developer.ebay.com/develop/guides-v2/other-apis/other-apis-guide#supported-languages&quot; target=&quot;_blank &quot;&gt;table&lt;/a&gt;.
      * @param value Value to set for the to property.
      */
-    public void setTo(@jakarta.annotation.Nullable final String value) {
+    public void setTo(@jakarta.annotation.Nullable final LanguageEnum value) {
         this.to = value;
     }
     /**
-     * Sets the translationContext property value. Input the listing entity to be translated.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid Values:&lt;/b&gt; &lt;code&gt;ITEM_TITLE&lt;/code&gt; and &lt;code&gt;ITEM_DESCRIPTION&lt;/code&gt;&lt;/p&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/translation/types/api:TranslationContextEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the translationContext property value. Input the listing entity to be translated.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid Values:&lt;/b&gt; &lt;code&gt;ITEM_TITLE&lt;/code&gt; and &lt;code&gt;ITEM_DESCRIPTION&lt;/code&gt;&lt;/p&gt;
      * @param value Value to set for the translationContext property.
      */
-    public void setTranslationContext(@jakarta.annotation.Nullable final String value) {
+    public void setTranslationContext(@jakarta.annotation.Nullable final TranslationContextEnum value) {
         this.translationContext = value;
     }
 }

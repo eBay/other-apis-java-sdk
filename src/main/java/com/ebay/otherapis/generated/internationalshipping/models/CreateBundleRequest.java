@@ -31,7 +31,7 @@ public class CreateBundleRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * This type defines the information used to create a bundle.
+     * This container is used to specify the information needed to create a bundle, such as the consign address associated with the bundle and the tracking numbers of the packages to be included in the bundle.
      */
     private CreateBundleRequestData bundle;
     /**
@@ -59,7 +59,7 @@ public class CreateBundleRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the bundle property value. This type defines the information used to create a bundle.
+     * Gets the bundle property value. This container is used to specify the information needed to create a bundle, such as the consign address associated with the bundle and the tracking numbers of the packages to be included in the bundle.
      * @return a {@link CreateBundleRequestData}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class CreateBundleRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the bundle property value. This type defines the information used to create a bundle.
+     * Sets the bundle property value. This container is used to specify the information needed to create a bundle, such as the consign address associated with the bundle and the tracking numbers of the packages to be included in the bundle.
      * @param value Value to set for the bundle property.
      */
     public void setBundle(@jakarta.annotation.Nullable final CreateBundleRequestData value) {

@@ -35,7 +35,7 @@ public class GetActualCostResponsesData implements AdditionalDataHolder, Parsabl
      */
     private Map<String, Object> additionalData;
     /**
-     * This type defines the monetary value of an amount. 
+     * This container specifies the total monetary amount of the actual cost of the package. 
      */
     private Amount amount;
     /**
@@ -107,7 +107,7 @@ public class GetActualCostResponsesData implements AdditionalDataHolder, Parsabl
         return this.additionalData;
     }
     /**
-     * Gets the amount property value. This type defines the monetary value of an amount. 
+     * Gets the amount property value. This container specifies the total monetary amount of the actual cost of the package. 
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -240,7 +240,7 @@ public class GetActualCostResponsesData implements AdditionalDataHolder, Parsabl
         this.additionalData = value;
     }
     /**
-     * Sets the amount property value. This type defines the monetary value of an amount. 
+     * Sets the amount property value. This container specifies the total monetary amount of the actual cost of the package. 
      * @param value Value to set for the amount property.
      */
     public void setAmount(@jakarta.annotation.Nullable final Amount value) {

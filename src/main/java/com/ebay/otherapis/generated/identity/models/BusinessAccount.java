@@ -31,31 +31,31 @@ public class BusinessAccount implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The type that defines the fields for an address.
+     * The business address associated with the user&apos;s eBay business account.
      */
     private Address address;
     /**
-     * An additional name that is used for their business on eBay. The business name is returned in the &lt;b&gt; name&lt;/b&gt; field.
+     * An alternate business name or trade name used by the business on eBay.
      */
     private String doingBusinessAs;
     /**
-     * The email address of the business account.
+     * The email address associated with the business account on eBay.
      */
     private String email;
     /**
-     * The business name associated with the user&apos;s eBay account.
+     * The official name of the business associated with the eBay user&apos;s account.
      */
     private String name;
     /**
-     * The type that defines the fields for the information of the contact person for the account.
+     * The container that returns the contact details of the person who is the primary contact for this account.
      */
     private Contact primaryContact;
     /**
-     * The type that defines the fields for the details of a phone.
+     * The container that returns the primary phone number for the business account.
      */
     private Phone primaryPhone;
     /**
-     * The type that defines the fields for the details of a phone.
+     * The container that returns the secondary phone number for the business account.
      */
     private Phone secondaryPhone;
     /**
@@ -87,7 +87,7 @@ public class BusinessAccount implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the address property value. The type that defines the fields for an address.
+     * Gets the address property value. The business address associated with the user&apos;s eBay business account.
      * @return a {@link Address}
      */
     @jakarta.annotation.Nullable
@@ -95,7 +95,7 @@ public class BusinessAccount implements AdditionalDataHolder, Parsable {
         return this.address;
     }
     /**
-     * Gets the doingBusinessAs property value. An additional name that is used for their business on eBay. The business name is returned in the &lt;b&gt; name&lt;/b&gt; field.
+     * Gets the doingBusinessAs property value. An alternate business name or trade name used by the business on eBay.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -103,7 +103,7 @@ public class BusinessAccount implements AdditionalDataHolder, Parsable {
         return this.doingBusinessAs;
     }
     /**
-     * Gets the email property value. The email address of the business account.
+     * Gets the email property value. The email address associated with the business account on eBay.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -128,7 +128,7 @@ public class BusinessAccount implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the name property value. The business name associated with the user&apos;s eBay account.
+     * Gets the name property value. The official name of the business associated with the eBay user&apos;s account.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -136,7 +136,7 @@ public class BusinessAccount implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the primaryContact property value. The type that defines the fields for the information of the contact person for the account.
+     * Gets the primaryContact property value. The container that returns the contact details of the person who is the primary contact for this account.
      * @return a {@link Contact}
      */
     @jakarta.annotation.Nullable
@@ -144,7 +144,7 @@ public class BusinessAccount implements AdditionalDataHolder, Parsable {
         return this.primaryContact;
     }
     /**
-     * Gets the primaryPhone property value. The type that defines the fields for the details of a phone.
+     * Gets the primaryPhone property value. The container that returns the primary phone number for the business account.
      * @return a {@link Phone}
      */
     @jakarta.annotation.Nullable
@@ -152,7 +152,7 @@ public class BusinessAccount implements AdditionalDataHolder, Parsable {
         return this.primaryPhone;
     }
     /**
-     * Gets the secondaryPhone property value. The type that defines the fields for the details of a phone.
+     * Gets the secondaryPhone property value. The container that returns the secondary phone number for the business account.
      * @return a {@link Phone}
      */
     @jakarta.annotation.Nullable
@@ -191,49 +191,49 @@ public class BusinessAccount implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the address property value. The type that defines the fields for an address.
+     * Sets the address property value. The business address associated with the user&apos;s eBay business account.
      * @param value Value to set for the address property.
      */
     public void setAddress(@jakarta.annotation.Nullable final Address value) {
         this.address = value;
     }
     /**
-     * Sets the doingBusinessAs property value. An additional name that is used for their business on eBay. The business name is returned in the &lt;b&gt; name&lt;/b&gt; field.
+     * Sets the doingBusinessAs property value. An alternate business name or trade name used by the business on eBay.
      * @param value Value to set for the doingBusinessAs property.
      */
     public void setDoingBusinessAs(@jakarta.annotation.Nullable final String value) {
         this.doingBusinessAs = value;
     }
     /**
-     * Sets the email property value. The email address of the business account.
+     * Sets the email property value. The email address associated with the business account on eBay.
      * @param value Value to set for the email property.
      */
     public void setEmail(@jakarta.annotation.Nullable final String value) {
         this.email = value;
     }
     /**
-     * Sets the name property value. The business name associated with the user&apos;s eBay account.
+     * Sets the name property value. The official name of the business associated with the eBay user&apos;s account.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
         this.name = value;
     }
     /**
-     * Sets the primaryContact property value. The type that defines the fields for the information of the contact person for the account.
+     * Sets the primaryContact property value. The container that returns the contact details of the person who is the primary contact for this account.
      * @param value Value to set for the primaryContact property.
      */
     public void setPrimaryContact(@jakarta.annotation.Nullable final Contact value) {
         this.primaryContact = value;
     }
     /**
-     * Sets the primaryPhone property value. The type that defines the fields for the details of a phone.
+     * Sets the primaryPhone property value. The container that returns the primary phone number for the business account.
      * @param value Value to set for the primaryPhone property.
      */
     public void setPrimaryPhone(@jakarta.annotation.Nullable final Phone value) {
         this.primaryPhone = value;
     }
     /**
-     * Sets the secondaryPhone property value. The type that defines the fields for the details of a phone.
+     * Sets the secondaryPhone property value. The container that returns the secondary phone number for the business account.
      * @param value Value to set for the secondaryPhone property.
      */
     public void setSecondaryPhone(@jakarta.annotation.Nullable final Phone value) {

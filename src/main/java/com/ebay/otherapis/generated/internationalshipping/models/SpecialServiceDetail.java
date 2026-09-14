@@ -35,7 +35,7 @@ public class SpecialServiceDetail implements AdditionalDataHolder, Parsable {
      */
     private String insuranceFee;
     /**
-     * The package type.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;PAK&lt;/code&gt; (limited weight  2.5KG)&lt;/li&gt;&lt;li&gt;&lt;code&gt;PACKAGE&lt;/code&gt; (limited weight 68KG)&lt;/li&gt;&lt;/ul&gt;
+     * The package type.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;PAK&lt;/code&gt; (limited weight &lt;= 2.5KG)&lt;/li&gt;&lt;li&gt;&lt;code&gt;PACKAGE&lt;/code&gt; (limited weight 68KG)&lt;/li&gt;&lt;/ul&gt;
      */
     private String packagingType;
     /**
@@ -92,7 +92,7 @@ public class SpecialServiceDetail implements AdditionalDataHolder, Parsable {
         return this.insuranceFee;
     }
     /**
-     * Gets the packagingType property value. The package type.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;PAK&lt;/code&gt; (limited weight  2.5KG)&lt;/li&gt;&lt;li&gt;&lt;code&gt;PACKAGE&lt;/code&gt; (limited weight 68KG)&lt;/li&gt;&lt;/ul&gt;
+     * Gets the packagingType property value. The package type.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;PAK&lt;/code&gt; (limited weight &lt;= 2.5KG)&lt;/li&gt;&lt;li&gt;&lt;code&gt;PACKAGE&lt;/code&gt; (limited weight 68KG)&lt;/li&gt;&lt;/ul&gt;
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -142,7 +142,7 @@ public class SpecialServiceDetail implements AdditionalDataHolder, Parsable {
         this.insuranceFee = value;
     }
     /**
-     * Sets the packagingType property value. The package type.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;PAK&lt;/code&gt; (limited weight  2.5KG)&lt;/li&gt;&lt;li&gt;&lt;code&gt;PACKAGE&lt;/code&gt; (limited weight 68KG)&lt;/li&gt;&lt;/ul&gt;
+     * Sets the packagingType property value. The package type.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;PAK&lt;/code&gt; (limited weight &lt;= 2.5KG)&lt;/li&gt;&lt;li&gt;&lt;code&gt;PACKAGE&lt;/code&gt; (limited weight 68KG)&lt;/li&gt;&lt;/ul&gt;
      * @param value Value to set for the packagingType property.
      */
     public void setPackagingType(@jakarta.annotation.Nullable final String value) {

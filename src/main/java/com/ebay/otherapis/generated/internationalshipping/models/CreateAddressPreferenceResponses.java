@@ -31,7 +31,7 @@ public class CreateAddressPreferenceResponses implements AdditionalDataHolder, P
      */
     private Map<String, Object> additionalData;
     /**
-     * This type defines the unique identifier of a newly created address.
+     * This container specifies the unique identifier of the newly created address.
      */
     private CreateAddressPreferenceResponsesData shipFromAddressId;
     /**
@@ -69,7 +69,7 @@ public class CreateAddressPreferenceResponses implements AdditionalDataHolder, P
         return deserializerMap;
     }
     /**
-     * Gets the shipFromAddressId property value. This type defines the unique identifier of a newly created address.
+     * Gets the shipFromAddressId property value. This container specifies the unique identifier of the newly created address.
      * @return a {@link CreateAddressPreferenceResponsesData}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class CreateAddressPreferenceResponses implements AdditionalDataHolder, P
         this.additionalData = value;
     }
     /**
-     * Sets the shipFromAddressId property value. This type defines the unique identifier of a newly created address.
+     * Sets the shipFromAddressId property value. This container specifies the unique identifier of the newly created address.
      * @param value Value to set for the shipFromAddressId property.
      */
     public void setShipFromAddressId(@jakarta.annotation.Nullable final CreateAddressPreferenceResponsesData value) {

@@ -31,7 +31,7 @@ public class CancelPackagesRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * This type indicates the IDs of the packages being canceled.
+     * This container is used to specify the package ID values for the packages being canceled.
      */
     private CancelPackagesRequestData requests;
     /**
@@ -69,7 +69,7 @@ public class CancelPackagesRequest implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the requests property value. This type indicates the IDs of the packages being canceled.
+     * Gets the requests property value. This container is used to specify the package ID values for the packages being canceled.
      * @return a {@link CancelPackagesRequestData}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class CancelPackagesRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the requests property value. This type indicates the IDs of the packages being canceled.
+     * Sets the requests property value. This container is used to specify the package ID values for the packages being canceled.
      * @param value Value to set for the requests property.
      */
     public void setRequests(@jakarta.annotation.Nullable final CancelPackagesRequestData value) {

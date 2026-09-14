@@ -31,7 +31,7 @@ public class AddPackageResponses implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * This type specifies information about the newly created package, such as its estimated costs, tracking number, and package ID value.
+     * This container returns information about the newly created package, including its tracking number and &lt;b&gt;packageId&lt;/b&gt; value.
      */
     private AddPackageResponsesData createPackageResult;
     /**
@@ -59,7 +59,7 @@ public class AddPackageResponses implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the createPackageResult property value. This type specifies information about the newly created package, such as its estimated costs, tracking number, and package ID value.
+     * Gets the createPackageResult property value. This container returns information about the newly created package, including its tracking number and &lt;b&gt;packageId&lt;/b&gt; value.
      * @return a {@link AddPackageResponsesData}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class AddPackageResponses implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the createPackageResult property value. This type specifies information about the newly created package, such as its estimated costs, tracking number, and package ID value.
+     * Sets the createPackageResult property value. This container returns information about the newly created package, including its tracking number and &lt;b&gt;packageId&lt;/b&gt; value.
      * @param value Value to set for the createPackageResult property.
      */
     public void setCreatePackageResult(@jakarta.annotation.Nullable final AddPackageResponsesData value) {

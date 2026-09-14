@@ -31,7 +31,7 @@ public class AddPackageResponsesData implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * This type defines the monetary value of an amount. 
+     * The estimated shipping cost of the package.
      */
     private Amount estimateCost;
     /**
@@ -43,7 +43,7 @@ public class AddPackageResponsesData implements AdditionalDataHolder, Parsable {
      */
     private String packageId;
     /**
-     * This type defines the monetary value of an amount. 
+     * The actual payment cost of the package.
      */
     private Amount paymentCost;
     /**
@@ -75,7 +75,7 @@ public class AddPackageResponsesData implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the estimateCost property value. This type defines the monetary value of an amount. 
+     * Gets the estimateCost property value. The estimated shipping cost of the package.
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -113,7 +113,7 @@ public class AddPackageResponsesData implements AdditionalDataHolder, Parsable {
         return this.packageId;
     }
     /**
-     * Gets the paymentCost property value. This type defines the monetary value of an amount. 
+     * Gets the paymentCost property value. The actual payment cost of the package.
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -149,7 +149,7 @@ public class AddPackageResponsesData implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the estimateCost property value. This type defines the monetary value of an amount. 
+     * Sets the estimateCost property value. The estimated shipping cost of the package.
      * @param value Value to set for the estimateCost property.
      */
     public void setEstimateCost(@jakarta.annotation.Nullable final Amount value) {
@@ -170,7 +170,7 @@ public class AddPackageResponsesData implements AdditionalDataHolder, Parsable {
         this.packageId = value;
     }
     /**
-     * Sets the paymentCost property value. This type defines the monetary value of an amount. 
+     * Sets the paymentCost property value. The actual payment cost of the package.
      * @param value Value to set for the paymentCost property.
      */
     public void setPaymentCost(@jakarta.annotation.Nullable final Amount value) {

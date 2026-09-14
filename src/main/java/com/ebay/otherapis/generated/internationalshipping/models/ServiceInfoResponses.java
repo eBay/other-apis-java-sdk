@@ -51,9 +51,9 @@ public class ServiceInfoResponses implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<DirectionsResponses> directions;
     /**
-     * The incoterm information associated with the the shipping service.&lt;br&gt;&lt;br&gt;&lt;b&gt;Supported values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;DDP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DDU&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:IncotermEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The incoterm information associated with the the shipping service.&lt;br&gt;&lt;br&gt;&lt;b&gt;Supported values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;DDP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DDU&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      */
-    private String incoterm;
+    private IncotermEnum incoterm;
     /**
      * This value indicates the maximum length (in centimeters) of the shipping package that the shipping service allows.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This field is always returned, but will show as null or have an empty value if not defined/applicable.&lt;/span&gt;
      */
@@ -83,7 +83,7 @@ public class ServiceInfoResponses implements AdditionalDataHolder, Parsable {
      */
     private String nameZh;
     /**
-     * The unique identifier of the shipping service being retrieved.&lt;br&gt;&lt;br&gt;This value can be input in the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/package/methods/createPackage#request.packageInfo.shippingServiceId&quot; target=&quot;_blank&quot;&gt;shippingServiceId&lt;/a&gt; field when creating a package through the the &lt;b&gt;createPackage&lt;/b&gt; method.
+     * The unique identifier of the shipping service being retrieved.&lt;br&gt;&lt;br&gt;This value can be input in the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-package-createpackage.packageinforequest.shippingserviceid&quot;&gt;shippingServiceId&lt;/a&gt; field when creating a package through the the &lt;b&gt;createPackage&lt;/b&gt; method.
      */
     private String shippingServiceId;
     /**
@@ -162,7 +162,7 @@ public class ServiceInfoResponses implements AdditionalDataHolder, Parsable {
         deserializerMap.put("descriptionJp", (n) -> { this.setDescriptionJp(n.getStringValue()); });
         deserializerMap.put("descriptionZh", (n) -> { this.setDescriptionZh(n.getStringValue()); });
         deserializerMap.put("directions", (n) -> { this.setDirections(n.getCollectionOfObjectValues(DirectionsResponses::createFromDiscriminatorValue)); });
-        deserializerMap.put("incoterm", (n) -> { this.setIncoterm(n.getStringValue()); });
+        deserializerMap.put("incoterm", (n) -> { this.setIncoterm(n.getEnumValue(IncotermEnum::forValue)); });
         deserializerMap.put("maxLength", (n) -> { this.setMaxLength(n.getDoubleValue()); });
         deserializerMap.put("maxTotalLength", (n) -> { this.setMaxTotalLength(n.getDoubleValue()); });
         deserializerMap.put("maxWeight", (n) -> { this.setMaxWeight(n.getDoubleValue()); });
@@ -174,11 +174,11 @@ public class ServiceInfoResponses implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the incoterm property value. The incoterm information associated with the the shipping service.&lt;br&gt;&lt;br&gt;&lt;b&gt;Supported values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;DDP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DDU&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:IncotermEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the incoterm property value. The incoterm information associated with the the shipping service.&lt;br&gt;&lt;br&gt;&lt;b&gt;Supported values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;DDP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DDU&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+     * @return a {@link IncotermEnum}
      */
     @jakarta.annotation.Nullable
-    public String getIncoterm() {
+    public IncotermEnum getIncoterm() {
         return this.incoterm;
     }
     /**
@@ -238,7 +238,7 @@ public class ServiceInfoResponses implements AdditionalDataHolder, Parsable {
         return this.nameZh;
     }
     /**
-     * Gets the shippingServiceId property value. The unique identifier of the shipping service being retrieved.&lt;br&gt;&lt;br&gt;This value can be input in the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/package/methods/createPackage#request.packageInfo.shippingServiceId&quot; target=&quot;_blank&quot;&gt;shippingServiceId&lt;/a&gt; field when creating a package through the the &lt;b&gt;createPackage&lt;/b&gt; method.
+     * Gets the shippingServiceId property value. The unique identifier of the shipping service being retrieved.&lt;br&gt;&lt;br&gt;This value can be input in the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-package-createpackage.packageinforequest.shippingserviceid&quot;&gt;shippingServiceId&lt;/a&gt; field when creating a package through the the &lt;b&gt;createPackage&lt;/b&gt; method.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -256,7 +256,7 @@ public class ServiceInfoResponses implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("descriptionJp", this.getDescriptionJp());
         writer.writeStringValue("descriptionZh", this.getDescriptionZh());
         writer.writeCollectionOfObjectValues("directions", this.getDirections());
-        writer.writeStringValue("incoterm", this.getIncoterm());
+        writer.writeEnumValue("incoterm", this.getIncoterm());
         writer.writeDoubleValue("maxLength", this.getMaxLength());
         writer.writeDoubleValue("maxTotalLength", this.getMaxTotalLength());
         writer.writeDoubleValue("maxWeight", this.getMaxWeight());
@@ -310,10 +310,10 @@ public class ServiceInfoResponses implements AdditionalDataHolder, Parsable {
         this.directions = value;
     }
     /**
-     * Sets the incoterm property value. The incoterm information associated with the the shipping service.&lt;br&gt;&lt;br&gt;&lt;b&gt;Supported values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;DDP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DDU&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:IncotermEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the incoterm property value. The incoterm information associated with the the shipping service.&lt;br&gt;&lt;br&gt;&lt;b&gt;Supported values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;DDP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DDU&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      * @param value Value to set for the incoterm property.
      */
-    public void setIncoterm(@jakarta.annotation.Nullable final String value) {
+    public void setIncoterm(@jakarta.annotation.Nullable final IncotermEnum value) {
         this.incoterm = value;
     }
     /**
@@ -366,7 +366,7 @@ public class ServiceInfoResponses implements AdditionalDataHolder, Parsable {
         this.nameZh = value;
     }
     /**
-     * Sets the shippingServiceId property value. The unique identifier of the shipping service being retrieved.&lt;br&gt;&lt;br&gt;This value can be input in the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/package/methods/createPackage#request.packageInfo.shippingServiceId&quot; target=&quot;_blank&quot;&gt;shippingServiceId&lt;/a&gt; field when creating a package through the the &lt;b&gt;createPackage&lt;/b&gt; method.
+     * Sets the shippingServiceId property value. The unique identifier of the shipping service being retrieved.&lt;br&gt;&lt;br&gt;This value can be input in the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-package-createpackage.packageinforequest.shippingserviceid&quot;&gt;shippingServiceId&lt;/a&gt; field when creating a package through the the &lt;b&gt;createPackage&lt;/b&gt; method.
      * @param value Value to set for the shippingServiceId property.
      */
     public void setShippingServiceId(@jakarta.annotation.Nullable final String value) {

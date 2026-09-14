@@ -31,7 +31,7 @@ public class Address implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The first line of the street address.
+     * The first line of the street address for the user&apos;s location.
      */
     private String addressLine1;
     /**
@@ -43,9 +43,9 @@ public class Address implements AdditionalDataHolder, Parsable {
      */
     private String city;
     /**
-     * The two-letter &lt;a href=&quot;https://www.iso.org/iso-3166-country-codes.html&quot;&gt;ISO 3166&lt;/a&gt; standard of the country of the address. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/identity/types/bas:CountryCodeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The two-letter &lt;a href=&quot;https://www.iso.org/iso-3166-country-codes.html&quot;&gt;ISO 3166&lt;/a&gt; standard of the country of the address.
      */
-    private String country;
+    private CountryCodeEnum country;
     /**
      * The county of the address.
      */
@@ -83,7 +83,7 @@ public class Address implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the addressLine1 property value. The first line of the street address.
+     * Gets the addressLine1 property value. The first line of the street address for the user&apos;s location.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -107,11 +107,11 @@ public class Address implements AdditionalDataHolder, Parsable {
         return this.city;
     }
     /**
-     * Gets the country property value. The two-letter &lt;a href=&quot;https://www.iso.org/iso-3166-country-codes.html&quot;&gt;ISO 3166&lt;/a&gt; standard of the country of the address. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/identity/types/bas:CountryCodeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the country property value. The two-letter &lt;a href=&quot;https://www.iso.org/iso-3166-country-codes.html&quot;&gt;ISO 3166&lt;/a&gt; standard of the country of the address.
+     * @return a {@link CountryCodeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getCountry() {
+    public CountryCodeEnum getCountry() {
         return this.country;
     }
     /**
@@ -132,7 +132,7 @@ public class Address implements AdditionalDataHolder, Parsable {
         deserializerMap.put("addressLine1", (n) -> { this.setAddressLine1(n.getStringValue()); });
         deserializerMap.put("addressLine2", (n) -> { this.setAddressLine2(n.getStringValue()); });
         deserializerMap.put("city", (n) -> { this.setCity(n.getStringValue()); });
-        deserializerMap.put("country", (n) -> { this.setCountry(n.getStringValue()); });
+        deserializerMap.put("country", (n) -> { this.setCountry(n.getEnumValue(CountryCodeEnum::forValue)); });
         deserializerMap.put("county", (n) -> { this.setCounty(n.getStringValue()); });
         deserializerMap.put("postalCode", (n) -> { this.setPostalCode(n.getStringValue()); });
         deserializerMap.put("stateOrProvince", (n) -> { this.setStateOrProvince(n.getStringValue()); });
@@ -163,7 +163,7 @@ public class Address implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("addressLine1", this.getAddressLine1());
         writer.writeStringValue("addressLine2", this.getAddressLine2());
         writer.writeStringValue("city", this.getCity());
-        writer.writeStringValue("country", this.getCountry());
+        writer.writeEnumValue("country", this.getCountry());
         writer.writeStringValue("county", this.getCounty());
         writer.writeStringValue("postalCode", this.getPostalCode());
         writer.writeStringValue("stateOrProvince", this.getStateOrProvince());
@@ -177,7 +177,7 @@ public class Address implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the addressLine1 property value. The first line of the street address.
+     * Sets the addressLine1 property value. The first line of the street address for the user&apos;s location.
      * @param value Value to set for the addressLine1 property.
      */
     public void setAddressLine1(@jakarta.annotation.Nullable final String value) {
@@ -198,10 +198,10 @@ public class Address implements AdditionalDataHolder, Parsable {
         this.city = value;
     }
     /**
-     * Sets the country property value. The two-letter &lt;a href=&quot;https://www.iso.org/iso-3166-country-codes.html&quot;&gt;ISO 3166&lt;/a&gt; standard of the country of the address. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/identity/types/bas:CountryCodeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the country property value. The two-letter &lt;a href=&quot;https://www.iso.org/iso-3166-country-codes.html&quot;&gt;ISO 3166&lt;/a&gt; standard of the country of the address.
      * @param value Value to set for the country property.
      */
-    public void setCountry(@jakarta.annotation.Nullable final String value) {
+    public void setCountry(@jakarta.annotation.Nullable final CountryCodeEnum value) {
         this.country = value;
     }
     /**

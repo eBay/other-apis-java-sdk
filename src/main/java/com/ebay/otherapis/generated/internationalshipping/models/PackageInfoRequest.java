@@ -31,17 +31,17 @@ public class PackageInfoRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * This type defines information about an EU AR agent, such as their address, name, and phone number.
+     * This container specifies the EU AR agent information associated with the package.&lt;br&gt;&lt;br&gt;This information can be retrieved using the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-agents-getagents&quot;&gt;getAgents&lt;/a&gt;  method.
      */
     private AgentInfoData agentInfoRequest;
     /**
-     * The unique identifier of the consign address to be associated with the package.&lt;br&gt;&lt;br&gt;This ID can be retrieved using the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/consign_preference/methods/getConsignPreferences&quot; target=&quot;_blank&quot;&gt;getConsignPreferences&lt;/a&gt; method.
+     * The unique identifier of the consign address to be associated with the package.&lt;br&gt;&lt;br&gt;This ID can be retrieved using the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-consign_preference-getconsignpreferences&quot;&gt;getConsignPreferences&lt;/a&gt; method.
      */
     private String consignPreferenceId;
     /**
-     * The incoterm information associated with the package.&lt;br&gt;&lt;br&gt;&lt;b&gt;Supported values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;DDP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DDU&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:IncotermEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The incoterm information associated with the package.&lt;br&gt;&lt;br&gt;&lt;b&gt;Supported values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;DDP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DDU&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      */
-    private String incoterm;
+    private IncotermEnum incoterm;
     /**
      * This array is used to specify applicable information about the eBay line item(s) that will be included in the package.
      */
@@ -71,19 +71,19 @@ public class PackageInfoRequest implements AdditionalDataHolder, Parsable {
      */
     private Double packageWidth;
     /**
-     * The unique identifier of the ship-from address used for the package.&lt;br&gt;&lt;br&gt;Use the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/address_preference/methods/getAddressPreferences&quot; target=&quot;_blank&quot;&gt;getAddressPreferences&lt;/a&gt; method to retrieve valid ship-from &lt;b&gt;addressId&lt;/b&gt; values associated with your account.
+     * The unique identifier of the ship-from address used for the package.&lt;br&gt;&lt;br&gt;Use the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-address_preference-getaddresspreferences&quot;&gt;getAddressPreferences&lt;/a&gt; method to retrieve valid ship-from &lt;b&gt;addressId&lt;/b&gt; values associated with your account.
      */
     private String shipFromAddressId;
     /**
-     * The unique identifier of the shipping service being used for the package.&lt;br&gt;&lt;br&gt;This value can be retrieved using the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/services/methods/getServices&quot; target=&quot;_blank&quot;&gt;getServices&lt;/a&gt; method.
+     * The unique identifier of the shipping service being used for the package.&lt;br&gt;&lt;br&gt;This value can be retrieved using the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-services-getservices&quot;&gt;getServices&lt;/a&gt; method.
      */
     private String shippingServiceId;
     /**
-     * This type is used to specify the address fields of the ship-to address location.
+     * This container specifies the address details of the address ship-to address.
      */
     private ShipToAddressRequestData shipToAddress;
     /**
-     * This type defines the special service details available for a package.
+     * This container specifies any special service details about the package, such as any insurance fee, required signatures, or delivery exceptions.
      */
     private SpecialServiceDetail specialServiceDetail;
     /**
@@ -115,7 +115,7 @@ public class PackageInfoRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the agentInfoRequest property value. This type defines information about an EU AR agent, such as their address, name, and phone number.
+     * Gets the agentInfoRequest property value. This container specifies the EU AR agent information associated with the package.&lt;br&gt;&lt;br&gt;This information can be retrieved using the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-agents-getagents&quot;&gt;getAgents&lt;/a&gt;  method.
      * @return a {@link AgentInfoData}
      */
     @jakarta.annotation.Nullable
@@ -123,7 +123,7 @@ public class PackageInfoRequest implements AdditionalDataHolder, Parsable {
         return this.agentInfoRequest;
     }
     /**
-     * Gets the consignPreferenceId property value. The unique identifier of the consign address to be associated with the package.&lt;br&gt;&lt;br&gt;This ID can be retrieved using the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/consign_preference/methods/getConsignPreferences&quot; target=&quot;_blank&quot;&gt;getConsignPreferences&lt;/a&gt; method.
+     * Gets the consignPreferenceId property value. The unique identifier of the consign address to be associated with the package.&lt;br&gt;&lt;br&gt;This ID can be retrieved using the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-consign_preference-getconsignpreferences&quot;&gt;getConsignPreferences&lt;/a&gt; method.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -139,7 +139,7 @@ public class PackageInfoRequest implements AdditionalDataHolder, Parsable {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
         deserializerMap.put("agentInfoRequest", (n) -> { this.setAgentInfoRequest(n.getObjectValue(AgentInfoData::createFromDiscriminatorValue)); });
         deserializerMap.put("consignPreferenceId", (n) -> { this.setConsignPreferenceId(n.getStringValue()); });
-        deserializerMap.put("incoterm", (n) -> { this.setIncoterm(n.getStringValue()); });
+        deserializerMap.put("incoterm", (n) -> { this.setIncoterm(n.getEnumValue(IncotermEnum::forValue)); });
         deserializerMap.put("items", (n) -> { this.setItems(n.getCollectionOfObjectValues(ItemRequest::createFromDiscriminatorValue)); });
         deserializerMap.put("maxQuantityLimit", (n) -> { this.setMaxQuantityLimit(n.getIntegerValue()); });
         deserializerMap.put("packageComment", (n) -> { this.setPackageComment(n.getStringValue()); });
@@ -155,11 +155,11 @@ public class PackageInfoRequest implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the incoterm property value. The incoterm information associated with the package.&lt;br&gt;&lt;br&gt;&lt;b&gt;Supported values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;DDP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DDU&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:IncotermEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the incoterm property value. The incoterm information associated with the package.&lt;br&gt;&lt;br&gt;&lt;b&gt;Supported values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;DDP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DDU&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+     * @return a {@link IncotermEnum}
      */
     @jakarta.annotation.Nullable
-    public String getIncoterm() {
+    public IncotermEnum getIncoterm() {
         return this.incoterm;
     }
     /**
@@ -219,7 +219,7 @@ public class PackageInfoRequest implements AdditionalDataHolder, Parsable {
         return this.packageWidth;
     }
     /**
-     * Gets the shipFromAddressId property value. The unique identifier of the ship-from address used for the package.&lt;br&gt;&lt;br&gt;Use the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/address_preference/methods/getAddressPreferences&quot; target=&quot;_blank&quot;&gt;getAddressPreferences&lt;/a&gt; method to retrieve valid ship-from &lt;b&gt;addressId&lt;/b&gt; values associated with your account.
+     * Gets the shipFromAddressId property value. The unique identifier of the ship-from address used for the package.&lt;br&gt;&lt;br&gt;Use the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-address_preference-getaddresspreferences&quot;&gt;getAddressPreferences&lt;/a&gt; method to retrieve valid ship-from &lt;b&gt;addressId&lt;/b&gt; values associated with your account.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -227,7 +227,7 @@ public class PackageInfoRequest implements AdditionalDataHolder, Parsable {
         return this.shipFromAddressId;
     }
     /**
-     * Gets the shippingServiceId property value. The unique identifier of the shipping service being used for the package.&lt;br&gt;&lt;br&gt;This value can be retrieved using the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/services/methods/getServices&quot; target=&quot;_blank&quot;&gt;getServices&lt;/a&gt; method.
+     * Gets the shippingServiceId property value. The unique identifier of the shipping service being used for the package.&lt;br&gt;&lt;br&gt;This value can be retrieved using the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-services-getservices&quot;&gt;getServices&lt;/a&gt; method.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -235,7 +235,7 @@ public class PackageInfoRequest implements AdditionalDataHolder, Parsable {
         return this.shippingServiceId;
     }
     /**
-     * Gets the shipToAddress property value. This type is used to specify the address fields of the ship-to address location.
+     * Gets the shipToAddress property value. This container specifies the address details of the address ship-to address.
      * @return a {@link ShipToAddressRequestData}
      */
     @jakarta.annotation.Nullable
@@ -243,7 +243,7 @@ public class PackageInfoRequest implements AdditionalDataHolder, Parsable {
         return this.shipToAddress;
     }
     /**
-     * Gets the specialServiceDetail property value. This type defines the special service details available for a package.
+     * Gets the specialServiceDetail property value. This container specifies any special service details about the package, such as any insurance fee, required signatures, or delivery exceptions.
      * @return a {@link SpecialServiceDetail}
      */
     @jakarta.annotation.Nullable
@@ -266,7 +266,7 @@ public class PackageInfoRequest implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeObjectValue("agentInfoRequest", this.getAgentInfoRequest());
         writer.writeStringValue("consignPreferenceId", this.getConsignPreferenceId());
-        writer.writeStringValue("incoterm", this.getIncoterm());
+        writer.writeEnumValue("incoterm", this.getIncoterm());
         writer.writeCollectionOfObjectValues("items", this.getItems());
         writer.writeIntegerValue("maxQuantityLimit", this.getMaxQuantityLimit());
         writer.writeStringValue("packageComment", this.getPackageComment());
@@ -289,24 +289,24 @@ public class PackageInfoRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the agentInfoRequest property value. This type defines information about an EU AR agent, such as their address, name, and phone number.
+     * Sets the agentInfoRequest property value. This container specifies the EU AR agent information associated with the package.&lt;br&gt;&lt;br&gt;This information can be retrieved using the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-agents-getagents&quot;&gt;getAgents&lt;/a&gt;  method.
      * @param value Value to set for the agentInfoRequest property.
      */
     public void setAgentInfoRequest(@jakarta.annotation.Nullable final AgentInfoData value) {
         this.agentInfoRequest = value;
     }
     /**
-     * Sets the consignPreferenceId property value. The unique identifier of the consign address to be associated with the package.&lt;br&gt;&lt;br&gt;This ID can be retrieved using the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/consign_preference/methods/getConsignPreferences&quot; target=&quot;_blank&quot;&gt;getConsignPreferences&lt;/a&gt; method.
+     * Sets the consignPreferenceId property value. The unique identifier of the consign address to be associated with the package.&lt;br&gt;&lt;br&gt;This ID can be retrieved using the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-consign_preference-getconsignpreferences&quot;&gt;getConsignPreferences&lt;/a&gt; method.
      * @param value Value to set for the consignPreferenceId property.
      */
     public void setConsignPreferenceId(@jakarta.annotation.Nullable final String value) {
         this.consignPreferenceId = value;
     }
     /**
-     * Sets the incoterm property value. The incoterm information associated with the package.&lt;br&gt;&lt;br&gt;&lt;b&gt;Supported values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;DDP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DDU&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:IncotermEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the incoterm property value. The incoterm information associated with the package.&lt;br&gt;&lt;br&gt;&lt;b&gt;Supported values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;DDP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DDU&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      * @param value Value to set for the incoterm property.
      */
-    public void setIncoterm(@jakarta.annotation.Nullable final String value) {
+    public void setIncoterm(@jakarta.annotation.Nullable final IncotermEnum value) {
         this.incoterm = value;
     }
     /**
@@ -359,28 +359,28 @@ public class PackageInfoRequest implements AdditionalDataHolder, Parsable {
         this.packageWidth = value;
     }
     /**
-     * Sets the shipFromAddressId property value. The unique identifier of the ship-from address used for the package.&lt;br&gt;&lt;br&gt;Use the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/address_preference/methods/getAddressPreferences&quot; target=&quot;_blank&quot;&gt;getAddressPreferences&lt;/a&gt; method to retrieve valid ship-from &lt;b&gt;addressId&lt;/b&gt; values associated with your account.
+     * Sets the shipFromAddressId property value. The unique identifier of the ship-from address used for the package.&lt;br&gt;&lt;br&gt;Use the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-address_preference-getaddresspreferences&quot;&gt;getAddressPreferences&lt;/a&gt; method to retrieve valid ship-from &lt;b&gt;addressId&lt;/b&gt; values associated with your account.
      * @param value Value to set for the shipFromAddressId property.
      */
     public void setShipFromAddressId(@jakarta.annotation.Nullable final String value) {
         this.shipFromAddressId = value;
     }
     /**
-     * Sets the shippingServiceId property value. The unique identifier of the shipping service being used for the package.&lt;br&gt;&lt;br&gt;This value can be retrieved using the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/services/methods/getServices&quot; target=&quot;_blank&quot;&gt;getServices&lt;/a&gt; method.
+     * Sets the shippingServiceId property value. The unique identifier of the shipping service being used for the package.&lt;br&gt;&lt;br&gt;This value can be retrieved using the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-services-getservices&quot;&gt;getServices&lt;/a&gt; method.
      * @param value Value to set for the shippingServiceId property.
      */
     public void setShippingServiceId(@jakarta.annotation.Nullable final String value) {
         this.shippingServiceId = value;
     }
     /**
-     * Sets the shipToAddress property value. This type is used to specify the address fields of the ship-to address location.
+     * Sets the shipToAddress property value. This container specifies the address details of the address ship-to address.
      * @param value Value to set for the shipToAddress property.
      */
     public void setShipToAddress(@jakarta.annotation.Nullable final ShipToAddressRequestData value) {
         this.shipToAddress = value;
     }
     /**
-     * Sets the specialServiceDetail property value. This type defines the special service details available for a package.
+     * Sets the specialServiceDetail property value. This container specifies any special service details about the package, such as any insurance fee, required signatures, or delivery exceptions.
      * @param value Value to set for the specialServiceDetail property.
      */
     public void setSpecialServiceDetail(@jakarta.annotation.Nullable final SpecialServiceDetail value) {

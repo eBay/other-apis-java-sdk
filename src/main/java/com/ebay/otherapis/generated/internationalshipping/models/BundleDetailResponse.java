@@ -31,7 +31,7 @@ public class BundleDetailResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * This type is used to specify information, such as the tracking numbers and consign preference ID, of a bundle.
+     * This container returns information about the retrieved bundle, such as its tracking numbers and consign preference ID.
      */
     private BundleDetailResponseData bundleDetail;
     /**
@@ -59,7 +59,7 @@ public class BundleDetailResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the bundleDetail property value. This type is used to specify information, such as the tracking numbers and consign preference ID, of a bundle.
+     * Gets the bundleDetail property value. This container returns information about the retrieved bundle, such as its tracking numbers and consign preference ID.
      * @return a {@link BundleDetailResponseData}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class BundleDetailResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the bundleDetail property value. This type is used to specify information, such as the tracking numbers and consign preference ID, of a bundle.
+     * Sets the bundleDetail property value. This container returns information about the retrieved bundle, such as its tracking numbers and consign preference ID.
      * @param value Value to set for the bundleDetail property.
      */
     public void setBundleDetail(@jakarta.annotation.Nullable final BundleDetailResponseData value) {

@@ -35,7 +35,7 @@ public class GetAddressPreferencesResponses implements AdditionalDataHolder, Par
      */
     private String addressId;
     /**
-     * The city code of the address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;API&lt;/a&gt; for valid city codes.
+     * The city code of the address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;eDIS Address Code Reference Data&lt;/a&gt; for valid city codes.
      */
     private String city;
     /**
@@ -59,7 +59,7 @@ public class GetAddressPreferencesResponses implements AdditionalDataHolder, Par
      */
     private String countryName;
     /**
-     * The district code of the address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;API&lt;/a&gt; for valid district codes.
+     * The district code of the address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;eDIS Address Code Reference Data&lt;/a&gt; for valid district codes.
      */
     private String district;
     /**
@@ -79,7 +79,7 @@ public class GetAddressPreferencesResponses implements AdditionalDataHolder, Par
      */
     private String postcode;
     /**
-     * The province code of the address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;API&lt;/a&gt; for valid province codes.
+     * The province code of the address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;eDIS Address Code Reference Data&lt;/a&gt; for valid province codes.
      */
     private String province;
     /**
@@ -99,9 +99,9 @@ public class GetAddressPreferencesResponses implements AdditionalDataHolder, Par
      */
     private String street3;
     /**
-     * The address type of the address. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:AddressTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The address type of the address.
      */
-    private String type;
+    private AddressTypeEnum type;
     /**
      * Instantiates a new {@link GetAddressPreferencesResponses} and sets the default values.
      */
@@ -135,7 +135,7 @@ public class GetAddressPreferencesResponses implements AdditionalDataHolder, Par
         return this.addressId;
     }
     /**
-     * Gets the city property value. The city code of the address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;API&lt;/a&gt; for valid city codes.
+     * Gets the city property value. The city code of the address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;eDIS Address Code Reference Data&lt;/a&gt; for valid city codes.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -183,7 +183,7 @@ public class GetAddressPreferencesResponses implements AdditionalDataHolder, Par
         return this.countryName;
     }
     /**
-     * Gets the district property value. The district code of the address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;API&lt;/a&gt; for valid district codes.
+     * Gets the district property value. The district code of the address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;eDIS Address Code Reference Data&lt;/a&gt; for valid district codes.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -222,7 +222,7 @@ public class GetAddressPreferencesResponses implements AdditionalDataHolder, Par
         deserializerMap.put("street1", (n) -> { this.setStreet1(n.getStringValue()); });
         deserializerMap.put("street2", (n) -> { this.setStreet2(n.getStringValue()); });
         deserializerMap.put("street3", (n) -> { this.setStreet3(n.getStringValue()); });
-        deserializerMap.put("type", (n) -> { this.setType(n.getStringValue()); });
+        deserializerMap.put("type", (n) -> { this.setType(n.getEnumValue(AddressTypeEnum::forValue)); });
         return deserializerMap;
     }
     /**
@@ -250,7 +250,7 @@ public class GetAddressPreferencesResponses implements AdditionalDataHolder, Par
         return this.postcode;
     }
     /**
-     * Gets the province property value. The province code of the address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;API&lt;/a&gt; for valid province codes.
+     * Gets the province property value. The province code of the address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;eDIS Address Code Reference Data&lt;/a&gt; for valid province codes.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -290,11 +290,11 @@ public class GetAddressPreferencesResponses implements AdditionalDataHolder, Par
         return this.street3;
     }
     /**
-     * Gets the type property value. The address type of the address. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:AddressTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the type property value. The address type of the address.
+     * @return a {@link AddressTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getType() {
+    public AddressTypeEnum getType() {
         return this.type;
     }
     /**
@@ -320,7 +320,7 @@ public class GetAddressPreferencesResponses implements AdditionalDataHolder, Par
         writer.writeStringValue("street1", this.getStreet1());
         writer.writeStringValue("street2", this.getStreet2());
         writer.writeStringValue("street3", this.getStreet3());
-        writer.writeStringValue("type", this.getType());
+        writer.writeEnumValue("type", this.getType());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -338,7 +338,7 @@ public class GetAddressPreferencesResponses implements AdditionalDataHolder, Par
         this.addressId = value;
     }
     /**
-     * Sets the city property value. The city code of the address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;API&lt;/a&gt; for valid city codes.
+     * Sets the city property value. The city code of the address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;eDIS Address Code Reference Data&lt;/a&gt; for valid city codes.
      * @param value Value to set for the city property.
      */
     public void setCity(@jakarta.annotation.Nullable final String value) {
@@ -380,7 +380,7 @@ public class GetAddressPreferencesResponses implements AdditionalDataHolder, Par
         this.countryName = value;
     }
     /**
-     * Sets the district property value. The district code of the address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;API&lt;/a&gt; for valid district codes.
+     * Sets the district property value. The district code of the address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;eDIS Address Code Reference Data&lt;/a&gt; for valid district codes.
      * @param value Value to set for the district property.
      */
     public void setDistrict(@jakarta.annotation.Nullable final String value) {
@@ -415,7 +415,7 @@ public class GetAddressPreferencesResponses implements AdditionalDataHolder, Par
         this.postcode = value;
     }
     /**
-     * Sets the province property value. The province code of the address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;API&lt;/a&gt; for valid province codes.
+     * Sets the province property value. The province code of the address.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;https://www.edisebay.com/open/development-guide-detail?id=36&quot; target=&quot;_blank&quot;&gt;eDIS Address Code Reference Data&lt;/a&gt; for valid province codes.
      * @param value Value to set for the province property.
      */
     public void setProvince(@jakarta.annotation.Nullable final String value) {
@@ -450,10 +450,10 @@ public class GetAddressPreferencesResponses implements AdditionalDataHolder, Par
         this.street3 = value;
     }
     /**
-     * Sets the type property value. The address type of the address. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:AddressTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the type property value. The address type of the address.
      * @param value Value to set for the type property.
      */
-    public void setType(@jakarta.annotation.Nullable final String value) {
+    public void setType(@jakarta.annotation.Nullable final AddressTypeEnum value) {
         this.type = value;
     }
 }

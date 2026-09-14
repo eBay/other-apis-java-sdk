@@ -14,6 +14,7 @@
 
 package com.ebay.otherapis.generated.vero.vero_reason_code;
 
+import com.ebay.otherapis.generated.vero.models.Error;
 import com.ebay.otherapis.generated.vero.models.VeroReasonCodeDetailResponse;
 import com.ebay.otherapis.generated.vero.vero_reason_code.item.WithVeroReasonCodeItemRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
@@ -35,7 +36,7 @@ import java.util.Objects;
 public class VeroReasonCodeRequestBuilder extends BaseRequestBuilder {
     /**
      * Gets an item from the com.ebay.otherapis.generated.vero.vero_reason_code.item collection
-     * @param vero_reason_code_id This path parameter specifies the unique identifier of the VeRO reason code that is to be retrieved.&lt;br&gt;&lt;br&gt;Use the &lt;a href=&quot;/api-docs/commerce/vero/resources/vero_reason_code/methods/getVeroReasonCodes&quot; target=&quot;_blank &quot;&gt;getVeroReasonCodes&lt;/a&gt; method to retrieve supported VeRO reason code IDs.
+     * @param vero_reason_code_id This path parameter specifies the unique identifier of the VeRO reason code that is to be retrieved.&lt;br&gt;&lt;br&gt;Use the &lt;a href=&quot;/develop/api/sell/vero_public_apis#sell-vero_public_apis-vero_reason_code-getveroreasoncodes&quot;&gt;getVeroReasonCodes&lt;/a&gt; method to retrieve supported VeRO reason code IDs.
      * @return a {@link WithVeroReasonCodeItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull
@@ -62,25 +63,32 @@ public class VeroReasonCodeRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/vero_reason_code", rawUrl);
     }
     /**
-     * &lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; You must be a member of the Verified Rights Owner (VeRO) Program to use this call.&lt;/p&gt;&lt;/div&gt;&lt;br&gt;This method is used to retrieve the details of an array of VeRO reason codes. This information includes the descriptions of each code, as well as the marketplace associated with each code.&lt;br&gt;&lt;br&gt; If the &lt;b&gt;X-EBAY-C-MARKETPLACE-ID&lt;/b&gt; header is present, only VeRO reason codes for that specific site will be returned. If this header is not included, all reason codes for all sites are returned.
+     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; All methods of the &lt;b&gt;VeRO API&lt;/b&gt; have been deprecated, and will be decommissioned on September 30th, 2026.&lt;/span&gt;&lt;br&gt;&lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; You must be a member of the Verified Rights Owner (VeRO) Program to use this call.&lt;/p&gt;&lt;/div&gt;&lt;br&gt;This method is used to retrieve the details of an array of VeRO reason codes. This information includes the descriptions of each code, as well as the marketplace associated with each code.&lt;br&gt;&lt;br&gt; If the &lt;b&gt;X-EBAY-C-MARKETPLACE-ID&lt;/b&gt; header is present, only VeRO reason codes for that specific site will be returned. If this header is not included, all reason codes for all sites are returned.
      * @return a {@link VeroReasonCodeDetailResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public VeroReasonCodeDetailResponse get() {
         return get(null);
     }
     /**
-     * &lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; You must be a member of the Verified Rights Owner (VeRO) Program to use this call.&lt;/p&gt;&lt;/div&gt;&lt;br&gt;This method is used to retrieve the details of an array of VeRO reason codes. This information includes the descriptions of each code, as well as the marketplace associated with each code.&lt;br&gt;&lt;br&gt; If the &lt;b&gt;X-EBAY-C-MARKETPLACE-ID&lt;/b&gt; header is present, only VeRO reason codes for that specific site will be returned. If this header is not included, all reason codes for all sites are returned.
+     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; All methods of the &lt;b&gt;VeRO API&lt;/b&gt; have been deprecated, and will be decommissioned on September 30th, 2026.&lt;/span&gt;&lt;br&gt;&lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; You must be a member of the Verified Rights Owner (VeRO) Program to use this call.&lt;/p&gt;&lt;/div&gt;&lt;br&gt;This method is used to retrieve the details of an array of VeRO reason codes. This information includes the descriptions of each code, as well as the marketplace associated with each code.&lt;br&gt;&lt;br&gt; If the &lt;b&gt;X-EBAY-C-MARKETPLACE-ID&lt;/b&gt; header is present, only VeRO reason codes for that specific site will be returned. If this header is not included, all reason codes for all sites are returned.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link VeroReasonCodeDetailResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public VeroReasonCodeDetailResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, VeroReasonCodeDetailResponse::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, VeroReasonCodeDetailResponse::createFromDiscriminatorValue);
     }
     /**
-     * &lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; You must be a member of the Verified Rights Owner (VeRO) Program to use this call.&lt;/p&gt;&lt;/div&gt;&lt;br&gt;This method is used to retrieve the details of an array of VeRO reason codes. This information includes the descriptions of each code, as well as the marketplace associated with each code.&lt;br&gt;&lt;br&gt; If the &lt;b&gt;X-EBAY-C-MARKETPLACE-ID&lt;/b&gt; header is present, only VeRO reason codes for that specific site will be returned. If this header is not included, all reason codes for all sites are returned.
+     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; All methods of the &lt;b&gt;VeRO API&lt;/b&gt; have been deprecated, and will be decommissioned on September 30th, 2026.&lt;/span&gt;&lt;br&gt;&lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; You must be a member of the Verified Rights Owner (VeRO) Program to use this call.&lt;/p&gt;&lt;/div&gt;&lt;br&gt;This method is used to retrieve the details of an array of VeRO reason codes. This information includes the descriptions of each code, as well as the marketplace associated with each code.&lt;br&gt;&lt;br&gt; If the &lt;b&gt;X-EBAY-C-MARKETPLACE-ID&lt;/b&gt; header is present, only VeRO reason codes for that specific site will be returned. If this header is not included, all reason codes for all sites are returned.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -88,7 +96,7 @@ public class VeroReasonCodeRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * &lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; You must be a member of the Verified Rights Owner (VeRO) Program to use this call.&lt;/p&gt;&lt;/div&gt;&lt;br&gt;This method is used to retrieve the details of an array of VeRO reason codes. This information includes the descriptions of each code, as well as the marketplace associated with each code.&lt;br&gt;&lt;br&gt; If the &lt;b&gt;X-EBAY-C-MARKETPLACE-ID&lt;/b&gt; header is present, only VeRO reason codes for that specific site will be returned. If this header is not included, all reason codes for all sites are returned.
+     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; All methods of the &lt;b&gt;VeRO API&lt;/b&gt; have been deprecated, and will be decommissioned on September 30th, 2026.&lt;/span&gt;&lt;br&gt;&lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; You must be a member of the Verified Rights Owner (VeRO) Program to use this call.&lt;/p&gt;&lt;/div&gt;&lt;br&gt;This method is used to retrieve the details of an array of VeRO reason codes. This information includes the descriptions of each code, as well as the marketplace associated with each code.&lt;br&gt;&lt;br&gt; If the &lt;b&gt;X-EBAY-C-MARKETPLACE-ID&lt;/b&gt; header is present, only VeRO reason codes for that specific site will be returned. If this header is not included, all reason codes for all sites are returned.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

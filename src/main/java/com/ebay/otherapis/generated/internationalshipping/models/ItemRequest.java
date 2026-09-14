@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This container specifies information about the items being included in a package.
+ * This type specifies information about the items being included in a package.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class ItemRequest implements AdditionalDataHolder, Parsable {
@@ -31,7 +31,7 @@ public class ItemRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The buyer&apos;s eBay user ID.
+     * The buyer&apos;s eBay user ID.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; Effective September 26, 2025, both usernames and public user IDs will be accepted in this field. For more information, please refer to &lt;a href=&quot;/api-docs/static/data-handling-update.html&quot; target=&quot;_blank&quot;&gt;Data Handling Compliance&lt;/a&gt;.&lt;/span&gt;
      */
     private String buyerId;
     /**
@@ -95,7 +95,7 @@ public class ItemRequest implements AdditionalDataHolder, Parsable {
      */
     private Integer siteId;
     /**
-     * This type specifies information relating to the SKU item in a package.
+     * This container specifies information relating to the item being shipped in the package.
      */
     private SkuRequest sku;
     /**
@@ -103,7 +103,7 @@ public class ItemRequest implements AdditionalDataHolder, Parsable {
      */
     private String soldDate;
     /**
-     * This type defines the monetary value of an amount. 
+     * The price for which the item was sold.
      */
     private Amount soldPrice;
     /**
@@ -139,7 +139,7 @@ public class ItemRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the buyerId property value. The buyer&apos;s eBay user ID.
+     * Gets the buyerId property value. The buyer&apos;s eBay user ID.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; Effective September 26, 2025, both usernames and public user IDs will be accepted in this field. For more information, please refer to &lt;a href=&quot;/api-docs/static/data-handling-update.html&quot; target=&quot;_blank&quot;&gt;Data Handling Compliance&lt;/a&gt;.&lt;/span&gt;
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -297,7 +297,7 @@ public class ItemRequest implements AdditionalDataHolder, Parsable {
         return this.siteId;
     }
     /**
-     * Gets the sku property value. This type specifies information relating to the SKU item in a package.
+     * Gets the sku property value. This container specifies information relating to the item being shipped in the package.
      * @return a {@link SkuRequest}
      */
     @jakarta.annotation.Nullable
@@ -313,7 +313,7 @@ public class ItemRequest implements AdditionalDataHolder, Parsable {
         return this.soldDate;
     }
     /**
-     * Gets the soldPrice property value. This type defines the monetary value of an amount. 
+     * Gets the soldPrice property value. The price for which the item was sold.
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -373,7 +373,7 @@ public class ItemRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the buyerId property value. The buyer&apos;s eBay user ID.
+     * Sets the buyerId property value. The buyer&apos;s eBay user ID.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; Effective September 26, 2025, both usernames and public user IDs will be accepted in this field. For more information, please refer to &lt;a href=&quot;/api-docs/static/data-handling-update.html&quot; target=&quot;_blank&quot;&gt;Data Handling Compliance&lt;/a&gt;.&lt;/span&gt;
      * @param value Value to set for the buyerId property.
      */
     public void setBuyerId(@jakarta.annotation.Nullable final String value) {
@@ -485,7 +485,7 @@ public class ItemRequest implements AdditionalDataHolder, Parsable {
         this.siteId = value;
     }
     /**
-     * Sets the sku property value. This type specifies information relating to the SKU item in a package.
+     * Sets the sku property value. This container specifies information relating to the item being shipped in the package.
      * @param value Value to set for the sku property.
      */
     public void setSku(@jakarta.annotation.Nullable final SkuRequest value) {
@@ -499,7 +499,7 @@ public class ItemRequest implements AdditionalDataHolder, Parsable {
         this.soldDate = value;
     }
     /**
-     * Sets the soldPrice property value. This type defines the monetary value of an amount. 
+     * Sets the soldPrice property value. The price for which the item was sold.
      * @param value Value to set for the soldPrice property.
      */
     public void setSoldPrice(@jakarta.annotation.Nullable final Amount value) {
