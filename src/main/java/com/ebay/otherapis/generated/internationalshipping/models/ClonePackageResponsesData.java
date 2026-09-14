@@ -39,7 +39,7 @@ public class ClonePackageResponsesData implements AdditionalDataHolder, Parsable
      */
     private String packageId;
     /**
-     * This type defines the monetary value of an amount. 
+     * The payment cost for the package.
      */
     private Amount paymentCost;
     /**
@@ -100,7 +100,7 @@ public class ClonePackageResponsesData implements AdditionalDataHolder, Parsable
         return this.packageId;
     }
     /**
-     * Gets the paymentCost property value. This type defines the monetary value of an amount. 
+     * Gets the paymentCost property value. The payment cost for the package.
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -149,7 +149,7 @@ public class ClonePackageResponsesData implements AdditionalDataHolder, Parsable
         this.packageId = value;
     }
     /**
-     * Sets the paymentCost property value. This type defines the monetary value of an amount. 
+     * Sets the paymentCost property value. The payment cost for the package.
      * @param value Value to set for the paymentCost property.
      */
     public void setPaymentCost(@jakarta.annotation.Nullable final Amount value) {

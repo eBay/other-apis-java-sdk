@@ -31,7 +31,7 @@ public class GetPackageDetailResponsesData implements AdditionalDataHolder, Pars
      */
     private Map<String, Object> additionalData;
     /**
-     * This type defines information about an EU AR agent, such as their address, name, and phone number.
+     * This container returns EU AR agent information associated with the package.
      */
     private AgentInfoData agentInfoResponse;
     /**
@@ -39,9 +39,9 @@ public class GetPackageDetailResponsesData implements AdditionalDataHolder, Pars
      */
     private String consignPreferenceId;
     /**
-     * The incoterm information associated with the package.&lt;br&gt;&lt;br&gt;&lt;b&gt;Supported values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;DDP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DDU&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:IncotermEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The incoterm information associated with the package.&lt;br&gt;&lt;br&gt;&lt;b&gt;Supported values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;DDP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DDU&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      */
-    private String incoterm;
+    private IncotermEnum incoterm;
     /**
      * This array returns information about the eBay line item(s) that are included in the package.
      */
@@ -67,9 +67,9 @@ public class GetPackageDetailResponsesData implements AdditionalDataHolder, Pars
      */
     private Double packageLength;
     /**
-     * The current status of the package. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:PackageStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The current status of the package.
      */
-    private String packageStatus;
+    private PackageStatusEnum packageStatus;
     /**
      * The weight of the package in grams.
      */
@@ -79,7 +79,7 @@ public class GetPackageDetailResponsesData implements AdditionalDataHolder, Pars
      */
     private Double packageWidth;
     /**
-     * This type defines the monetary value of an amount. 
+     * The actual payment cost of the package.
      */
     private Amount paymentCost;
     /**
@@ -91,11 +91,11 @@ public class GetPackageDetailResponsesData implements AdditionalDataHolder, Pars
      */
     private String shippingServiceId;
     /**
-     * This type specifies the ship-to address information for a retrieved package.
+     * This container returns information about the address the package is being shipped to.
      */
     private ShipToAddressResponsesData shipToAddress;
     /**
-     * This type defines the special service details available for a package.
+     * This container returns any special services associated with this package.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This field is always returned, but will show as null or have an empty value if not defined/applicable.&lt;/span&gt;
      */
     private SpecialServiceDetail specialServiceDetail;
     /**
@@ -127,7 +127,7 @@ public class GetPackageDetailResponsesData implements AdditionalDataHolder, Pars
         return this.additionalData;
     }
     /**
-     * Gets the agentInfoResponse property value. This type defines information about an EU AR agent, such as their address, name, and phone number.
+     * Gets the agentInfoResponse property value. This container returns EU AR agent information associated with the package.
      * @return a {@link AgentInfoData}
      */
     @jakarta.annotation.Nullable
@@ -151,14 +151,14 @@ public class GetPackageDetailResponsesData implements AdditionalDataHolder, Pars
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(18);
         deserializerMap.put("agentInfoResponse", (n) -> { this.setAgentInfoResponse(n.getObjectValue(AgentInfoData::createFromDiscriminatorValue)); });
         deserializerMap.put("consignPreferenceId", (n) -> { this.setConsignPreferenceId(n.getStringValue()); });
-        deserializerMap.put("incoterm", (n) -> { this.setIncoterm(n.getStringValue()); });
+        deserializerMap.put("incoterm", (n) -> { this.setIncoterm(n.getEnumValue(IncotermEnum::forValue)); });
         deserializerMap.put("items", (n) -> { this.setItems(n.getCollectionOfObjectValues(ItemResponses::createFromDiscriminatorValue)); });
         deserializerMap.put("lastMileTrackingNumber", (n) -> { this.setLastMileTrackingNumber(n.getStringValue()); });
         deserializerMap.put("packageComment", (n) -> { this.setPackageComment(n.getStringValue()); });
         deserializerMap.put("packageHeight", (n) -> { this.setPackageHeight(n.getDoubleValue()); });
         deserializerMap.put("packageId", (n) -> { this.setPackageId(n.getStringValue()); });
         deserializerMap.put("packageLength", (n) -> { this.setPackageLength(n.getDoubleValue()); });
-        deserializerMap.put("packageStatus", (n) -> { this.setPackageStatus(n.getStringValue()); });
+        deserializerMap.put("packageStatus", (n) -> { this.setPackageStatus(n.getEnumValue(PackageStatusEnum::forValue)); });
         deserializerMap.put("packageWeight", (n) -> { this.setPackageWeight(n.getDoubleValue()); });
         deserializerMap.put("packageWidth", (n) -> { this.setPackageWidth(n.getDoubleValue()); });
         deserializerMap.put("paymentCost", (n) -> { this.setPaymentCost(n.getObjectValue(Amount::createFromDiscriminatorValue)); });
@@ -170,11 +170,11 @@ public class GetPackageDetailResponsesData implements AdditionalDataHolder, Pars
         return deserializerMap;
     }
     /**
-     * Gets the incoterm property value. The incoterm information associated with the package.&lt;br&gt;&lt;br&gt;&lt;b&gt;Supported values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;DDP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DDU&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:IncotermEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the incoterm property value. The incoterm information associated with the package.&lt;br&gt;&lt;br&gt;&lt;b&gt;Supported values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;DDP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DDU&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+     * @return a {@link IncotermEnum}
      */
     @jakarta.annotation.Nullable
-    public String getIncoterm() {
+    public IncotermEnum getIncoterm() {
         return this.incoterm;
     }
     /**
@@ -226,11 +226,11 @@ public class GetPackageDetailResponsesData implements AdditionalDataHolder, Pars
         return this.packageLength;
     }
     /**
-     * Gets the packageStatus property value. The current status of the package. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:PackageStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the packageStatus property value. The current status of the package.
+     * @return a {@link PackageStatusEnum}
      */
     @jakarta.annotation.Nullable
-    public String getPackageStatus() {
+    public PackageStatusEnum getPackageStatus() {
         return this.packageStatus;
     }
     /**
@@ -250,7 +250,7 @@ public class GetPackageDetailResponsesData implements AdditionalDataHolder, Pars
         return this.packageWidth;
     }
     /**
-     * Gets the paymentCost property value. This type defines the monetary value of an amount. 
+     * Gets the paymentCost property value. The actual payment cost of the package.
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -274,7 +274,7 @@ public class GetPackageDetailResponsesData implements AdditionalDataHolder, Pars
         return this.shippingServiceId;
     }
     /**
-     * Gets the shipToAddress property value. This type specifies the ship-to address information for a retrieved package.
+     * Gets the shipToAddress property value. This container returns information about the address the package is being shipped to.
      * @return a {@link ShipToAddressResponsesData}
      */
     @jakarta.annotation.Nullable
@@ -282,7 +282,7 @@ public class GetPackageDetailResponsesData implements AdditionalDataHolder, Pars
         return this.shipToAddress;
     }
     /**
-     * Gets the specialServiceDetail property value. This type defines the special service details available for a package.
+     * Gets the specialServiceDetail property value. This container returns any special services associated with this package.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This field is always returned, but will show as null or have an empty value if not defined/applicable.&lt;/span&gt;
      * @return a {@link SpecialServiceDetail}
      */
     @jakarta.annotation.Nullable
@@ -305,14 +305,14 @@ public class GetPackageDetailResponsesData implements AdditionalDataHolder, Pars
         Objects.requireNonNull(writer);
         writer.writeObjectValue("agentInfoResponse", this.getAgentInfoResponse());
         writer.writeStringValue("consignPreferenceId", this.getConsignPreferenceId());
-        writer.writeStringValue("incoterm", this.getIncoterm());
+        writer.writeEnumValue("incoterm", this.getIncoterm());
         writer.writeCollectionOfObjectValues("items", this.getItems());
         writer.writeStringValue("lastMileTrackingNumber", this.getLastMileTrackingNumber());
         writer.writeStringValue("packageComment", this.getPackageComment());
         writer.writeDoubleValue("packageHeight", this.getPackageHeight());
         writer.writeStringValue("packageId", this.getPackageId());
         writer.writeDoubleValue("packageLength", this.getPackageLength());
-        writer.writeStringValue("packageStatus", this.getPackageStatus());
+        writer.writeEnumValue("packageStatus", this.getPackageStatus());
         writer.writeDoubleValue("packageWeight", this.getPackageWeight());
         writer.writeDoubleValue("packageWidth", this.getPackageWidth());
         writer.writeObjectValue("paymentCost", this.getPaymentCost());
@@ -331,7 +331,7 @@ public class GetPackageDetailResponsesData implements AdditionalDataHolder, Pars
         this.additionalData = value;
     }
     /**
-     * Sets the agentInfoResponse property value. This type defines information about an EU AR agent, such as their address, name, and phone number.
+     * Sets the agentInfoResponse property value. This container returns EU AR agent information associated with the package.
      * @param value Value to set for the agentInfoResponse property.
      */
     public void setAgentInfoResponse(@jakarta.annotation.Nullable final AgentInfoData value) {
@@ -345,10 +345,10 @@ public class GetPackageDetailResponsesData implements AdditionalDataHolder, Pars
         this.consignPreferenceId = value;
     }
     /**
-     * Sets the incoterm property value. The incoterm information associated with the package.&lt;br&gt;&lt;br&gt;&lt;b&gt;Supported values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;DDP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DDU&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:IncotermEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the incoterm property value. The incoterm information associated with the package.&lt;br&gt;&lt;br&gt;&lt;b&gt;Supported values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;DDP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DDU&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      * @param value Value to set for the incoterm property.
      */
-    public void setIncoterm(@jakarta.annotation.Nullable final String value) {
+    public void setIncoterm(@jakarta.annotation.Nullable final IncotermEnum value) {
         this.incoterm = value;
     }
     /**
@@ -394,10 +394,10 @@ public class GetPackageDetailResponsesData implements AdditionalDataHolder, Pars
         this.packageLength = value;
     }
     /**
-     * Sets the packageStatus property value. The current status of the package. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:PackageStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the packageStatus property value. The current status of the package.
      * @param value Value to set for the packageStatus property.
      */
-    public void setPackageStatus(@jakarta.annotation.Nullable final String value) {
+    public void setPackageStatus(@jakarta.annotation.Nullable final PackageStatusEnum value) {
         this.packageStatus = value;
     }
     /**
@@ -415,7 +415,7 @@ public class GetPackageDetailResponsesData implements AdditionalDataHolder, Pars
         this.packageWidth = value;
     }
     /**
-     * Sets the paymentCost property value. This type defines the monetary value of an amount. 
+     * Sets the paymentCost property value. The actual payment cost of the package.
      * @param value Value to set for the paymentCost property.
      */
     public void setPaymentCost(@jakarta.annotation.Nullable final Amount value) {
@@ -436,14 +436,14 @@ public class GetPackageDetailResponsesData implements AdditionalDataHolder, Pars
         this.shippingServiceId = value;
     }
     /**
-     * Sets the shipToAddress property value. This type specifies the ship-to address information for a retrieved package.
+     * Sets the shipToAddress property value. This container returns information about the address the package is being shipped to.
      * @param value Value to set for the shipToAddress property.
      */
     public void setShipToAddress(@jakarta.annotation.Nullable final ShipToAddressResponsesData value) {
         this.shipToAddress = value;
     }
     /**
-     * Sets the specialServiceDetail property value. This type defines the special service details available for a package.
+     * Sets the specialServiceDetail property value. This container returns any special services associated with this package.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This field is always returned, but will show as null or have an empty value if not defined/applicable.&lt;/span&gt;
      * @param value Value to set for the specialServiceDetail property.
      */
     public void setSpecialServiceDetail(@jakarta.annotation.Nullable final SpecialServiceDetail value) {

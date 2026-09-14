@@ -14,6 +14,7 @@
 
 package com.ebay.otherapis.generated.internationalshipping.actual_costs;
 
+import com.ebay.otherapis.generated.internationalshipping.models.Error;
 import com.ebay.otherapis.generated.internationalshipping.models.GetActualCostResponses;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
@@ -52,6 +53,10 @@ public class ActualCostsRequestBuilder extends BaseRequestBuilder {
     /**
      * &lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; This method is only available for Greater-China based sellers with an active eDIS account.&lt;/p&gt;&lt;/div&gt;&lt;br&gt;This method is used to retrieve the actual weight and cost for one or more packages based on the provided input criteria.&lt;br&gt;&lt;br&gt;Responses can be filtered by the &lt;b&gt;tracking_numbers&lt;/b&gt; query parameter. If this parameter is used, actual costs for each package associated with the provided tracking numbers are returned.&lt;br&gt;&lt;br&gt;Alternatively, responses can be filtered by the &lt;b&gt;trans_begin_time&lt;/b&gt; and &lt;b&gt;trans_end_time&lt;/b&gt; query parameters. If these parameters are used, the actual costs of all packages created within this date range are returned.&lt;br&gt;&lt;br&gt;Only one filtering method can be used per call.
      * @return a {@link GetActualCostResponses}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 401 status code
+     * @throws Error When receiving a 404 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public GetActualCostResponses get() {
@@ -61,11 +66,20 @@ public class ActualCostsRequestBuilder extends BaseRequestBuilder {
      * &lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; This method is only available for Greater-China based sellers with an active eDIS account.&lt;/p&gt;&lt;/div&gt;&lt;br&gt;This method is used to retrieve the actual weight and cost for one or more packages based on the provided input criteria.&lt;br&gt;&lt;br&gt;Responses can be filtered by the &lt;b&gt;tracking_numbers&lt;/b&gt; query parameter. If this parameter is used, actual costs for each package associated with the provided tracking numbers are returned.&lt;br&gt;&lt;br&gt;Alternatively, responses can be filtered by the &lt;b&gt;trans_begin_time&lt;/b&gt; and &lt;b&gt;trans_end_time&lt;/b&gt; query parameters. If these parameters are used, the actual costs of all packages created within this date range are returned.&lt;br&gt;&lt;br&gt;Only one filtering method can be used per call.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link GetActualCostResponses}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 401 status code
+     * @throws Error When receiving a 404 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public GetActualCostResponses get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, GetActualCostResponses::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("401", Error::createFromDiscriminatorValue);
+        errorMapping.put("404", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, GetActualCostResponses::createFromDiscriminatorValue);
     }
     /**
      * &lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; This method is only available for Greater-China based sellers with an active eDIS account.&lt;/p&gt;&lt;/div&gt;&lt;br&gt;This method is used to retrieve the actual weight and cost for one or more packages based on the provided input criteria.&lt;br&gt;&lt;br&gt;Responses can be filtered by the &lt;b&gt;tracking_numbers&lt;/b&gt; query parameter. If this parameter is used, actual costs for each package associated with the provided tracking numbers are returned.&lt;br&gt;&lt;br&gt;Alternatively, responses can be filtered by the &lt;b&gt;trans_begin_time&lt;/b&gt; and &lt;b&gt;trans_end_time&lt;/b&gt; query parameters. If these parameters are used, the actual costs of all packages created within this date range are returned.&lt;br&gt;&lt;br&gt;Only one filtering method can be used per call.
@@ -103,17 +117,17 @@ public class ActualCostsRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {
         /**
-         * This query parameter specifies the tracking number(s) of the package(s) for which to retrieve the actual weight and cost. Tracking numbers are returned when creating packages through the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/package/methods/createPackage&quot; target=&quot;_blank&quot;&gt;createPackage&lt;/a&gt; method.&lt;br&gt;&lt;br&gt;Up to 200 tracking numbers can be provided.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This query parameter is required if &lt;b&gt;trans_begin_time&lt;/b&gt; and &lt;b&gt;trans_end_time&lt;/b&gt; is not provided.&lt;/span&gt;
+         * This query parameter specifies the tracking number(s) of the package(s) for which to retrieve the actual weight and cost. Tracking numbers are returned when creating packages through the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-package-createpackage&quot;&gt;createPackage&lt;/a&gt; method.&lt;br&gt;&lt;br&gt;Up to 200 tracking numbers can be provided.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This query parameter is required if &lt;b&gt;trans_begin_time&lt;/b&gt; and &lt;b&gt;trans_end_time&lt;/b&gt; is not provided.&lt;/span&gt;
          */
         @jakarta.annotation.Nullable
         public String trackingNumbers;
         /**
-         * This query parameter specifies the start time of a transaction in UTC format.&lt;br&gt;&lt;br&gt;If the the &lt;/b&gt;trans_begin_time&lt;/b&gt; and &lt;b&gt;trans_end_time&lt;/b&gt; query parameters are used, the actual costs of all packages created within this date range are returned.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This query parameter and &lt;b&gt;trans_end_time&lt;/b&gt; are required if &lt;b&gt;tracking_numbers&lt;/b&gt; is not provided.&lt;/span&gt;&lt;br&gt;&lt;b&gt;Format&lt;/b&gt;: &lt;code&gt;YYYY-MM-DDTHH:MM:SS.SSSZ&lt;/code&gt;
+         * This query parameter specifies the start time of a transaction in UTC format.&lt;br&gt;&lt;br&gt;If the the &lt;b&gt;trans_begin_time&lt;/b&gt; and &lt;b&gt;trans_end_time&lt;/b&gt; query parameters are used, the actual costs of all packages created within this date range are returned.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This query parameter and &lt;b&gt;trans_end_time&lt;/b&gt; are required if &lt;b&gt;tracking_numbers&lt;/b&gt; is not provided.&lt;/span&gt;&lt;br&gt;&lt;b&gt;Format&lt;/b&gt;: &lt;code&gt;YYYY-MM-DDTHH:MM:SS.SSSZ&lt;/code&gt;
          */
         @jakarta.annotation.Nullable
         public String transBeginTime;
         /**
-         * This query parameter specifies ending time of a transaction in UTC format.&lt;br&gt;&lt;br&gt;If the the &lt;/b&gt;trans_begin_time&lt;/b&gt; and &lt;b&gt;trans_end_time&lt;/b&gt; query parameters are used, the actual costs of all packages created within this date range are returned.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This query parameter and &lt;b&gt;trans_start_time&lt;/b&gt; are required if &lt;b&gt;tracking_numbers&lt;/b&gt; is not provided.&lt;/span&gt;&lt;br&gt;&lt;b&gt;Format&lt;/b&gt;: &lt;code&gt;YYYY-MM-DDTHH:MM:SS.SSSZ&lt;/code&gt;
+         * This query parameter specifies ending time of a transaction in UTC format.&lt;br&gt;&lt;br&gt;If the the &lt;b&gt;trans_begin_time&lt;/b&gt; and &lt;b&gt;trans_end_time&lt;/b&gt; query parameters are used, the actual costs of all packages created within this date range are returned.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This query parameter and &lt;b&gt;trans_start_time&lt;/b&gt; are required if &lt;b&gt;tracking_numbers&lt;/b&gt; is not provided.&lt;/span&gt;&lt;br&gt;&lt;b&gt;Format&lt;/b&gt;: &lt;code&gt;YYYY-MM-DDTHH:MM:SS.SSSZ&lt;/code&gt;
          */
         @jakarta.annotation.Nullable
         public String transEndTime;

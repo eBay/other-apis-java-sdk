@@ -21,6 +21,7 @@ import com.ebay.otherapis.generated.internationalshipping.battery_qualifications
 import com.ebay.otherapis.generated.internationalshipping.bundle.BundleRequestBuilder;
 import com.ebay.otherapis.generated.internationalshipping.complaint.ComplaintRequestBuilder;
 import com.ebay.otherapis.generated.internationalshipping.consign_preference.ConsignPreferenceRequestBuilder;
+import com.ebay.otherapis.generated.internationalshipping.cpsc_profiles.CpscProfilesRequestBuilder;
 import com.ebay.otherapis.generated.internationalshipping.dropoff_sites.DropoffSitesRequestBuilder;
 import com.ebay.otherapis.generated.internationalshipping.handover_sheet.HandoverSheetRequestBuilder;
 import com.ebay.otherapis.generated.internationalshipping.labels.LabelsRequestBuilder;
@@ -101,6 +102,14 @@ public class InternationalShippingApiClient extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public ConsignPreferenceRequestBuilder consignPreference() {
         return new ConsignPreferenceRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * The cpsc_profiles property
+     * @return a {@link CpscProfilesRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public CpscProfilesRequestBuilder cpscProfiles() {
+        return new CpscProfilesRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The dropoff_sites property

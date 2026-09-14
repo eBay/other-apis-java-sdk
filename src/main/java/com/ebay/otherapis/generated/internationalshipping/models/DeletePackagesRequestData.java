@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * DeletePackagesRequestData
+ * This type is used to specify the package ID values for the packages being deleted.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class DeletePackagesRequestData implements AdditionalDataHolder, Parsable {
@@ -31,7 +31,7 @@ public class DeletePackagesRequestData implements AdditionalDataHolder, Parsable
      */
     private Map<String, Object> additionalData;
     /**
-     * This comma-delimited array lists the unique identifiers of the packages being deleted. These values must be for packages that have been cancelled and do not have tracking numbers associated with them.&lt;br&gt;&lt;br&gt;Package ID values are returned when creating a package through the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/package/methods/createPackage&quot; target=&quot;_blank&quot;&gt;createPackage&lt;/a&gt; method.
+     * This comma-delimited array lists the unique identifiers of the packages being deleted. These values must be for packages that have been cancelled and do not have tracking numbers associated with them.&lt;br&gt;&lt;br&gt;Package ID values are returned when creating a package through the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-package-createpackage&quot;&gt;createPackage&lt;/a&gt; method.
      */
     private java.util.List<String> packageIds;
     /**
@@ -69,7 +69,7 @@ public class DeletePackagesRequestData implements AdditionalDataHolder, Parsable
         return deserializerMap;
     }
     /**
-     * Gets the packageIds property value. This comma-delimited array lists the unique identifiers of the packages being deleted. These values must be for packages that have been cancelled and do not have tracking numbers associated with them.&lt;br&gt;&lt;br&gt;Package ID values are returned when creating a package through the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/package/methods/createPackage&quot; target=&quot;_blank&quot;&gt;createPackage&lt;/a&gt; method.
+     * Gets the packageIds property value. This comma-delimited array lists the unique identifiers of the packages being deleted. These values must be for packages that have been cancelled and do not have tracking numbers associated with them.&lt;br&gt;&lt;br&gt;Package ID values are returned when creating a package through the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-package-createpackage&quot;&gt;createPackage&lt;/a&gt; method.
      * @return a {@link java.util.List<String>}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class DeletePackagesRequestData implements AdditionalDataHolder, Parsable
         this.additionalData = value;
     }
     /**
-     * Sets the packageIds property value. This comma-delimited array lists the unique identifiers of the packages being deleted. These values must be for packages that have been cancelled and do not have tracking numbers associated with them.&lt;br&gt;&lt;br&gt;Package ID values are returned when creating a package through the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/package/methods/createPackage&quot; target=&quot;_blank&quot;&gt;createPackage&lt;/a&gt; method.
+     * Sets the packageIds property value. This comma-delimited array lists the unique identifiers of the packages being deleted. These values must be for packages that have been cancelled and do not have tracking numbers associated with them.&lt;br&gt;&lt;br&gt;Package ID values are returned when creating a package through the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-package-createpackage&quot;&gt;createPackage&lt;/a&gt; method.
      * @param value Value to set for the packageIds property.
      */
     public void setPackageIds(@jakarta.annotation.Nullable final java.util.List<String> value) {

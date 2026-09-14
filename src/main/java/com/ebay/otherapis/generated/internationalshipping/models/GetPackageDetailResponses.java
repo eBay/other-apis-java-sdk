@@ -31,7 +31,7 @@ public class GetPackageDetailResponses implements AdditionalDataHolder, Parsable
      */
     private Map<String, Object> additionalData;
     /**
-     * This type specifies the details returned for the specified package.
+     * This container returns the details for the specified package.
      */
     private GetPackageDetailResponsesData packageDetail;
     /**
@@ -69,7 +69,7 @@ public class GetPackageDetailResponses implements AdditionalDataHolder, Parsable
         return deserializerMap;
     }
     /**
-     * Gets the packageDetail property value. This type specifies the details returned for the specified package.
+     * Gets the packageDetail property value. This container returns the details for the specified package.
      * @return a {@link GetPackageDetailResponsesData}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class GetPackageDetailResponses implements AdditionalDataHolder, Parsable
         this.additionalData = value;
     }
     /**
-     * Sets the packageDetail property value. This type specifies the details returned for the specified package.
+     * Sets the packageDetail property value. This container returns the details for the specified package.
      * @param value Value to set for the packageDetail property.
      */
     public void setPackageDetail(@jakarta.annotation.Nullable final GetPackageDetailResponsesData value) {

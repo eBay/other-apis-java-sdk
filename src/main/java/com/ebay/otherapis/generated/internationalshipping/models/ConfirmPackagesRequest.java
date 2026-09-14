@@ -31,7 +31,7 @@ public class ConfirmPackagesRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * This type specifies the IDs of the packages being confirmed.
+     * This container is used to specify the package ID values of the packages being confirmed.
      */
     private ConfirmPackagesRequestData requests;
     /**
@@ -69,7 +69,7 @@ public class ConfirmPackagesRequest implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the requests property value. This type specifies the IDs of the packages being confirmed.
+     * Gets the requests property value. This container is used to specify the package ID values of the packages being confirmed.
      * @return a {@link ConfirmPackagesRequestData}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class ConfirmPackagesRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the requests property value. This type specifies the IDs of the packages being confirmed.
+     * Sets the requests property value. This container is used to specify the package ID values of the packages being confirmed.
      * @param value Value to set for the requests property.
      */
     public void setRequests(@jakarta.annotation.Nullable final ConfirmPackagesRequestData value) {

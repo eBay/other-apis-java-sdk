@@ -14,6 +14,7 @@
 
 package com.ebay.otherapis.generated.internationalshipping.labels;
 
+import com.ebay.otherapis.generated.internationalshipping.models.Error;
 import com.ebay.otherapis.generated.internationalshipping.models.GetLabelListResponses;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
@@ -52,6 +53,10 @@ public class LabelsRequestBuilder extends BaseRequestBuilder {
     /**
      * &lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; This method is only available for Greater-China based sellers with an active eDIS account.&lt;/p&gt;&lt;/div&gt;&lt;br&gt;This method can be used to retrieve shipping labels for the one or more specified packages.&lt;br&gt;&lt;br&gt;The packages for which to retrieve shipping labels can be specified through the &lt;b&gt;tracking_numbers&lt;/b&gt; query parameter. The page size and print preference settings for the shipping label(s) can also be specified through the query parameters.&lt;br&gt;&lt;br&gt;Shipping labels are returned as base64 string values which can be converted to PDF files. A separate file will be returned for each tracking number specified in the request.
      * @return a {@link GetLabelListResponses}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 401 status code
+     * @throws Error When receiving a 404 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public GetLabelListResponses get() {
@@ -61,11 +66,20 @@ public class LabelsRequestBuilder extends BaseRequestBuilder {
      * &lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; This method is only available for Greater-China based sellers with an active eDIS account.&lt;/p&gt;&lt;/div&gt;&lt;br&gt;This method can be used to retrieve shipping labels for the one or more specified packages.&lt;br&gt;&lt;br&gt;The packages for which to retrieve shipping labels can be specified through the &lt;b&gt;tracking_numbers&lt;/b&gt; query parameter. The page size and print preference settings for the shipping label(s) can also be specified through the query parameters.&lt;br&gt;&lt;br&gt;Shipping labels are returned as base64 string values which can be converted to PDF files. A separate file will be returned for each tracking number specified in the request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link GetLabelListResponses}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 401 status code
+     * @throws Error When receiving a 404 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public GetLabelListResponses get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, GetLabelListResponses::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("401", Error::createFromDiscriminatorValue);
+        errorMapping.put("404", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, GetLabelListResponses::createFromDiscriminatorValue);
     }
     /**
      * &lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; This method is only available for Greater-China based sellers with an active eDIS account.&lt;/p&gt;&lt;/div&gt;&lt;br&gt;This method can be used to retrieve shipping labels for the one or more specified packages.&lt;br&gt;&lt;br&gt;The packages for which to retrieve shipping labels can be specified through the &lt;b&gt;tracking_numbers&lt;/b&gt; query parameter. The page size and print preference settings for the shipping label(s) can also be specified through the query parameters.&lt;br&gt;&lt;br&gt;Shipping labels are returned as base64 string values which can be converted to PDF files. A separate file will be returned for each tracking number specified in the request.
@@ -113,7 +127,7 @@ public class LabelsRequestBuilder extends BaseRequestBuilder {
         @jakarta.annotation.Nullable
         public String printPreference;
         /**
-         * This query parameter specifies an array of tracking numbers of the packages for which to retrieve shipping labels.&lt;br&gt;&lt;br&gt;Tracking numbers are returned when creating packages through the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/package/methods/createPackage&quot; target=&quot;_blank&quot;&gt;createPackage&lt;/a&gt; method.&lt;br&gt;&lt;br&gt;Up to 200 tracking numbers can be provided. Multiple tracking numbers can be input as individual query parameters.For example,&lt;br&gt;&lt;br&gt;&lt;code&gt;tracking_numbers=E***********************N&amp;tracking_numbers=E***********************Q&lt;/code&gt;
+         * This query parameter specifies an array of tracking numbers of the packages for which to retrieve shipping labels.&lt;br&gt;&lt;br&gt;Tracking numbers are returned when creating packages through the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-package-createpackage&quot;&gt;createPackage&lt;/a&gt; method.&lt;br&gt;&lt;br&gt;Up to 200 tracking numbers can be provided. Multiple tracking numbers can be input as individual query parameters.For example,&lt;br&gt;&lt;br&gt;&lt;code&gt;tracking_numbers=E***********************N&amp;tracking_numbers=E***********************Q&lt;/code&gt;
          */
         @jakarta.annotation.Nullable
         public String trackingNumbers;

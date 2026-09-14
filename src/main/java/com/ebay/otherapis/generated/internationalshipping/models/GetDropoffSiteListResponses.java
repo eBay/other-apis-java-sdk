@@ -31,7 +31,7 @@ public class GetDropoffSiteListResponses implements AdditionalDataHolder, Parsab
      */
     private Map<String, Object> additionalData;
     /**
-     * This type defines the list of drop-off site locations associated with an eDIS account.
+     * This container returns a list of all of the drop-off site locations associated with an eDIS account.
      */
     private GetDropoffSitesResponsesData dropoffSiteList;
     /**
@@ -59,7 +59,7 @@ public class GetDropoffSiteListResponses implements AdditionalDataHolder, Parsab
         return this.additionalData;
     }
     /**
-     * Gets the dropoffSiteList property value. This type defines the list of drop-off site locations associated with an eDIS account.
+     * Gets the dropoffSiteList property value. This container returns a list of all of the drop-off site locations associated with an eDIS account.
      * @return a {@link GetDropoffSitesResponsesData}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class GetDropoffSiteListResponses implements AdditionalDataHolder, Parsab
         this.additionalData = value;
     }
     /**
-     * Sets the dropoffSiteList property value. This type defines the list of drop-off site locations associated with an eDIS account.
+     * Sets the dropoffSiteList property value. This container returns a list of all of the drop-off site locations associated with an eDIS account.
      * @param value Value to set for the dropoffSiteList property.
      */
     public void setDropoffSiteList(@jakarta.annotation.Nullable final GetDropoffSitesResponsesData value) {

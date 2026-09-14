@@ -31,7 +31,7 @@ public class CreateConsignPreferenceResponses implements AdditionalDataHolder, P
      */
     private Map<String, Object> additionalData;
     /**
-     * This type defines the unique identifier of the newly created consign address.
+     * This container specifies the unique identifier of the newly created consign address.
      */
     private CreateConsignPreferenceResponsesData consignAddressId;
     /**
@@ -59,7 +59,7 @@ public class CreateConsignPreferenceResponses implements AdditionalDataHolder, P
         return this.additionalData;
     }
     /**
-     * Gets the consignAddressId property value. This type defines the unique identifier of the newly created consign address.
+     * Gets the consignAddressId property value. This container specifies the unique identifier of the newly created consign address.
      * @return a {@link CreateConsignPreferenceResponsesData}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class CreateConsignPreferenceResponses implements AdditionalDataHolder, P
         this.additionalData = value;
     }
     /**
-     * Sets the consignAddressId property value. This type defines the unique identifier of the newly created consign address.
+     * Sets the consignAddressId property value. This container specifies the unique identifier of the newly created consign address.
      * @param value Value to set for the consignAddressId property.
      */
     public void setConsignAddressId(@jakarta.annotation.Nullable final CreateConsignPreferenceResponsesData value) {

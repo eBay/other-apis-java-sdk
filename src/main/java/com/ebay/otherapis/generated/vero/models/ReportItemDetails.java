@@ -35,13 +35,13 @@ public class ReportItemDetails implements AdditionalDataHolder, Parsable {
      */
     private String brand;
     /**
-     * If the VeRO Program member wants a copy of the Notice of Claimed Infringement (NOCI) document sent to their email address, this field should be included in the request and set to &lt;code&gt;true&lt;/code&gt;. This same document is automatically sent to the seller of the reported item.&lt;br&gt;&lt;br&gt;As this field defaults to &lt;code&gt;true&lt;/b&gt;, the report will be automatically emailed if this field is omitted.&lt;br&gt;&lt;br&gt;&lt;b&gt;Default:&lt;/b&gt; true
+     * If the VeRO Program member wants a copy of the Notice of Claimed Infringement (NOCI) document sent to their email address, this field should be included in the request and set to &lt;code&gt;true&lt;/code&gt;. This same document is automatically sent to the seller of the reported item.&lt;br&gt;&lt;br&gt;As this field defaults to &lt;code&gt;true&lt;/code&gt;, the report will be automatically emailed if this field is omitted.&lt;br&gt;&lt;br&gt;&lt;b&gt;Default:&lt;/b&gt; true
      */
     private Boolean copyEmailToRightsOwner;
     /**
      * If the infringement type stated in the &lt;b&gt;VeroReasonCodeId&lt;/b&gt; has anything to do with which country the item is being shipped to, each country that would trigger this infringement type should be specified in this comma-delimited array.&lt;br&gt;&lt;br&gt;This field is required when the &lt;b&gt;veroReasonCodeId&lt;/b&gt; is &lt;code&gt;9037&lt;/code&gt; (Item(s) is unlawful importation of product bearing trademark).
      */
-    private java.util.List<String> countries;
+    private java.util.List<CountryCodeEnum> countries;
     /**
      * This field is used to provide further information about the VeRO reason code.&lt;br&gt;&lt;br&gt;This field is required when the &lt;b&gt;veroReasonCodeId&lt;/b&gt; is &lt;code&gt;9052&lt;/code&gt; or &lt;code&gt;7052&lt;/code&gt; (Other - Provide details information in additional information box below).&lt;br&gt;&lt;br&gt;&lt;b&gt;Max length:&lt;/b&gt; 1000 characters
      */
@@ -61,9 +61,9 @@ public class ReportItemDetails implements AdditionalDataHolder, Parsable {
     /**
      * If the infringement type stated in the &lt;b&gt;veroReasonCodeId&lt;/b&gt; has anything to do with which geographical region the item is being shipped to, each region that would trigger this infringement type should be specified in this comma-delimited array.
      */
-    private java.util.List<String> regions;
+    private java.util.List<WorldRegionEnum> regions;
     /**
-     * The unique identifier for the type of claimed infringement.&lt;br&gt;&lt;br&gt;Use &lt;a href=&quot;/api-docs/commerce/vero/resources/vero_reason_code/methods/getVeroReasonCodes&quot; target=&quot;_blank &quot;&gt;getVeroReasonCodes&lt;/a&gt; to retrieve a list of valid reason codes for a given eBay site.
+     * The unique identifier for the type of claimed infringement.&lt;br&gt;&lt;br&gt;Use &lt;a href=&quot;/develop/api/sell/vero_public_apis#sell-vero_public_apis-vero_reason_code-getveroreasoncodes&quot;&gt;getVeroReasonCodes&lt;/a&gt; to retrieve a list of valid reason codes for a given eBay site.
      */
     private String veroReasonCodeId;
     /**
@@ -99,7 +99,7 @@ public class ReportItemDetails implements AdditionalDataHolder, Parsable {
         return this.brand;
     }
     /**
-     * Gets the copyEmailToRightsOwner property value. If the VeRO Program member wants a copy of the Notice of Claimed Infringement (NOCI) document sent to their email address, this field should be included in the request and set to &lt;code&gt;true&lt;/code&gt;. This same document is automatically sent to the seller of the reported item.&lt;br&gt;&lt;br&gt;As this field defaults to &lt;code&gt;true&lt;/b&gt;, the report will be automatically emailed if this field is omitted.&lt;br&gt;&lt;br&gt;&lt;b&gt;Default:&lt;/b&gt; true
+     * Gets the copyEmailToRightsOwner property value. If the VeRO Program member wants a copy of the Notice of Claimed Infringement (NOCI) document sent to their email address, this field should be included in the request and set to &lt;code&gt;true&lt;/code&gt;. This same document is automatically sent to the seller of the reported item.&lt;br&gt;&lt;br&gt;As this field defaults to &lt;code&gt;true&lt;/code&gt;, the report will be automatically emailed if this field is omitted.&lt;br&gt;&lt;br&gt;&lt;b&gt;Default:&lt;/b&gt; true
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -108,10 +108,10 @@ public class ReportItemDetails implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the countries property value. If the infringement type stated in the &lt;b&gt;VeroReasonCodeId&lt;/b&gt; has anything to do with which country the item is being shipped to, each country that would trigger this infringement type should be specified in this comma-delimited array.&lt;br&gt;&lt;br&gt;This field is required when the &lt;b&gt;veroReasonCodeId&lt;/b&gt; is &lt;code&gt;9037&lt;/code&gt; (Item(s) is unlawful importation of product bearing trademark).
-     * @return a {@link java.util.List<String>}
+     * @return a {@link java.util.List<CountryCodeEnum>}
      */
     @jakarta.annotation.Nullable
-    public java.util.List<String> getCountries() {
+    public java.util.List<CountryCodeEnum> getCountries() {
         return this.countries;
     }
     /**
@@ -131,12 +131,12 @@ public class ReportItemDetails implements AdditionalDataHolder, Parsable {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
         deserializerMap.put("brand", (n) -> { this.setBrand(n.getStringValue()); });
         deserializerMap.put("copyEmailToRightsOwner", (n) -> { this.setCopyEmailToRightsOwner(n.getBooleanValue()); });
-        deserializerMap.put("countries", (n) -> { this.setCountries(n.getCollectionOfPrimitiveValues(String.class)); });
+        deserializerMap.put("countries", (n) -> { this.setCountries(n.getCollectionOfEnumValues(CountryCodeEnum::forValue)); });
         deserializerMap.put("detailedMessage", (n) -> { this.setDetailedMessage(n.getStringValue()); });
         deserializerMap.put("itemId", (n) -> { this.setItemId(n.getStringValue()); });
         deserializerMap.put("messageToSeller", (n) -> { this.setMessageToSeller(n.getStringValue()); });
         deserializerMap.put("patent", (n) -> { this.setPatent(n.getStringValue()); });
-        deserializerMap.put("regions", (n) -> { this.setRegions(n.getCollectionOfPrimitiveValues(String.class)); });
+        deserializerMap.put("regions", (n) -> { this.setRegions(n.getCollectionOfEnumValues(WorldRegionEnum::forValue)); });
         deserializerMap.put("veroReasonCodeId", (n) -> { this.setVeroReasonCodeId(n.getStringValue()); });
         return deserializerMap;
     }
@@ -166,14 +166,14 @@ public class ReportItemDetails implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the regions property value. If the infringement type stated in the &lt;b&gt;veroReasonCodeId&lt;/b&gt; has anything to do with which geographical region the item is being shipped to, each region that would trigger this infringement type should be specified in this comma-delimited array.
-     * @return a {@link java.util.List<String>}
+     * @return a {@link java.util.List<WorldRegionEnum>}
      */
     @jakarta.annotation.Nullable
-    public java.util.List<String> getRegions() {
+    public java.util.List<WorldRegionEnum> getRegions() {
         return this.regions;
     }
     /**
-     * Gets the veroReasonCodeId property value. The unique identifier for the type of claimed infringement.&lt;br&gt;&lt;br&gt;Use &lt;a href=&quot;/api-docs/commerce/vero/resources/vero_reason_code/methods/getVeroReasonCodes&quot; target=&quot;_blank &quot;&gt;getVeroReasonCodes&lt;/a&gt; to retrieve a list of valid reason codes for a given eBay site.
+     * Gets the veroReasonCodeId property value. The unique identifier for the type of claimed infringement.&lt;br&gt;&lt;br&gt;Use &lt;a href=&quot;/develop/api/sell/vero_public_apis#sell-vero_public_apis-vero_reason_code-getveroreasoncodes&quot;&gt;getVeroReasonCodes&lt;/a&gt; to retrieve a list of valid reason codes for a given eBay site.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -188,12 +188,12 @@ public class ReportItemDetails implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeStringValue("brand", this.getBrand());
         writer.writeBooleanValue("copyEmailToRightsOwner", this.getCopyEmailToRightsOwner());
-        writer.writeCollectionOfPrimitiveValues("countries", this.getCountries());
+        writer.writeCollectionOfEnumValues("countries", this.getCountries());
         writer.writeStringValue("detailedMessage", this.getDetailedMessage());
         writer.writeStringValue("itemId", this.getItemId());
         writer.writeStringValue("messageToSeller", this.getMessageToSeller());
         writer.writeStringValue("patent", this.getPatent());
-        writer.writeCollectionOfPrimitiveValues("regions", this.getRegions());
+        writer.writeCollectionOfEnumValues("regions", this.getRegions());
         writer.writeStringValue("veroReasonCodeId", this.getVeroReasonCodeId());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -212,7 +212,7 @@ public class ReportItemDetails implements AdditionalDataHolder, Parsable {
         this.brand = value;
     }
     /**
-     * Sets the copyEmailToRightsOwner property value. If the VeRO Program member wants a copy of the Notice of Claimed Infringement (NOCI) document sent to their email address, this field should be included in the request and set to &lt;code&gt;true&lt;/code&gt;. This same document is automatically sent to the seller of the reported item.&lt;br&gt;&lt;br&gt;As this field defaults to &lt;code&gt;true&lt;/b&gt;, the report will be automatically emailed if this field is omitted.&lt;br&gt;&lt;br&gt;&lt;b&gt;Default:&lt;/b&gt; true
+     * Sets the copyEmailToRightsOwner property value. If the VeRO Program member wants a copy of the Notice of Claimed Infringement (NOCI) document sent to their email address, this field should be included in the request and set to &lt;code&gt;true&lt;/code&gt;. This same document is automatically sent to the seller of the reported item.&lt;br&gt;&lt;br&gt;As this field defaults to &lt;code&gt;true&lt;/code&gt;, the report will be automatically emailed if this field is omitted.&lt;br&gt;&lt;br&gt;&lt;b&gt;Default:&lt;/b&gt; true
      * @param value Value to set for the copyEmailToRightsOwner property.
      */
     public void setCopyEmailToRightsOwner(@jakarta.annotation.Nullable final Boolean value) {
@@ -222,7 +222,7 @@ public class ReportItemDetails implements AdditionalDataHolder, Parsable {
      * Sets the countries property value. If the infringement type stated in the &lt;b&gt;VeroReasonCodeId&lt;/b&gt; has anything to do with which country the item is being shipped to, each country that would trigger this infringement type should be specified in this comma-delimited array.&lt;br&gt;&lt;br&gt;This field is required when the &lt;b&gt;veroReasonCodeId&lt;/b&gt; is &lt;code&gt;9037&lt;/code&gt; (Item(s) is unlawful importation of product bearing trademark).
      * @param value Value to set for the countries property.
      */
-    public void setCountries(@jakarta.annotation.Nullable final java.util.List<String> value) {
+    public void setCountries(@jakarta.annotation.Nullable final java.util.List<CountryCodeEnum> value) {
         this.countries = value;
     }
     /**
@@ -257,11 +257,11 @@ public class ReportItemDetails implements AdditionalDataHolder, Parsable {
      * Sets the regions property value. If the infringement type stated in the &lt;b&gt;veroReasonCodeId&lt;/b&gt; has anything to do with which geographical region the item is being shipped to, each region that would trigger this infringement type should be specified in this comma-delimited array.
      * @param value Value to set for the regions property.
      */
-    public void setRegions(@jakarta.annotation.Nullable final java.util.List<String> value) {
+    public void setRegions(@jakarta.annotation.Nullable final java.util.List<WorldRegionEnum> value) {
         this.regions = value;
     }
     /**
-     * Sets the veroReasonCodeId property value. The unique identifier for the type of claimed infringement.&lt;br&gt;&lt;br&gt;Use &lt;a href=&quot;/api-docs/commerce/vero/resources/vero_reason_code/methods/getVeroReasonCodes&quot; target=&quot;_blank &quot;&gt;getVeroReasonCodes&lt;/a&gt; to retrieve a list of valid reason codes for a given eBay site.
+     * Sets the veroReasonCodeId property value. The unique identifier for the type of claimed infringement.&lt;br&gt;&lt;br&gt;Use &lt;a href=&quot;/develop/api/sell/vero_public_apis#sell-vero_public_apis-vero_reason_code-getveroreasoncodes&quot;&gt;getVeroReasonCodes&lt;/a&gt; to retrieve a list of valid reason codes for a given eBay site.
      * @param value Value to set for the veroReasonCodeId property.
      */
     public void setVeroReasonCodeId(@jakarta.annotation.Nullable final String value) {

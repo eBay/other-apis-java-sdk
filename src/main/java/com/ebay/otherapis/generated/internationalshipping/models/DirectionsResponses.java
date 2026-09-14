@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This container specifies direction information for a shipping service.
+ * This type specifies direction information for a shipping service.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class DirectionsResponses implements AdditionalDataHolder, Parsable {

@@ -31,11 +31,11 @@ public class CreateBundleRequestData implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The unique identifier of the consign address to be associated with the bundle.&lt;br&gt;&lt;br&gt;This ID can be retrieved using the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/consign_preference/methods/getConsignPreferences&quot; target=&quot;_blank&quot;&gt;getConsignPreferences&lt;/a&gt; method.
+     * The unique identifier of the consign address to be associated with the bundle.&lt;br&gt;&lt;br&gt;This ID can be retrieved using the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-consign_preference-getconsignpreferences&quot;&gt;getConsignPreferences&lt;/a&gt; method.
      */
     private String consignPreferenceId;
     /**
-     * This array specifies the tracking numbers of the packages to be included in the bundle.&lt;br&gt;&lt;br&gt;Tracking numbers are returned when creating a package through the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/package/methods/createPackage&quot; target=&quot;_blank&quot;&gt;createPackage&lt;/a&gt; method.
+     * This array specifies the tracking numbers of the packages to be included in the bundle.&lt;br&gt;&lt;br&gt;Tracking numbers are returned when creating a package through the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-package-createpackage&quot;&gt;createPackage&lt;/a&gt; method.
      */
     private java.util.List<String> trackingNumbers;
     /**
@@ -63,7 +63,7 @@ public class CreateBundleRequestData implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the consignPreferenceId property value. The unique identifier of the consign address to be associated with the bundle.&lt;br&gt;&lt;br&gt;This ID can be retrieved using the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/consign_preference/methods/getConsignPreferences&quot; target=&quot;_blank&quot;&gt;getConsignPreferences&lt;/a&gt; method.
+     * Gets the consignPreferenceId property value. The unique identifier of the consign address to be associated with the bundle.&lt;br&gt;&lt;br&gt;This ID can be retrieved using the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-consign_preference-getconsignpreferences&quot;&gt;getConsignPreferences&lt;/a&gt; method.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -82,7 +82,7 @@ public class CreateBundleRequestData implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the trackingNumbers property value. This array specifies the tracking numbers of the packages to be included in the bundle.&lt;br&gt;&lt;br&gt;Tracking numbers are returned when creating a package through the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/package/methods/createPackage&quot; target=&quot;_blank&quot;&gt;createPackage&lt;/a&gt; method.
+     * Gets the trackingNumbers property value. This array specifies the tracking numbers of the packages to be included in the bundle.&lt;br&gt;&lt;br&gt;Tracking numbers are returned when creating a package through the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-package-createpackage&quot;&gt;createPackage&lt;/a&gt; method.
      * @return a {@link java.util.List<String>}
      */
     @jakarta.annotation.Nullable
@@ -107,14 +107,14 @@ public class CreateBundleRequestData implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the consignPreferenceId property value. The unique identifier of the consign address to be associated with the bundle.&lt;br&gt;&lt;br&gt;This ID can be retrieved using the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/consign_preference/methods/getConsignPreferences&quot; target=&quot;_blank&quot;&gt;getConsignPreferences&lt;/a&gt; method.
+     * Sets the consignPreferenceId property value. The unique identifier of the consign address to be associated with the bundle.&lt;br&gt;&lt;br&gt;This ID can be retrieved using the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-consign_preference-getconsignpreferences&quot;&gt;getConsignPreferences&lt;/a&gt; method.
      * @param value Value to set for the consignPreferenceId property.
      */
     public void setConsignPreferenceId(@jakarta.annotation.Nullable final String value) {
         this.consignPreferenceId = value;
     }
     /**
-     * Sets the trackingNumbers property value. This array specifies the tracking numbers of the packages to be included in the bundle.&lt;br&gt;&lt;br&gt;Tracking numbers are returned when creating a package through the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/package/methods/createPackage&quot; target=&quot;_blank&quot;&gt;createPackage&lt;/a&gt; method.
+     * Sets the trackingNumbers property value. This array specifies the tracking numbers of the packages to be included in the bundle.&lt;br&gt;&lt;br&gt;Tracking numbers are returned when creating a package through the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-package-createpackage&quot;&gt;createPackage&lt;/a&gt; method.
      * @param value Value to set for the trackingNumbers property.
      */
     public void setTrackingNumbers(@jakarta.annotation.Nullable final java.util.List<String> value) {

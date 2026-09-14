@@ -25,12 +25,14 @@ public final class OtherApisConfiguration {
     private final String identityBaseUrl;
     private final String internationalShippingBaseUrl;
     private final String translationBaseUrl;
+    private final String veroApiV2BaseUrl;
     private final String veroBaseUrl;
 
     public OtherApisConfiguration() {
         this.identityBaseUrl = "https://apiz.ebay.com/commerce/identity/v1";
         this.internationalShippingBaseUrl = "https://api.ebay.com/sell/edelivery_international_shipping/v1";
         this.translationBaseUrl = "https://api.ebay.com/commerce/translation/v1_beta";
+        this.veroApiV2BaseUrl = "https://api.ebay.com/commerce/vero/v2";
         this.veroBaseUrl = "https://api.ebay.com/commerce/vero/v1";
     }
 
@@ -38,10 +40,12 @@ public final class OtherApisConfiguration {
             String identityBaseUrl,
             String internationalShippingBaseUrl,
             String translationBaseUrl,
+            String veroApiV2BaseUrl,
             String veroBaseUrl) {
         this.identityBaseUrl = validateHost(identityBaseUrl);
         this.internationalShippingBaseUrl = validateHost(internationalShippingBaseUrl);
         this.translationBaseUrl = validateHost(translationBaseUrl);
+        this.veroApiV2BaseUrl = validateHost(veroApiV2BaseUrl);
         this.veroBaseUrl = validateHost(veroBaseUrl);
     }
 
@@ -94,6 +98,10 @@ public final class OtherApisConfiguration {
 
     public String getTranslationBaseUrl() {
         return translationBaseUrl;
+    }
+
+    public String getVeroApiV2BaseUrl() {
+        return veroApiV2BaseUrl;
     }
 
     public String getVeroBaseUrl() {

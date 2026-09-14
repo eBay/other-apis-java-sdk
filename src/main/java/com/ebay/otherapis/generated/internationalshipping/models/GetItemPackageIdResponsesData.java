@@ -35,9 +35,9 @@ public class GetItemPackageIdResponsesData implements AdditionalDataHolder, Pars
      */
     private String packageId;
     /**
-     * The current status of the package. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:PackageStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The current status of the package.
      */
-    private String packageStatus;
+    private PackageStatusEnum packageStatus;
     /**
      * The tracking number of the package.
      */
@@ -74,7 +74,7 @@ public class GetItemPackageIdResponsesData implements AdditionalDataHolder, Pars
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
         deserializerMap.put("packageId", (n) -> { this.setPackageId(n.getStringValue()); });
-        deserializerMap.put("packageStatus", (n) -> { this.setPackageStatus(n.getStringValue()); });
+        deserializerMap.put("packageStatus", (n) -> { this.setPackageStatus(n.getEnumValue(PackageStatusEnum::forValue)); });
         deserializerMap.put("trackingNumber", (n) -> { this.setTrackingNumber(n.getStringValue()); });
         return deserializerMap;
     }
@@ -87,11 +87,11 @@ public class GetItemPackageIdResponsesData implements AdditionalDataHolder, Pars
         return this.packageId;
     }
     /**
-     * Gets the packageStatus property value. The current status of the package. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:PackageStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the packageStatus property value. The current status of the package.
+     * @return a {@link PackageStatusEnum}
      */
     @jakarta.annotation.Nullable
-    public String getPackageStatus() {
+    public PackageStatusEnum getPackageStatus() {
         return this.packageStatus;
     }
     /**
@@ -109,7 +109,7 @@ public class GetItemPackageIdResponsesData implements AdditionalDataHolder, Pars
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("packageId", this.getPackageId());
-        writer.writeStringValue("packageStatus", this.getPackageStatus());
+        writer.writeEnumValue("packageStatus", this.getPackageStatus());
         writer.writeStringValue("trackingNumber", this.getTrackingNumber());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -128,10 +128,10 @@ public class GetItemPackageIdResponsesData implements AdditionalDataHolder, Pars
         this.packageId = value;
     }
     /**
-     * Sets the packageStatus property value. The current status of the package. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:PackageStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the packageStatus property value. The current status of the package.
      * @param value Value to set for the packageStatus property.
      */
-    public void setPackageStatus(@jakarta.annotation.Nullable final String value) {
+    public void setPackageStatus(@jakarta.annotation.Nullable final PackageStatusEnum value) {
         this.packageStatus = value;
     }
     /**

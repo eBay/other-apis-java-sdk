@@ -31,7 +31,7 @@ public class CreateBundleResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * This type defines the unique identifier of the newly-created bundle.
+     * This container returns information about the newly created bundle, such as its &lt;b&gt;bundleId&lt;/b&gt; value.
      */
     private CreateBundleResponseData bundle;
     /**
@@ -59,7 +59,7 @@ public class CreateBundleResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the bundle property value. This type defines the unique identifier of the newly-created bundle.
+     * Gets the bundle property value. This container returns information about the newly created bundle, such as its &lt;b&gt;bundleId&lt;/b&gt; value.
      * @return a {@link CreateBundleResponseData}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class CreateBundleResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the bundle property value. This type defines the unique identifier of the newly-created bundle.
+     * Sets the bundle property value. This container returns information about the newly created bundle, such as its &lt;b&gt;bundleId&lt;/b&gt; value.
      * @param value Value to set for the bundle property.
      */
     public void setBundle(@jakarta.annotation.Nullable final CreateBundleResponseData value) {

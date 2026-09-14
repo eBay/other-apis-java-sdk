@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * GetLabelListResponsesData
+ * This type defines the response payload for the &lt;b&gt;getLabels&lt;/b&gt; method.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class GetLabelListResponsesData implements AdditionalDataHolder, Parsable {

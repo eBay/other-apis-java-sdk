@@ -14,6 +14,7 @@
 
 package com.ebay.otherapis.generated.translation.translate;
 
+import com.ebay.otherapis.generated.translation.models.Error;
 import com.ebay.otherapis.generated.translation.models.TranslateRequest;
 import com.ebay.otherapis.generated.translation.models.TranslateResponse;
 import com.microsoft.kiota.BaseRequestBuilder;
@@ -29,7 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Builds and executes requests for operations under /translate
+ * Translate listing content
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class TranslateRequestBuilder extends BaseRequestBuilder {
@@ -50,28 +51,35 @@ public class TranslateRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/translate", rawUrl);
     }
     /**
-     * This method translates listing title and listing description text from one language into another. For a full list of supported language translations, see the &lt;a href=&quot;/develop/guides-v2/other-apis/other-apis-guide#supported-languages&quot;target=&quot;_blank &quot;&gt;table&lt;/a&gt;.
+     * This method translates listing title and listing description text from one language into another. For a full list of supported language translations, see the &lt;a href=&quot;/develop/guides-v2/other-apis-guide#supported-languages&quot; target=&quot;_blank&quot;&gt;table&lt;/a&gt;.
      * @param body This is the base type of the &lt;b&gt;translate&lt;/b&gt; method request payload.
      * @return a {@link TranslateResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public TranslateResponse post(@jakarta.annotation.Nonnull final TranslateRequest body) {
         return post(body, null);
     }
     /**
-     * This method translates listing title and listing description text from one language into another. For a full list of supported language translations, see the &lt;a href=&quot;/develop/guides-v2/other-apis/other-apis-guide#supported-languages&quot;target=&quot;_blank &quot;&gt;table&lt;/a&gt;.
+     * This method translates listing title and listing description text from one language into another. For a full list of supported language translations, see the &lt;a href=&quot;/develop/guides-v2/other-apis-guide#supported-languages&quot; target=&quot;_blank&quot;&gt;table&lt;/a&gt;.
      * @param body This is the base type of the &lt;b&gt;translate&lt;/b&gt; method request payload.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link TranslateResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public TranslateResponse post(@jakarta.annotation.Nonnull final TranslateRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, TranslateResponse::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, TranslateResponse::createFromDiscriminatorValue);
     }
     /**
-     * This method translates listing title and listing description text from one language into another. For a full list of supported language translations, see the &lt;a href=&quot;/develop/guides-v2/other-apis/other-apis-guide#supported-languages&quot;target=&quot;_blank &quot;&gt;table&lt;/a&gt;.
+     * This method translates listing title and listing description text from one language into another. For a full list of supported language translations, see the &lt;a href=&quot;/develop/guides-v2/other-apis-guide#supported-languages&quot; target=&quot;_blank&quot;&gt;table&lt;/a&gt;.
      * @param body This is the base type of the &lt;b&gt;translate&lt;/b&gt; method request payload.
      * @return a {@link RequestInformation}
      */
@@ -80,7 +88,7 @@ public class TranslateRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * This method translates listing title and listing description text from one language into another. For a full list of supported language translations, see the &lt;a href=&quot;/develop/guides-v2/other-apis/other-apis-guide#supported-languages&quot;target=&quot;_blank &quot;&gt;table&lt;/a&gt;.
+     * This method translates listing title and listing description text from one language into another. For a full list of supported language translations, see the &lt;a href=&quot;/develop/guides-v2/other-apis-guide#supported-languages&quot; target=&quot;_blank&quot;&gt;table&lt;/a&gt;.
      * @param body This is the base type of the &lt;b&gt;translate&lt;/b&gt; method request payload.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

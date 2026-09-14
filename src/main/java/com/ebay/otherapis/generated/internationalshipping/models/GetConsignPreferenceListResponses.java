@@ -31,7 +31,7 @@ public class GetConsignPreferenceListResponses implements AdditionalDataHolder, 
      */
     private Map<String, Object> additionalData;
     /**
-     * This type defines the fields associated with a seller&apos;s consign addresses, including the location and contact details of the address, as well as its unique identifiers.
+     * This container returns a list of all consign addresses associated with a seller&apos;s eDIS account.
      */
     private GetConsignPreferenceListResponsesData consignPreferenceList;
     /**
@@ -59,7 +59,7 @@ public class GetConsignPreferenceListResponses implements AdditionalDataHolder, 
         return this.additionalData;
     }
     /**
-     * Gets the consignPreferenceList property value. This type defines the fields associated with a seller&apos;s consign addresses, including the location and contact details of the address, as well as its unique identifiers.
+     * Gets the consignPreferenceList property value. This container returns a list of all consign addresses associated with a seller&apos;s eDIS account.
      * @return a {@link GetConsignPreferenceListResponsesData}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class GetConsignPreferenceListResponses implements AdditionalDataHolder, 
         this.additionalData = value;
     }
     /**
-     * Sets the consignPreferenceList property value. This type defines the fields associated with a seller&apos;s consign addresses, including the location and contact details of the address, as well as its unique identifiers.
+     * Sets the consignPreferenceList property value. This container returns a list of all consign addresses associated with a seller&apos;s eDIS account.
      * @param value Value to set for the consignPreferenceList property.
      */
     public void setConsignPreferenceList(@jakarta.annotation.Nullable final GetConsignPreferenceListResponsesData value) {

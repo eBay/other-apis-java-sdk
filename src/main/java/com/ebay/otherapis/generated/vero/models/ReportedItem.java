@@ -39,9 +39,9 @@ public class ReportedItem implements AdditionalDataHolder, Parsable {
      */
     private String reasonForFailure;
     /**
-     * The current status of the VeRO reported item. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/vero/types/VeroReportedItemStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The current status of the VeRO reported item.
      */
-    private String status;
+    private VeroReportedItemStatusEnum status;
     /**
      * Instantiates a new {@link ReportedItem} and sets the default values.
      */
@@ -75,7 +75,7 @@ public class ReportedItem implements AdditionalDataHolder, Parsable {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
         deserializerMap.put("itemId", (n) -> { this.setItemId(n.getStringValue()); });
         deserializerMap.put("reasonForFailure", (n) -> { this.setReasonForFailure(n.getStringValue()); });
-        deserializerMap.put("status", (n) -> { this.setStatus(n.getStringValue()); });
+        deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(VeroReportedItemStatusEnum::forValue)); });
         return deserializerMap;
     }
     /**
@@ -95,11 +95,11 @@ public class ReportedItem implements AdditionalDataHolder, Parsable {
         return this.reasonForFailure;
     }
     /**
-     * Gets the status property value. The current status of the VeRO reported item. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/vero/types/VeroReportedItemStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the status property value. The current status of the VeRO reported item.
+     * @return a {@link VeroReportedItemStatusEnum}
      */
     @jakarta.annotation.Nullable
-    public String getStatus() {
+    public VeroReportedItemStatusEnum getStatus() {
         return this.status;
     }
     /**
@@ -110,7 +110,7 @@ public class ReportedItem implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeStringValue("itemId", this.getItemId());
         writer.writeStringValue("reasonForFailure", this.getReasonForFailure());
-        writer.writeStringValue("status", this.getStatus());
+        writer.writeEnumValue("status", this.getStatus());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -135,10 +135,10 @@ public class ReportedItem implements AdditionalDataHolder, Parsable {
         this.reasonForFailure = value;
     }
     /**
-     * Sets the status property value. The current status of the VeRO reported item. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/vero/types/VeroReportedItemStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the status property value. The current status of the VeRO reported item.
      * @param value Value to set for the status property.
      */
-    public void setStatus(@jakarta.annotation.Nullable final String value) {
+    public void setStatus(@jakarta.annotation.Nullable final VeroReportedItemStatusEnum value) {
         this.status = value;
     }
 }

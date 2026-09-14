@@ -31,7 +31,7 @@ public class CreateAddressPreferenceRequest implements AdditionalDataHolder, Par
      */
     private Map<String, Object> additionalData;
     /**
-     * This type is used to specify the address details used to create an address.
+     * This container is used to specify the address details used to create an address.
      */
     private CreateAddressPreferenceRequestData shipFromAddress;
     /**
@@ -69,7 +69,7 @@ public class CreateAddressPreferenceRequest implements AdditionalDataHolder, Par
         return deserializerMap;
     }
     /**
-     * Gets the shipFromAddress property value. This type is used to specify the address details used to create an address.
+     * Gets the shipFromAddress property value. This container is used to specify the address details used to create an address.
      * @return a {@link CreateAddressPreferenceRequestData}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class CreateAddressPreferenceRequest implements AdditionalDataHolder, Par
         this.additionalData = value;
     }
     /**
-     * Sets the shipFromAddress property value. This type is used to specify the address details used to create an address.
+     * Sets the shipFromAddress property value. This container is used to specify the address details used to create an address.
      * @param value Value to set for the shipFromAddress property.
      */
     public void setShipFromAddress(@jakarta.annotation.Nullable final CreateAddressPreferenceRequestData value) {

@@ -35,7 +35,7 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class TranslationApiClient extends BaseRequestBuilder {
     /**
-     * The translate property
+     * Translate listing content
      * @return a {@link TranslateRequestBuilder}
      */
     @jakarta.annotation.Nonnull

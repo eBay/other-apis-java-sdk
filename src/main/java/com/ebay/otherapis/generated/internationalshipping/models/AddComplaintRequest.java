@@ -31,7 +31,7 @@ public class AddComplaintRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * This type specifies the information included in a complaint request.
+     * This container is used to specify the information included in a complaint request, such as the complaint reason, date, and type.
      */
     private AddComplaintRequestData complaintRequest;
     /**
@@ -59,7 +59,7 @@ public class AddComplaintRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the complaintRequest property value. This type specifies the information included in a complaint request.
+     * Gets the complaintRequest property value. This container is used to specify the information included in a complaint request, such as the complaint reason, date, and type.
      * @return a {@link AddComplaintRequestData}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class AddComplaintRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the complaintRequest property value. This type specifies the information included in a complaint request.
+     * Sets the complaintRequest property value. This container is used to specify the information included in a complaint request, such as the complaint reason, date, and type.
      * @param value Value to set for the complaintRequest property.
      */
     public void setComplaintRequest(@jakarta.annotation.Nullable final AddComplaintRequestData value) {

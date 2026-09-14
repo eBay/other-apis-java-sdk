@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The type that defines the fields for the information of an individual account.
+ * The type that defines the fields for information about an individual eBay account.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class IndividualAccount implements AdditionalDataHolder, Parsable {
@@ -43,15 +43,15 @@ public class IndividualAccount implements AdditionalDataHolder, Parsable {
      */
     private String lastName;
     /**
-     * The type that defines the fields for the details of a phone.
+     * The primary phone number associated with the individual account, if available.
      */
     private Phone primaryPhone;
     /**
-     * The type that defines the fields for an address.
+     * The container that returns the eBay user&apos;s address information.
      */
     private Address registrationAddress;
     /**
-     * The type that defines the fields for the details of a phone.
+     * A secondary phone number registered with the individual eBay account.
      */
     private Phone secondaryPhone;
     /**
@@ -118,7 +118,7 @@ public class IndividualAccount implements AdditionalDataHolder, Parsable {
         return this.lastName;
     }
     /**
-     * Gets the primaryPhone property value. The type that defines the fields for the details of a phone.
+     * Gets the primaryPhone property value. The primary phone number associated with the individual account, if available.
      * @return a {@link Phone}
      */
     @jakarta.annotation.Nullable
@@ -126,7 +126,7 @@ public class IndividualAccount implements AdditionalDataHolder, Parsable {
         return this.primaryPhone;
     }
     /**
-     * Gets the registrationAddress property value. The type that defines the fields for an address.
+     * Gets the registrationAddress property value. The container that returns the eBay user&apos;s address information.
      * @return a {@link Address}
      */
     @jakarta.annotation.Nullable
@@ -134,7 +134,7 @@ public class IndividualAccount implements AdditionalDataHolder, Parsable {
         return this.registrationAddress;
     }
     /**
-     * Gets the secondaryPhone property value. The type that defines the fields for the details of a phone.
+     * Gets the secondaryPhone property value. A secondary phone number registered with the individual eBay account.
      * @return a {@link Phone}
      */
     @jakarta.annotation.Nullable
@@ -184,21 +184,21 @@ public class IndividualAccount implements AdditionalDataHolder, Parsable {
         this.lastName = value;
     }
     /**
-     * Sets the primaryPhone property value. The type that defines the fields for the details of a phone.
+     * Sets the primaryPhone property value. The primary phone number associated with the individual account, if available.
      * @param value Value to set for the primaryPhone property.
      */
     public void setPrimaryPhone(@jakarta.annotation.Nullable final Phone value) {
         this.primaryPhone = value;
     }
     /**
-     * Sets the registrationAddress property value. The type that defines the fields for an address.
+     * Sets the registrationAddress property value. The container that returns the eBay user&apos;s address information.
      * @param value Value to set for the registrationAddress property.
      */
     public void setRegistrationAddress(@jakarta.annotation.Nullable final Address value) {
         this.registrationAddress = value;
     }
     /**
-     * Sets the secondaryPhone property value. The type that defines the fields for the details of a phone.
+     * Sets the secondaryPhone property value. A secondary phone number registered with the individual eBay account.
      * @param value Value to set for the secondaryPhone property.
      */
     public void setSecondaryPhone(@jakarta.annotation.Nullable final Phone value) {

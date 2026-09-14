@@ -31,7 +31,7 @@ public class DeletePackagesRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * DeletePackagesRequestData
+     * This container is used to specify the package ID values for the packages being deleted.
      */
     private DeletePackagesRequestData requests;
     /**
@@ -69,7 +69,7 @@ public class DeletePackagesRequest implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the requests property value. DeletePackagesRequestData
+     * Gets the requests property value. This container is used to specify the package ID values for the packages being deleted.
      * @return a {@link DeletePackagesRequestData}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class DeletePackagesRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the requests property value. DeletePackagesRequestData
+     * Sets the requests property value. This container is used to specify the package ID values for the packages being deleted.
      * @param value Value to set for the requests property.
      */
     public void setRequests(@jakarta.annotation.Nullable final DeletePackagesRequestData value) {

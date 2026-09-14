@@ -1,0 +1,165 @@
+// Copyright 2026 eBay Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+package com.ebay.otherapis.generated.veroapiv2.models;
+
+import com.microsoft.kiota.serialization.AdditionalDataHolder;
+import com.microsoft.kiota.serialization.Parsable;
+import com.microsoft.kiota.serialization.ParseNode;
+import com.microsoft.kiota.serialization.SerializationWriter;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+/**
+ * This type defines the details of a VeRO reason code, including its identifier, the associated marketplace, and the brief and detailed descriptions of the intellectual property right infringement.
+ */
+@jakarta.annotation.Generated("com.microsoft.kiota")
+public class VeroReasonCode implements AdditionalDataHolder, Parsable {
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
+    private Map<String, Object> additionalData;
+    /**
+     * The short description of the infringement associated with the reason code.
+     */
+    private String briefText;
+    /**
+     * The long description of the infringement associated with the reason code.
+     */
+    private String detailedText;
+    /**
+     * The eBay site for which reason code details are returned.
+     */
+    private MarketplaceIdEnum marketplaceId;
+    /**
+     * The unique identifier of a VeRO reason code.
+     */
+    private String veroReasonCodeId;
+    /**
+     * Instantiates a new {@link VeroReasonCode} and sets the default values.
+     */
+    public VeroReasonCode() {
+        this.setAdditionalData(new HashMap<>());
+    }
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param parseNode The parse node to use to read the discriminator value and create the object
+     * @return a {@link VeroReasonCode}
+     */
+    @jakarta.annotation.Nonnull
+    public static VeroReasonCode createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
+        Objects.requireNonNull(parseNode);
+        return new VeroReasonCode();
+    }
+    /**
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return a {@link Map<String, Object>}
+     */
+    @jakarta.annotation.Nonnull
+    public Map<String, Object> getAdditionalData() {
+        return this.additionalData;
+    }
+    /**
+     * Gets the briefText property value. The short description of the infringement associated with the reason code.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getBriefText() {
+        return this.briefText;
+    }
+    /**
+     * Gets the detailedText property value. The long description of the infringement associated with the reason code.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getDetailedText() {
+        return this.detailedText;
+    }
+    /**
+     * The deserialization information for the current model
+     * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
+     */
+    @jakarta.annotation.Nonnull
+    public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(4);
+        deserializerMap.put("briefText", (n) -> { this.setBriefText(n.getStringValue()); });
+        deserializerMap.put("detailedText", (n) -> { this.setDetailedText(n.getStringValue()); });
+        deserializerMap.put("marketplaceId", (n) -> { this.setMarketplaceId(n.getEnumValue(MarketplaceIdEnum::forValue)); });
+        deserializerMap.put("veroReasonCodeId", (n) -> { this.setVeroReasonCodeId(n.getStringValue()); });
+        return deserializerMap;
+    }
+    /**
+     * Gets the marketplaceId property value. The eBay site for which reason code details are returned.
+     * @return a {@link MarketplaceIdEnum}
+     */
+    @jakarta.annotation.Nullable
+    public MarketplaceIdEnum getMarketplaceId() {
+        return this.marketplaceId;
+    }
+    /**
+     * Gets the veroReasonCodeId property value. The unique identifier of a VeRO reason code.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getVeroReasonCodeId() {
+        return this.veroReasonCodeId;
+    }
+    /**
+     * Serializes information the current object
+     * @param writer Serialization writer to use to serialize this model
+     */
+    public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
+        Objects.requireNonNull(writer);
+        writer.writeStringValue("briefText", this.getBriefText());
+        writer.writeStringValue("detailedText", this.getDetailedText());
+        writer.writeEnumValue("marketplaceId", this.getMarketplaceId());
+        writer.writeStringValue("veroReasonCodeId", this.getVeroReasonCodeId());
+        writer.writeAdditionalData(this.getAdditionalData());
+    }
+    /**
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
+        this.additionalData = value;
+    }
+    /**
+     * Sets the briefText property value. The short description of the infringement associated with the reason code.
+     * @param value Value to set for the briefText property.
+     */
+    public void setBriefText(@jakarta.annotation.Nullable final String value) {
+        this.briefText = value;
+    }
+    /**
+     * Sets the detailedText property value. The long description of the infringement associated with the reason code.
+     * @param value Value to set for the detailedText property.
+     */
+    public void setDetailedText(@jakarta.annotation.Nullable final String value) {
+        this.detailedText = value;
+    }
+    /**
+     * Sets the marketplaceId property value. The eBay site for which reason code details are returned.
+     * @param value Value to set for the marketplaceId property.
+     */
+    public void setMarketplaceId(@jakarta.annotation.Nullable final MarketplaceIdEnum value) {
+        this.marketplaceId = value;
+    }
+    /**
+     * Sets the veroReasonCodeId property value. The unique identifier of a VeRO reason code.
+     * @param value Value to set for the veroReasonCodeId property.
+     */
+    public void setVeroReasonCodeId(@jakarta.annotation.Nullable final String value) {
+        this.veroReasonCodeId = value;
+    }
+}

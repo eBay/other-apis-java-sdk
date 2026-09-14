@@ -31,9 +31,9 @@ public class Amount implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * This enum value represents the type of currency being used. Both the &lt;b&gt;value&lt;/b&gt; and &lt;b&gt;currency fields&lt;/b&gt; are required/always returned when expressing cost.&lt;br&gt;&lt;br&gt; See the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/types/bas:CurrencyCodeEnum&quot; target=&quot;_blank&quot;&gt;CurrencyCodeEnum&lt;/a&gt; type for the full list of supported values.&lt;br&gt;&lt;br&gt;Both the &lt;b&gt;value&lt;/b&gt; and &lt;b&gt;currency&lt;/b&gt; fields are required/always returned when expressing cost. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/bas:CurrencyCodeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * This enum value represents the type of currency being used. Both the &lt;b&gt;value&lt;/b&gt; and &lt;b&gt;currency fields&lt;/b&gt; are required/always returned when expressing cost.&lt;br&gt;&lt;br&gt; See the &lt;b&gt;CurrencyCodeEnum&lt;/b&gt; type for the full list of supported values.&lt;br&gt;&lt;br&gt;Both the &lt;b&gt;value&lt;/b&gt; and &lt;b&gt;currency&lt;/b&gt; fields are required/always returned when expressing cost.
      */
-    private String currency;
+    private CurrencyCodeEnum currency;
     /**
      * The monetary amount, in the currency specified by the &lt;b&gt;currency&lt;/b&gt; field.&lt;br&gt;&lt;br&gt;Both the &lt;b&gt;value&lt;/b&gt; and &lt;b&gt;currency&lt;/b&gt; fields are required/always returned when expressing cost.
      */
@@ -63,11 +63,11 @@ public class Amount implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the currency property value. This enum value represents the type of currency being used. Both the &lt;b&gt;value&lt;/b&gt; and &lt;b&gt;currency fields&lt;/b&gt; are required/always returned when expressing cost.&lt;br&gt;&lt;br&gt; See the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/types/bas:CurrencyCodeEnum&quot; target=&quot;_blank&quot;&gt;CurrencyCodeEnum&lt;/a&gt; type for the full list of supported values.&lt;br&gt;&lt;br&gt;Both the &lt;b&gt;value&lt;/b&gt; and &lt;b&gt;currency&lt;/b&gt; fields are required/always returned when expressing cost. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/bas:CurrencyCodeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the currency property value. This enum value represents the type of currency being used. Both the &lt;b&gt;value&lt;/b&gt; and &lt;b&gt;currency fields&lt;/b&gt; are required/always returned when expressing cost.&lt;br&gt;&lt;br&gt; See the &lt;b&gt;CurrencyCodeEnum&lt;/b&gt; type for the full list of supported values.&lt;br&gt;&lt;br&gt;Both the &lt;b&gt;value&lt;/b&gt; and &lt;b&gt;currency&lt;/b&gt; fields are required/always returned when expressing cost.
+     * @return a {@link CurrencyCodeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getCurrency() {
+    public CurrencyCodeEnum getCurrency() {
         return this.currency;
     }
     /**
@@ -77,7 +77,7 @@ public class Amount implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
-        deserializerMap.put("currency", (n) -> { this.setCurrency(n.getStringValue()); });
+        deserializerMap.put("currency", (n) -> { this.setCurrency(n.getEnumValue(CurrencyCodeEnum::forValue)); });
         deserializerMap.put("value", (n) -> { this.setValue(n.getStringValue()); });
         return deserializerMap;
     }
@@ -95,7 +95,7 @@ public class Amount implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("currency", this.getCurrency());
+        writer.writeEnumValue("currency", this.getCurrency());
         writer.writeStringValue("value", this.getValue());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -107,10 +107,10 @@ public class Amount implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the currency property value. This enum value represents the type of currency being used. Both the &lt;b&gt;value&lt;/b&gt; and &lt;b&gt;currency fields&lt;/b&gt; are required/always returned when expressing cost.&lt;br&gt;&lt;br&gt; See the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/types/bas:CurrencyCodeEnum&quot; target=&quot;_blank&quot;&gt;CurrencyCodeEnum&lt;/a&gt; type for the full list of supported values.&lt;br&gt;&lt;br&gt;Both the &lt;b&gt;value&lt;/b&gt; and &lt;b&gt;currency&lt;/b&gt; fields are required/always returned when expressing cost. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/bas:CurrencyCodeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the currency property value. This enum value represents the type of currency being used. Both the &lt;b&gt;value&lt;/b&gt; and &lt;b&gt;currency fields&lt;/b&gt; are required/always returned when expressing cost.&lt;br&gt;&lt;br&gt; See the &lt;b&gt;CurrencyCodeEnum&lt;/b&gt; type for the full list of supported values.&lt;br&gt;&lt;br&gt;Both the &lt;b&gt;value&lt;/b&gt; and &lt;b&gt;currency&lt;/b&gt; fields are required/always returned when expressing cost.
      * @param value Value to set for the currency property.
      */
-    public void setCurrency(@jakarta.annotation.Nullable final String value) {
+    public void setCurrency(@jakarta.annotation.Nullable final CurrencyCodeEnum value) {
         this.currency = value;
     }
     /**

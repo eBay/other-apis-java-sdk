@@ -31,7 +31,7 @@ public class CreateConsignPreferenceResponsesData implements AdditionalDataHolde
      */
     private Map<String, Object> additionalData;
     /**
-     * The unique identifier of the newly-created consign address.&lt;br&gt;&lt;br&gt;This ID can be used when creating a package through the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/package/methods/createPackage&quot; target=&quot;_blank&quot;&gt;createPackage&lt;/a&gt; method to specify the pickup, drop-off, or forward deployment address associated with the package.
+     * The unique identifier of the newly-created consign address.&lt;br&gt;&lt;br&gt;This ID can be used when creating a package through the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-package-createpackage&quot;&gt;createPackage&lt;/a&gt; method to specify the pickup, drop-off, or forward deployment address associated with the package.
      */
     private String consignPreferenceId;
     /**
@@ -59,7 +59,7 @@ public class CreateConsignPreferenceResponsesData implements AdditionalDataHolde
         return this.additionalData;
     }
     /**
-     * Gets the consignPreferenceId property value. The unique identifier of the newly-created consign address.&lt;br&gt;&lt;br&gt;This ID can be used when creating a package through the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/package/methods/createPackage&quot; target=&quot;_blank&quot;&gt;createPackage&lt;/a&gt; method to specify the pickup, drop-off, or forward deployment address associated with the package.
+     * Gets the consignPreferenceId property value. The unique identifier of the newly-created consign address.&lt;br&gt;&lt;br&gt;This ID can be used when creating a package through the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-package-createpackage&quot;&gt;createPackage&lt;/a&gt; method to specify the pickup, drop-off, or forward deployment address associated with the package.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class CreateConsignPreferenceResponsesData implements AdditionalDataHolde
         this.additionalData = value;
     }
     /**
-     * Sets the consignPreferenceId property value. The unique identifier of the newly-created consign address.&lt;br&gt;&lt;br&gt;This ID can be used when creating a package through the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/package/methods/createPackage&quot; target=&quot;_blank&quot;&gt;createPackage&lt;/a&gt; method to specify the pickup, drop-off, or forward deployment address associated with the package.
+     * Sets the consignPreferenceId property value. The unique identifier of the newly-created consign address.&lt;br&gt;&lt;br&gt;This ID can be used when creating a package through the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-package-createpackage&quot;&gt;createPackage&lt;/a&gt; method to specify the pickup, drop-off, or forward deployment address associated with the package.
      * @param value Value to set for the consignPreferenceId property.
      */
     public void setConsignPreferenceId(@jakarta.annotation.Nullable final String value) {

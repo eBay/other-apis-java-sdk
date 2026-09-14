@@ -21,6 +21,9 @@ import com.microsoft.kiota.serialization.SerializationWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * This type defines the response payload of the &lt;b&gt;getVeroReasonCode&lt;/b&gt; method.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class VeroReasonCodeResponse implements AdditionalDataHolder, Parsable {
     /**
@@ -28,11 +31,11 @@ public class VeroReasonCodeResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The eBay site for which reason code details are returned. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/vero/types/br:MarketplaceIdEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The eBay site for which reason code details are returned.
      */
-    private String marketplaceId;
+    private MarketplaceIdEnum marketplaceId;
     /**
-     * This type defines the brief and detailed description of a VeRO infringement, as well as the ID associated with the infringement.
+     * This container includes both brief and detailed text descriptions for the VeRO program intellectual property right infringement reason, as well as the ID for the reason code
      */
     private ReasonCodeDetailType reasonCodeDetails;
     /**
@@ -66,20 +69,20 @@ public class VeroReasonCodeResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
-        deserializerMap.put("marketplaceId", (n) -> { this.setMarketplaceId(n.getStringValue()); });
+        deserializerMap.put("marketplaceId", (n) -> { this.setMarketplaceId(n.getEnumValue(MarketplaceIdEnum::forValue)); });
         deserializerMap.put("reasonCodeDetails", (n) -> { this.setReasonCodeDetails(n.getObjectValue(ReasonCodeDetailType::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
-     * Gets the marketplaceId property value. The eBay site for which reason code details are returned. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/vero/types/br:MarketplaceIdEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the marketplaceId property value. The eBay site for which reason code details are returned.
+     * @return a {@link MarketplaceIdEnum}
      */
     @jakarta.annotation.Nullable
-    public String getMarketplaceId() {
+    public MarketplaceIdEnum getMarketplaceId() {
         return this.marketplaceId;
     }
     /**
-     * Gets the reasonCodeDetails property value. This type defines the brief and detailed description of a VeRO infringement, as well as the ID associated with the infringement.
+     * Gets the reasonCodeDetails property value. This container includes both brief and detailed text descriptions for the VeRO program intellectual property right infringement reason, as well as the ID for the reason code
      * @return a {@link ReasonCodeDetailType}
      */
     @jakarta.annotation.Nullable
@@ -92,7 +95,7 @@ public class VeroReasonCodeResponse implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("marketplaceId", this.getMarketplaceId());
+        writer.writeEnumValue("marketplaceId", this.getMarketplaceId());
         writer.writeObjectValue("reasonCodeDetails", this.getReasonCodeDetails());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -104,14 +107,14 @@ public class VeroReasonCodeResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the marketplaceId property value. The eBay site for which reason code details are returned. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/vero/types/br:MarketplaceIdEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the marketplaceId property value. The eBay site for which reason code details are returned.
      * @param value Value to set for the marketplaceId property.
      */
-    public void setMarketplaceId(@jakarta.annotation.Nullable final String value) {
+    public void setMarketplaceId(@jakarta.annotation.Nullable final MarketplaceIdEnum value) {
         this.marketplaceId = value;
     }
     /**
-     * Sets the reasonCodeDetails property value. This type defines the brief and detailed description of a VeRO infringement, as well as the ID associated with the infringement.
+     * Sets the reasonCodeDetails property value. This container includes both brief and detailed text descriptions for the VeRO program intellectual property right infringement reason, as well as the ID for the reason code
      * @param value Value to set for the reasonCodeDetails property.
      */
     public void setReasonCodeDetails(@jakarta.annotation.Nullable final ReasonCodeDetailType value) {

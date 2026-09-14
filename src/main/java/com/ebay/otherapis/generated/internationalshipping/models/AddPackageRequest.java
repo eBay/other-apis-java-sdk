@@ -31,7 +31,7 @@ public class AddPackageRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * This type is used to specify the package information needed to create a package.
+     * This container is used to specify the information needed to create a package.
      */
     private PackageInfoRequest packageInfo;
     /**
@@ -69,7 +69,7 @@ public class AddPackageRequest implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the packageInfo property value. This type is used to specify the package information needed to create a package.
+     * Gets the packageInfo property value. This container is used to specify the information needed to create a package.
      * @return a {@link PackageInfoRequest}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class AddPackageRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the packageInfo property value. This type is used to specify the package information needed to create a package.
+     * Sets the packageInfo property value. This container is used to specify the information needed to create a package.
      * @param value Value to set for the packageInfo property.
      */
     public void setPackageInfo(@jakarta.annotation.Nullable final PackageInfoRequest value) {

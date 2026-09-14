@@ -35,9 +35,9 @@ public class VeroReportItemsResponse implements AdditionalDataHolder, Parsable {
      */
     private String veroReportId;
     /**
-     * The processing status of the VeRO report. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/vero/types/VeroReportStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The processing status of the VeRO report.
      */
-    private String veroReportStatus;
+    private VeroReportStatusEnum veroReportStatus;
     /**
      * Instantiates a new {@link VeroReportItemsResponse} and sets the default values.
      */
@@ -70,7 +70,7 @@ public class VeroReportItemsResponse implements AdditionalDataHolder, Parsable {
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
         deserializerMap.put("veroReportId", (n) -> { this.setVeroReportId(n.getStringValue()); });
-        deserializerMap.put("veroReportStatus", (n) -> { this.setVeroReportStatus(n.getStringValue()); });
+        deserializerMap.put("veroReportStatus", (n) -> { this.setVeroReportStatus(n.getEnumValue(VeroReportStatusEnum::forValue)); });
         return deserializerMap;
     }
     /**
@@ -82,11 +82,11 @@ public class VeroReportItemsResponse implements AdditionalDataHolder, Parsable {
         return this.veroReportId;
     }
     /**
-     * Gets the veroReportStatus property value. The processing status of the VeRO report. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/vero/types/VeroReportStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the veroReportStatus property value. The processing status of the VeRO report.
+     * @return a {@link VeroReportStatusEnum}
      */
     @jakarta.annotation.Nullable
-    public String getVeroReportStatus() {
+    public VeroReportStatusEnum getVeroReportStatus() {
         return this.veroReportStatus;
     }
     /**
@@ -96,7 +96,7 @@ public class VeroReportItemsResponse implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("veroReportId", this.getVeroReportId());
-        writer.writeStringValue("veroReportStatus", this.getVeroReportStatus());
+        writer.writeEnumValue("veroReportStatus", this.getVeroReportStatus());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -114,10 +114,10 @@ public class VeroReportItemsResponse implements AdditionalDataHolder, Parsable {
         this.veroReportId = value;
     }
     /**
-     * Sets the veroReportStatus property value. The processing status of the VeRO report. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/commerce/vero/types/VeroReportStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the veroReportStatus property value. The processing status of the VeRO report.
      * @param value Value to set for the veroReportStatus property.
      */
-    public void setVeroReportStatus(@jakarta.annotation.Nullable final String value) {
+    public void setVeroReportStatus(@jakarta.annotation.Nullable final VeroReportStatusEnum value) {
         this.veroReportStatus = value;
     }
 }

@@ -17,6 +17,7 @@ package com.ebay.otherapis.generated.internationalshipping.bundle;
 import com.ebay.otherapis.generated.internationalshipping.bundle.item.WithBundleItemRequestBuilder;
 import com.ebay.otherapis.generated.internationalshipping.models.CreateBundleRequest;
 import com.ebay.otherapis.generated.internationalshipping.models.CreateBundleResponse;
+import com.ebay.otherapis.generated.internationalshipping.models.Error;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
@@ -36,7 +37,7 @@ import java.util.Objects;
 public class BundleRequestBuilder extends BaseRequestBuilder {
     /**
      * Gets an item from the com.ebay.otherapis.generated.internationalshipping.bundle.item collection
-     * @param bundle_id This path parameter specifies the unique identifier of the bundle being retrieved.&lt;br&gt;&lt;br&gt;This ID value is returned when creating a bundle through the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/bundle/methods/createBundle&quot; target=&quot;_blank&quot;&gt;createBundle&lt;/a&gt; method.
+     * @param bundle_id This path parameter specifies the unique identifier of the bundle being retrieved.&lt;br&gt;&lt;br&gt;This ID value is returned when creating a bundle through the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-bundle-createbundle&quot;&gt;createBundle&lt;/a&gt; method.
      * @return a {@link WithBundleItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull
@@ -66,6 +67,9 @@ public class BundleRequestBuilder extends BaseRequestBuilder {
      * &lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; This method is only available for Greater-China based sellers with an active eDIS account.&lt;/p&gt;&lt;/div&gt;&lt;br&gt;This method is used to create a bundle for multiple packages in an order.&lt;br&gt;&lt;br&gt;To create a bundle, the consign address to be associated with the bundle and the tracking numbers of the packages to be used in the bundle must be specified in the request. &lt;br&gt;&lt;br&gt;If the call is successful, the &lt;b&gt;bundleId&lt;/b&gt; for the newly created bundle will be returned.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; Sellers should keep track of the returned &lt;b&gt;bundleId&lt;/b&gt;, as there is no programmatic way to retrieve this value at this time.&lt;/span&gt;
      * @param body This type defines the request container of the &lt;b&gt;createBundle&lt;/b&gt; method.
      * @return a {@link CreateBundleResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 401 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public CreateBundleResponse post(@jakarta.annotation.Nonnull final CreateBundleRequest body) {
@@ -76,12 +80,19 @@ public class BundleRequestBuilder extends BaseRequestBuilder {
      * @param body This type defines the request container of the &lt;b&gt;createBundle&lt;/b&gt; method.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link CreateBundleResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 401 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public CreateBundleResponse post(@jakarta.annotation.Nonnull final CreateBundleRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, CreateBundleResponse::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("401", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, CreateBundleResponse::createFromDiscriminatorValue);
     }
     /**
      * &lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; This method is only available for Greater-China based sellers with an active eDIS account.&lt;/p&gt;&lt;/div&gt;&lt;br&gt;This method is used to create a bundle for multiple packages in an order.&lt;br&gt;&lt;br&gt;To create a bundle, the consign address to be associated with the bundle and the tracking numbers of the packages to be used in the bundle must be specified in the request. &lt;br&gt;&lt;br&gt;If the call is successful, the &lt;b&gt;bundleId&lt;/b&gt; for the newly created bundle will be returned.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; Sellers should keep track of the returned &lt;b&gt;bundleId&lt;/b&gt;, as there is no programmatic way to retrieve this value at this time.&lt;/span&gt;

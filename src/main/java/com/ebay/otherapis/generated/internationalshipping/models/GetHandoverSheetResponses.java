@@ -31,7 +31,7 @@ public class GetHandoverSheetResponses implements AdditionalDataHolder, Parsable
      */
     private Map<String, Object> additionalData;
     /**
-     * This type specifies the base64 string value for a handover sheet.
+     * This container returns the base64 string value for a handover sheet.
      */
     private GetHandoverSheetResponsesData handoverSheet;
     /**
@@ -69,7 +69,7 @@ public class GetHandoverSheetResponses implements AdditionalDataHolder, Parsable
         return deserializerMap;
     }
     /**
-     * Gets the handoverSheet property value. This type specifies the base64 string value for a handover sheet.
+     * Gets the handoverSheet property value. This container returns the base64 string value for a handover sheet.
      * @return a {@link GetHandoverSheetResponsesData}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class GetHandoverSheetResponses implements AdditionalDataHolder, Parsable
         this.additionalData = value;
     }
     /**
-     * Sets the handoverSheet property value. This type specifies the base64 string value for a handover sheet.
+     * Sets the handoverSheet property value. This container returns the base64 string value for a handover sheet.
      * @param value Value to set for the handoverSheet property.
      */
     public void setHandoverSheet(@jakarta.annotation.Nullable final GetHandoverSheetResponsesData value) {

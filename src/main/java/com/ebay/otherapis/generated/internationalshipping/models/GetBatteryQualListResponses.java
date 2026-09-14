@@ -31,7 +31,7 @@ public class GetBatteryQualListResponses implements AdditionalDataHolder, Parsab
      */
     private Map<String, Object> additionalData;
     /**
-     * This type defines the fields in a paginated result set of battery qualifications associated with a seller&apos;s eDIS account. The response consists of 0 or more sequenced pages that are returned from the complete result set, where each page consists of 0 or more items.
+     * This container returns a list of all battery qualifications associated with an eDIS account.
      */
     private GetBatteryQualListResponsesData batteryQualificationList;
     /**
@@ -59,7 +59,7 @@ public class GetBatteryQualListResponses implements AdditionalDataHolder, Parsab
         return this.additionalData;
     }
     /**
-     * Gets the batteryQualificationList property value. This type defines the fields in a paginated result set of battery qualifications associated with a seller&apos;s eDIS account. The response consists of 0 or more sequenced pages that are returned from the complete result set, where each page consists of 0 or more items.
+     * Gets the batteryQualificationList property value. This container returns a list of all battery qualifications associated with an eDIS account.
      * @return a {@link GetBatteryQualListResponsesData}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class GetBatteryQualListResponses implements AdditionalDataHolder, Parsab
         this.additionalData = value;
     }
     /**
-     * Sets the batteryQualificationList property value. This type defines the fields in a paginated result set of battery qualifications associated with a seller&apos;s eDIS account. The response consists of 0 or more sequenced pages that are returned from the complete result set, where each page consists of 0 or more items.
+     * Sets the batteryQualificationList property value. This container returns a list of all battery qualifications associated with an eDIS account.
      * @param value Value to set for the batteryQualificationList property.
      */
     public void setBatteryQualificationList(@jakarta.annotation.Nullable final GetBatteryQualListResponsesData value) {

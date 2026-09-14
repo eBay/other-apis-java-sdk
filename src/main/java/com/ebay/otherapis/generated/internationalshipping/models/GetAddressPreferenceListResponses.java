@@ -31,7 +31,7 @@ public class GetAddressPreferenceListResponses implements AdditionalDataHolder, 
      */
     private Map<String, Object> additionalData;
     /**
-     * This type defines the list of addresses associated with a eDIS account.
+     * This container returns all ship-from and/or return addresses associated with a seller&apos;s eDIS account.
      */
     private GetAddressPreferenceListResponsesData addressPreferenceList;
     /**
@@ -59,7 +59,7 @@ public class GetAddressPreferenceListResponses implements AdditionalDataHolder, 
         return this.additionalData;
     }
     /**
-     * Gets the addressPreferenceList property value. This type defines the list of addresses associated with a eDIS account.
+     * Gets the addressPreferenceList property value. This container returns all ship-from and/or return addresses associated with a seller&apos;s eDIS account.
      * @return a {@link GetAddressPreferenceListResponsesData}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class GetAddressPreferenceListResponses implements AdditionalDataHolder, 
         this.additionalData = value;
     }
     /**
-     * Sets the addressPreferenceList property value. This type defines the list of addresses associated with a eDIS account.
+     * Sets the addressPreferenceList property value. This container returns all ship-from and/or return addresses associated with a seller&apos;s eDIS account.
      * @param value Value to set for the addressPreferenceList property.
      */
     public void setAddressPreferenceList(@jakarta.annotation.Nullable final GetAddressPreferenceListResponsesData value) {

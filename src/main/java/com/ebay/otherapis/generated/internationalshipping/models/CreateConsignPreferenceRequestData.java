@@ -35,21 +35,21 @@ public class CreateConsignPreferenceRequestData implements AdditionalDataHolder,
      */
     private String consignPreferenceName;
     /**
-     * The unique identifier of a drop-off site location. This value can be retrieved using the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/dropoff_sites/methods/getDropoffSites&quot; target=&quot;_blank&quot;&gt;getDropoffSites&lt;/a&gt; method.&lt;br&gt;&lt;br&gt;This field is required if the &lt;code&gt;DROPOFF&lt;/code&gt; address type is specified.
+     * The unique identifier of a drop-off site location. This value can be retrieved using the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-dropoff_sites-getdropoffsites&quot;&gt;getDropoffSites&lt;/a&gt; method.&lt;br&gt;&lt;br&gt;This field is required if the &lt;code&gt;DROPOFF&lt;/code&gt; address type is specified.
      */
     private String dropoffSiteId;
     /**
-     * This type defines the field used to create a pickup address.
+     * This container is used to specify the address details used to create a pickup-from address.&lt;br&gt;&lt;br&gt;This container is required if the &lt;code&gt;PICK_UP&lt;/code&gt; address type is specified.
      */
     private PickupAddressRequestData pickupAddress;
     /**
-     * The pickup time that the pickup location supports.&lt;br&gt;&lt;br&gt;This field is required if the &lt;code&gt;PICK_UP&lt;/code&gt; address type is specified. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:PickUpTimeTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The pickup time that the pickup location supports.&lt;br&gt;&lt;br&gt;This field is required if the &lt;code&gt;PICK_UP&lt;/code&gt; address type is specified.
      */
-    private String pickupTime;
+    private PickUpTimeTypeEnum pickupTime;
     /**
-     * The address type of the consign address.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;FORWARD_DEPLOYMENT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;RDC&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;HK_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:ConsignTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The address type of the consign address.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;FORWARD_DEPLOYMENT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;RDC&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;HK_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      */
-    private String type;
+    private ConsignTypeEnum type;
     /**
      * Instantiates a new {@link CreateConsignPreferenceRequestData} and sets the default values.
      */
@@ -83,7 +83,7 @@ public class CreateConsignPreferenceRequestData implements AdditionalDataHolder,
         return this.consignPreferenceName;
     }
     /**
-     * Gets the dropoffSiteId property value. The unique identifier of a drop-off site location. This value can be retrieved using the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/dropoff_sites/methods/getDropoffSites&quot; target=&quot;_blank&quot;&gt;getDropoffSites&lt;/a&gt; method.&lt;br&gt;&lt;br&gt;This field is required if the &lt;code&gt;DROPOFF&lt;/code&gt; address type is specified.
+     * Gets the dropoffSiteId property value. The unique identifier of a drop-off site location. This value can be retrieved using the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-dropoff_sites-getdropoffsites&quot;&gt;getDropoffSites&lt;/a&gt; method.&lt;br&gt;&lt;br&gt;This field is required if the &lt;code&gt;DROPOFF&lt;/code&gt; address type is specified.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -100,12 +100,12 @@ public class CreateConsignPreferenceRequestData implements AdditionalDataHolder,
         deserializerMap.put("consignPreferenceName", (n) -> { this.setConsignPreferenceName(n.getStringValue()); });
         deserializerMap.put("dropoffSiteId", (n) -> { this.setDropoffSiteId(n.getStringValue()); });
         deserializerMap.put("pickupAddress", (n) -> { this.setPickupAddress(n.getObjectValue(PickupAddressRequestData::createFromDiscriminatorValue)); });
-        deserializerMap.put("pickupTime", (n) -> { this.setPickupTime(n.getStringValue()); });
-        deserializerMap.put("type", (n) -> { this.setType(n.getStringValue()); });
+        deserializerMap.put("pickupTime", (n) -> { this.setPickupTime(n.getEnumValue(PickUpTimeTypeEnum::forValue)); });
+        deserializerMap.put("type", (n) -> { this.setType(n.getEnumValue(ConsignTypeEnum::forValue)); });
         return deserializerMap;
     }
     /**
-     * Gets the pickupAddress property value. This type defines the field used to create a pickup address.
+     * Gets the pickupAddress property value. This container is used to specify the address details used to create a pickup-from address.&lt;br&gt;&lt;br&gt;This container is required if the &lt;code&gt;PICK_UP&lt;/code&gt; address type is specified.
      * @return a {@link PickupAddressRequestData}
      */
     @jakarta.annotation.Nullable
@@ -113,19 +113,19 @@ public class CreateConsignPreferenceRequestData implements AdditionalDataHolder,
         return this.pickupAddress;
     }
     /**
-     * Gets the pickupTime property value. The pickup time that the pickup location supports.&lt;br&gt;&lt;br&gt;This field is required if the &lt;code&gt;PICK_UP&lt;/code&gt; address type is specified. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:PickUpTimeTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the pickupTime property value. The pickup time that the pickup location supports.&lt;br&gt;&lt;br&gt;This field is required if the &lt;code&gt;PICK_UP&lt;/code&gt; address type is specified.
+     * @return a {@link PickUpTimeTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getPickupTime() {
+    public PickUpTimeTypeEnum getPickupTime() {
         return this.pickupTime;
     }
     /**
-     * Gets the type property value. The address type of the consign address.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;FORWARD_DEPLOYMENT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;RDC&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;HK_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:ConsignTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the type property value. The address type of the consign address.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;FORWARD_DEPLOYMENT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;RDC&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;HK_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+     * @return a {@link ConsignTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getType() {
+    public ConsignTypeEnum getType() {
         return this.type;
     }
     /**
@@ -137,8 +137,8 @@ public class CreateConsignPreferenceRequestData implements AdditionalDataHolder,
         writer.writeStringValue("consignPreferenceName", this.getConsignPreferenceName());
         writer.writeStringValue("dropoffSiteId", this.getDropoffSiteId());
         writer.writeObjectValue("pickupAddress", this.getPickupAddress());
-        writer.writeStringValue("pickupTime", this.getPickupTime());
-        writer.writeStringValue("type", this.getType());
+        writer.writeEnumValue("pickupTime", this.getPickupTime());
+        writer.writeEnumValue("type", this.getType());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -156,31 +156,31 @@ public class CreateConsignPreferenceRequestData implements AdditionalDataHolder,
         this.consignPreferenceName = value;
     }
     /**
-     * Sets the dropoffSiteId property value. The unique identifier of a drop-off site location. This value can be retrieved using the &lt;a href=&quot;/api-docs/sell/edelivery_international_shipping/resources/dropoff_sites/methods/getDropoffSites&quot; target=&quot;_blank&quot;&gt;getDropoffSites&lt;/a&gt; method.&lt;br&gt;&lt;br&gt;This field is required if the &lt;code&gt;DROPOFF&lt;/code&gt; address type is specified.
+     * Sets the dropoffSiteId property value. The unique identifier of a drop-off site location. This value can be retrieved using the &lt;a href=&quot;/develop/api/sell/edelivery_international_shipping_api#sell-edelivery_international_shipping_api-dropoff_sites-getdropoffsites&quot;&gt;getDropoffSites&lt;/a&gt; method.&lt;br&gt;&lt;br&gt;This field is required if the &lt;code&gt;DROPOFF&lt;/code&gt; address type is specified.
      * @param value Value to set for the dropoffSiteId property.
      */
     public void setDropoffSiteId(@jakarta.annotation.Nullable final String value) {
         this.dropoffSiteId = value;
     }
     /**
-     * Sets the pickupAddress property value. This type defines the field used to create a pickup address.
+     * Sets the pickupAddress property value. This container is used to specify the address details used to create a pickup-from address.&lt;br&gt;&lt;br&gt;This container is required if the &lt;code&gt;PICK_UP&lt;/code&gt; address type is specified.
      * @param value Value to set for the pickupAddress property.
      */
     public void setPickupAddress(@jakarta.annotation.Nullable final PickupAddressRequestData value) {
         this.pickupAddress = value;
     }
     /**
-     * Sets the pickupTime property value. The pickup time that the pickup location supports.&lt;br&gt;&lt;br&gt;This field is required if the &lt;code&gt;PICK_UP&lt;/code&gt; address type is specified. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:PickUpTimeTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the pickupTime property value. The pickup time that the pickup location supports.&lt;br&gt;&lt;br&gt;This field is required if the &lt;code&gt;PICK_UP&lt;/code&gt; address type is specified.
      * @param value Value to set for the pickupTime property.
      */
-    public void setPickupTime(@jakarta.annotation.Nullable final String value) {
+    public void setPickupTime(@jakarta.annotation.Nullable final PickUpTimeTypeEnum value) {
         this.pickupTime = value;
     }
     /**
-     * Sets the type property value. The address type of the consign address.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;FORWARD_DEPLOYMENT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;RDC&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;HK_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/edelivery_international_shipping/types/api:ConsignTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the type property value. The address type of the consign address.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;FORWARD_DEPLOYMENT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;RDC&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;HK_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      * @param value Value to set for the type property.
      */
-    public void setType(@jakarta.annotation.Nullable final String value) {
+    public void setType(@jakarta.annotation.Nullable final ConsignTypeEnum value) {
         this.type = value;
     }
 }
