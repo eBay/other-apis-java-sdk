@@ -1,16 +1,12 @@
 # ChangeLog
 
-## 1.1.0 (09/14/2026)
+## 0.2.0 (09/14/2026)
 
-- The following clients were added:
-  - `VeroApiV2Client`
-- The following operations were added to `InternationalShippingClient`:
-  - `getCpscProfilesAsync`
-- The following members were added to `OtherApisClient`:
-  - `veroApiV2`
+Consolidated experimental release.
 
-## 1.0.0 (09/14/2026)
+- REST clients: `IdentityClient`, `InternationalShippingClient`, `TranslationClient`, `VeroApiV2Client`, `VeroClient`.
+- Includes the current API definitions, regenerated clients, and wrapper updates.
+- Preserves existing wrapper parameter order where signatures allow it.
+- Aligns wrapper query parameter types with the generated Kiota clients.
 
-**Breaking changes**
-- The following operations changed signature on `VeroClient`:
-  - `getVeroReasonCodesAsync`: `(String, RequestOptions)` → `(String, String, RequestOptions)`
+This entry establishes the consolidated experimental baseline.
