@@ -18,15 +18,11 @@ import com.ebay.otherapis.configuration.OtherApisConfiguration;
 import com.ebay.otherapis.configuration.RequestOptions;
 import com.ebay.otherapis.configuration.TokenContext;
 import com.ebay.otherapis.generated.identity.IdentityApiClient;
-import com.ebay.otherapis.generated.identity.models.UserResponse;
+import com.ebay.otherapis.generated.identity.models.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
-/**
- * Client for the Commerce Identity API.
- * Provides methods to retrieve authenticated user account information.
- */
 public final class IdentityClient {
     private final IdentityApiClient kiota;
     private final OtherApisConfiguration config;
@@ -36,10 +32,6 @@ public final class IdentityClient {
         this.config = config;
     }
 
-    /**
-     * Merges default headers from config with per-call headers.
-     * Per-call headers override defaults.
-     */
     private Map<String, String> mergedHeaders(RequestOptions requestOptions) {
         Map<String, String> headers = new HashMap<>(config.getDefaultRequestOptions().getHeaders());
         if (requestOptions != null) {
@@ -48,14 +40,8 @@ public final class IdentityClient {
         return headers;
     }
 
-    /**
-     * Retrieve the authenticated user's account profile information.
-     *
-     * @param accessToken Per-call token; overrides config fallback
-     * @param requestOptions Per-call headers
-     * @return CompletableFuture containing UserResponse with account profile information
-     */
-    public CompletableFuture<UserResponse> getUserAsync(String accessToken, RequestOptions requestOptions) {
+    public CompletableFuture<UserResponse> getUserAsync(
+            String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.user().emptyPathSegment().get(config -> {
