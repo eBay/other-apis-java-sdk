@@ -15,101 +15,40 @@
 package com.ebay.otherapis.configuration;
 
 import jakarta.annotation.Nullable;
-import java.net.URI;
-import java.util.Set;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
- * Configuration for the Other APIs SDK.
- * Provides base URLs for Identity, Translation, VeRO, and International Shipping APIs,
- * and optional fallback access token.
- */
 public final class OtherApisConfiguration {
-    private static final Set<String> ALLOWED_HOSTS = Set.of("apiz.ebay.com", "api.ebay.com");
-
-    // Base URLs for each API (private final — set at construction time)
-    private final String identityBaseUrl;
-    private final String translationBaseUrl;
-    private final String veroBaseUrl;
-    private final String internationalShippingBaseUrl;
-
-    private @Nullable String accessToken;  // static fallback; per-call token takes precedence
-    private boolean diagnosticLogging = false;
-
-    /**
-     * Default request options (headers) applied to all SDK calls.
-     * Per-call RequestOptions will override these.
-     */
+    private @Nullable String accessToken;
     private RequestOptions defaultRequestOptions = new RequestOptions();
 
-    /** No-arg constructor uses eBay production URLs. */
+    private final String identityBaseUrl;
+    private final String internationalShippingBaseUrl;
+    private final String translationBaseUrl;
+    private final String veroBaseUrl;
+
     public OtherApisConfiguration() {
         this.identityBaseUrl = "https://apiz.ebay.com/commerce/identity/v1";
+        this.internationalShippingBaseUrl = "https://api.ebay.com/sell/edelivery_international_shipping/v1";
         this.translationBaseUrl = "https://api.ebay.com/commerce/translation/v1_beta";
         this.veroBaseUrl = "https://api.ebay.com/commerce/vero/v1";
-        this.internationalShippingBaseUrl = "https://api.ebay.com/sell/edelivery/international_shipping";
     }
 
-    /**
-     * Constructor that accepts custom base URLs.
-     * Each URL host is validated against the eBay allowed-hosts list.
-     *
-     * @param identityBaseUrl             Identity API base URL
-     * @param translationBaseUrl          Translation API base URL
-     * @param veroBaseUrl                 VeRO API base URL
-     * @param internationalShippingBaseUrl International Shipping API base URL
-     */
     public OtherApisConfiguration(
             String identityBaseUrl,
+            String internationalShippingBaseUrl,
             String translationBaseUrl,
-            String veroBaseUrl,
-            String internationalShippingBaseUrl) {
+            String veroBaseUrl) {
         this.identityBaseUrl = validateHost(identityBaseUrl);
+        this.internationalShippingBaseUrl = validateHost(internationalShippingBaseUrl);
         this.translationBaseUrl = validateHost(translationBaseUrl);
         this.veroBaseUrl = validateHost(veroBaseUrl);
-        this.internationalShippingBaseUrl = validateHost(internationalShippingBaseUrl);
     }
 
-    // Getters (no setters for URL fields — private final)
-    public String getIdentityBaseUrl() { return identityBaseUrl; }
-    public String getTranslationBaseUrl() { return translationBaseUrl; }
-    public String getVeroBaseUrl() { return veroBaseUrl; }
-    public String getInternationalShippingBaseUrl() { return internationalShippingBaseUrl; }
-
-    /**
-     * Sets the fallback OAuth access token.
-     *
-     * <p><strong>Security note:</strong> Access tokens are held as plain {@code String} objects
-     * on the Java heap and cannot be zeroed after use. Minimise the token lifetime by preferring
-     * per-call tokens over a long-lived config token wherever possible.
-     */
-    public @Nullable String getAccessToken() { return accessToken; }
-    public void setAccessToken(@Nullable String accessToken) { this.accessToken = accessToken; }
-
-    public boolean isDiagnosticLogging() { return diagnosticLogging; }
-    public void setDiagnosticLogging(boolean diagnosticLogging) { this.diagnosticLogging = diagnosticLogging; }
-
-    public RequestOptions getDefaultRequestOptions() { return defaultRequestOptions; }
-    public void setDefaultRequestOptions(RequestOptions defaultRequestOptions) {
-        this.defaultRequestOptions = defaultRequestOptions;
-    }
-
-    /**
-     * All hostnames tokens may be sent to; used by AllowedHostsValidator.
-     */
-    public Set<String> getAllowedHosts() {
-        Set<String> hosts = new HashSet<>();
-        hosts.add(extractHost(identityBaseUrl));
-        hosts.add(extractHost(translationBaseUrl));
-        hosts.add(extractHost(veroBaseUrl));
-        hosts.add(extractHost(internationalShippingBaseUrl));
-        return hosts;
-    }
-
-    private static String validateHost(String url) {
+    private String validateHost(String url) {
         try {
             String host = new java.net.URI(url).getHost();
-            if (host == null || !ALLOWED_HOSTS.contains(host)) {
+            if (host == null || !getAllowedHosts().contains(host)) {
                 throw new IllegalArgumentException("URL host not in allowed list: " + url);
             }
         } catch (java.net.URISyntaxException e) {
@@ -118,11 +57,46 @@ public final class OtherApisConfiguration {
         return url;
     }
 
-    private String extractHost(String url) {
-        try {
-            return URI.create(url).getHost();
-        } catch (Exception e) {
-            return "api.ebay.com"; // fallback
-        }
+    /**
+     * Sets the OAuth Bearer token used for API calls when no per-call token is provided.
+     *
+     * <p><b>Security note:</b> The token is stored as a Java {@code String} and will remain
+     * in heap memory until garbage collected. To minimize exposure: do not log this
+     * configuration object, null out the token reference when it is no longer needed,
+     * and avoid storing the configuration longer than the client lifecycle.
+     */
+    public void setAccessToken(@Nullable String token) {
+        this.accessToken = token;
+    }
+
+    public @Nullable String getAccessToken() {
+        return accessToken;
+    }
+
+    public RequestOptions getDefaultRequestOptions() {
+        return defaultRequestOptions;
+    }
+
+    public Set<String> getAllowedHosts() {
+        Set<String> hosts = new HashSet<>();
+        hosts.add("api.ebay.com");
+        hosts.add("apiz.ebay.com");
+        return hosts;
+    }
+
+    public String getIdentityBaseUrl() {
+        return identityBaseUrl;
+    }
+
+    public String getInternationalShippingBaseUrl() {
+        return internationalShippingBaseUrl;
+    }
+
+    public String getTranslationBaseUrl() {
+        return translationBaseUrl;
+    }
+
+    public String getVeroBaseUrl() {
+        return veroBaseUrl;
     }
 }

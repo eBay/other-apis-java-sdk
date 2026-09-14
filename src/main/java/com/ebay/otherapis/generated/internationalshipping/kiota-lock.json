@@ -2,7 +2,7 @@
   "descriptionHash": "B99BC94FCD71CB994A27536546C8B787307F8060273BE0B216055DF0095D1841AC0913D6D5214813A81B8C42D07152AC560C81BCCCADD59B2264A0A3FD741BA6",
   "descriptionLocation": "../../../../../../../../specs/openapi/international-shipping.yaml",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.35.0",
+  "kiotaVersion": "1.31.1",
   "clientClassName": "InternationalShippingApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "com.ebay.otherapis.generated.internationalshipping",
@@ -30,6 +30,5 @@
   ],
   "includePatterns": [],
   "excludePatterns": [],
-  "disabledValidationRules": [],
-  "allowedExternalOrigins": []
+  "disabledValidationRules": []
 }
