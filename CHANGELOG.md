@@ -10,7 +10,7 @@
 
 | Operation | Previous parameters | Current parameters |
 | --- | --- | --- |
-| `getVeroReasonCodesAsync` | `(String, RequestOptions)` | `(String, String, RequestOptions)` |
+| `getVeroReasonCodesAsync` | `(String accessToken, RequestOptions requestOptions)` | `(String xEBAYCMARKETPLACEID, String accessToken, RequestOptions requestOptions)` |
 
 ### Added
 
