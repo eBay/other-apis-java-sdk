@@ -1,16 +1,18 @@
 # ChangeLog
 
-## 1.1.0 (09/14/2026)
+## 0.2.0 (09/14/2026)
 
-- The following clients were added:
-  - `VeroApiV2Client`
-- The following operations were added to `InternationalShippingClient`:
-  - `getCpscProfilesAsync`
-- The following members were added to `OtherApisClient`:
-  - `veroApiV2`
+### Breaking changes
 
-## 1.0.0 (09/14/2026)
+#### Changed signatures
 
-**Breaking changes**
-- The following operations changed signature on `VeroClient`:
-  - `getVeroReasonCodesAsync`: `(String, RequestOptions)` → `(String, String, RequestOptions)`
+`VeroClient`:
+
+| Operation | Previous parameters | Current parameters |
+| --- | --- | --- |
+| `getVeroReasonCodesAsync` | `(String accessToken, RequestOptions requestOptions)` | `(String xEBAYCMARKETPLACEID, String accessToken, RequestOptions requestOptions)` |
+
+### Added
+
+- Client `VeroApiV2Client` and member `OtherApisClient.veroApiV2`.
+- `InternationalShippingClient.getCpscProfilesAsync`.
