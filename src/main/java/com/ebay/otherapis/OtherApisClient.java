@@ -18,14 +18,12 @@ import com.ebay.otherapis.clients.rest.IdentityClient;
 import com.ebay.otherapis.clients.rest.InternationalShippingClient;
 import com.ebay.otherapis.clients.rest.TranslationClient;
 import com.ebay.otherapis.clients.rest.VeroApiV2Client;
-import com.ebay.otherapis.clients.rest.VeroClient;
 import com.ebay.otherapis.configuration.KiotaAuthProvider;
 import com.ebay.otherapis.configuration.OtherApisConfiguration;
 import com.ebay.otherapis.generated.identity.IdentityApiClient;
 import com.ebay.otherapis.generated.internationalshipping.InternationalShippingApiClient;
 import com.ebay.otherapis.generated.translation.TranslationApiClient;
 import com.ebay.otherapis.generated.veroapiv2.VeroApiV2ApiClient;
-import com.ebay.otherapis.generated.vero.VeroApiClient;
 import com.microsoft.kiota.authentication.BaseBearerTokenAuthenticationProvider;
 import com.microsoft.kiota.http.OkHttpRequestAdapter;
 import okhttp3.OkHttpClient;
@@ -42,7 +40,6 @@ public final class OtherApisClient implements Closeable {
     public final InternationalShippingClient internationalShipping;
     public final TranslationClient translation;
     public final VeroApiV2Client veroApiV2;
-    public final VeroClient vero;
 
     public OtherApisClient(OtherApisConfiguration config) {
         this.sharedHttpClient = new OkHttpClient.Builder()
@@ -68,10 +65,6 @@ public final class OtherApisClient implements Closeable {
         var veroApiV2Adapter = new OkHttpRequestAdapter(authProvider, null, null, sharedHttpClient);
         veroApiV2Adapter.setBaseUrl(config.getVeroApiV2BaseUrl());
         this.veroApiV2 = new VeroApiV2Client(new VeroApiV2ApiClient(veroApiV2Adapter), config);
-
-        var veroAdapter = new OkHttpRequestAdapter(authProvider, null, null, sharedHttpClient);
-        veroAdapter.setBaseUrl(config.getVeroBaseUrl());
-        this.vero = new VeroClient(new VeroApiClient(veroAdapter), config);
     }
 
     @Override

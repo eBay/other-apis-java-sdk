@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.ebay.otherapis.generated.vero.models;
+package com.ebay.otherapis.generated.internationalshipping.models;
 
 import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
@@ -22,37 +22,37 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type defines the response payload of the &lt;b&gt;getVeroReasonCode&lt;/b&gt; method.
+ * This array is used if one or more products in the package requires additional SKU-related name-value pairs.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public class VeroReasonCodeResponse implements AdditionalDataHolder, Parsable {
+public class AdditionalSkuInfo implements AdditionalDataHolder, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
     private Map<String, Object> additionalData;
     /**
-     * The eBay site for which reason code details are returned.
+     * The name of the additional SKU information attribute.
      */
-    private MarketplaceIdEnum marketplaceId;
+    private String name;
     /**
-     * This container includes both brief and detailed text descriptions for the VeRO program intellectual property right infringement reason, as well as the ID for the reason code
+     * The value of the additional SKU information attribute.
      */
-    private ReasonCodeDetailType reasonCodeDetails;
+    private String value;
     /**
-     * Instantiates a new {@link VeroReasonCodeResponse} and sets the default values.
+     * Instantiates a new {@link AdditionalSkuInfo} and sets the default values.
      */
-    public VeroReasonCodeResponse() {
+    public AdditionalSkuInfo() {
         this.setAdditionalData(new HashMap<>());
     }
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a {@link VeroReasonCodeResponse}
+     * @return a {@link AdditionalSkuInfo}
      */
     @jakarta.annotation.Nonnull
-    public static VeroReasonCodeResponse createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
+    public static AdditionalSkuInfo createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
         Objects.requireNonNull(parseNode);
-        return new VeroReasonCodeResponse();
+        return new AdditionalSkuInfo();
     }
     /**
      * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -69,25 +69,25 @@ public class VeroReasonCodeResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
-        deserializerMap.put("marketplaceId", (n) -> { this.setMarketplaceId(n.getEnumValue(MarketplaceIdEnum::forValue)); });
-        deserializerMap.put("reasonCodeDetails", (n) -> { this.setReasonCodeDetails(n.getObjectValue(ReasonCodeDetailType::createFromDiscriminatorValue)); });
+        deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
+        deserializerMap.put("value", (n) -> { this.setValue(n.getStringValue()); });
         return deserializerMap;
     }
     /**
-     * Gets the marketplaceId property value. The eBay site for which reason code details are returned.
-     * @return a {@link MarketplaceIdEnum}
+     * Gets the name property value. The name of the additional SKU information attribute.
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
-    public MarketplaceIdEnum getMarketplaceId() {
-        return this.marketplaceId;
+    public String getName() {
+        return this.name;
     }
     /**
-     * Gets the reasonCodeDetails property value. This container includes both brief and detailed text descriptions for the VeRO program intellectual property right infringement reason, as well as the ID for the reason code
-     * @return a {@link ReasonCodeDetailType}
+     * Gets the value property value. The value of the additional SKU information attribute.
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
-    public ReasonCodeDetailType getReasonCodeDetails() {
-        return this.reasonCodeDetails;
+    public String getValue() {
+        return this.value;
     }
     /**
      * Serializes information the current object
@@ -95,8 +95,8 @@ public class VeroReasonCodeResponse implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeEnumValue("marketplaceId", this.getMarketplaceId());
-        writer.writeObjectValue("reasonCodeDetails", this.getReasonCodeDetails());
+        writer.writeStringValue("name", this.getName());
+        writer.writeStringValue("value", this.getValue());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -107,17 +107,17 @@ public class VeroReasonCodeResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the marketplaceId property value. The eBay site for which reason code details are returned.
-     * @param value Value to set for the marketplaceId property.
+     * Sets the name property value. The name of the additional SKU information attribute.
+     * @param value Value to set for the name property.
      */
-    public void setMarketplaceId(@jakarta.annotation.Nullable final MarketplaceIdEnum value) {
-        this.marketplaceId = value;
+    public void setName(@jakarta.annotation.Nullable final String value) {
+        this.name = value;
     }
     /**
-     * Sets the reasonCodeDetails property value. This container includes both brief and detailed text descriptions for the VeRO program intellectual property right infringement reason, as well as the ID for the reason code
-     * @param value Value to set for the reasonCodeDetails property.
+     * Sets the value property value. The value of the additional SKU information attribute.
+     * @param value Value to set for the value property.
      */
-    public void setReasonCodeDetails(@jakarta.annotation.Nullable final ReasonCodeDetailType value) {
-        this.reasonCodeDetails = value;
+    public void setValue(@jakarta.annotation.Nullable final String value) {
+        this.value = value;
     }
 }

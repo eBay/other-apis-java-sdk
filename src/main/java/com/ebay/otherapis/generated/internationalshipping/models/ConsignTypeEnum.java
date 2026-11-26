@@ -26,6 +26,7 @@ public enum ConsignTypeEnum implements ValuedEnum {
     DROP_OFF("DROP_OFF"),
     FORWARD_DEPLOYMENT("FORWARD_DEPLOYMENT"),
     RDC("RDC"),
+    RDC_DROP_OFF("RDC_DROP_OFF"),
     CN_POST_DROP_OFF("CN_POST_DROP_OFF"),
     CN_POST_PICK_UP("CN_POST_PICK_UP"),
     HK_POST_DROP_OFF("HK_POST_DROP_OFF");
@@ -43,6 +44,7 @@ public enum ConsignTypeEnum implements ValuedEnum {
             case "DROP_OFF": return DROP_OFF;
             case "FORWARD_DEPLOYMENT": return FORWARD_DEPLOYMENT;
             case "RDC": return RDC;
+            case "RDC_DROP_OFF": return RDC_DROP_OFF;
             case "CN_POST_DROP_OFF": return CN_POST_DROP_OFF;
             case "CN_POST_PICK_UP": return CN_POST_PICK_UP;
             case "HK_POST_DROP_OFF": return HK_POST_DROP_OFF;

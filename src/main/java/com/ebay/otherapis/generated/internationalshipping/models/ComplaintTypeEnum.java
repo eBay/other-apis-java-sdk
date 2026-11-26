@@ -18,11 +18,12 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * The type of complaint being filed.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;ABNORMAL_COLLECTION_COMPLAINT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;LOST_PACKAGE_COMPLAINT&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+ * The type of complaint being filed.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;ABNORMAL_COLLECTION_COMPLAINT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;ABNORMAL_PICKUP_COMPLAINT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;LOST_PACKAGE_COMPLAINT&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum ComplaintTypeEnum implements ValuedEnum {
     ABNORMAL_COLLECTION_COMPLAINT("ABNORMAL_COLLECTION_COMPLAINT"),
+    ABNORMAL_PICKUP_COMPLAINT("ABNORMAL_PICKUP_COMPLAINT"),
     LOST_PACKAGE_COMPLAINT("LOST_PACKAGE_COMPLAINT");
     public final String value;
     ComplaintTypeEnum(final String value) {
@@ -35,6 +36,7 @@ public enum ComplaintTypeEnum implements ValuedEnum {
         Objects.requireNonNull(searchValue);
         switch(searchValue) {
             case "ABNORMAL_COLLECTION_COMPLAINT": return ABNORMAL_COLLECTION_COMPLAINT;
+            case "ABNORMAL_PICKUP_COMPLAINT": return ABNORMAL_PICKUP_COMPLAINT;
             case "LOST_PACKAGE_COMPLAINT": return LOST_PACKAGE_COMPLAINT;
             default: return null;
         }

@@ -16,6 +16,13 @@
 
 set -euo pipefail
 
+KIOTA_VERSION=$(kiota --version 2>/dev/null | cut -d'+' -f1)
+if [ "$KIOTA_VERSION" != "1.35.0" ]; then
+  echo "Error: kiota 1.35.0 required, found '${KIOTA_VERSION:-not installed}'"
+  echo "See https://learn.microsoft.com/en-us/openapi/kiota/install for installation options."
+  exit 1
+fi
+
 echo "Generating Other APIs Java SDK with Kiota..."
 rm -rf src/main/java/com/ebay/otherapis/generated
 
@@ -38,11 +45,6 @@ echo "Generating VeroApiV2ApiClient..."
 kiota generate -l java -d specs/openapi/vero-api-v2.json \
   -c VeroApiV2ApiClient -n com.ebay.otherapis.generated.veroapiv2 \
   -o src/main/java/com/ebay/otherapis/generated/veroapiv2 --ebc --co
-
-echo "Generating VeroApiClient..."
-kiota generate -l java -d specs/openapi/vero.json \
-  -c VeroApiClient -n com.ebay.otherapis.generated.vero \
-  -o src/main/java/com/ebay/otherapis/generated/vero --ebc --co
 
 echo "Adding license headers to generated files..."
 ./add-license-headers.sh ./src
