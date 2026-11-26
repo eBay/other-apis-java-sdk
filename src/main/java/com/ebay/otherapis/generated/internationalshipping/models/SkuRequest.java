@@ -31,6 +31,10 @@ public class SkuRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
+     * Additional SKU information.
+     */
+    private java.util.List<AdditionalSkuInfo> additionalSkuInfo;
+    /**
      * The unique identifier of a CPSC profile.
      */
     private String cpscProfileId;
@@ -123,6 +127,14 @@ public class SkuRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
+     * Gets the additionalSkuInfo property value. Additional SKU information.
+     * @return a {@link java.util.List<AdditionalSkuInfo>}
+     */
+    @jakarta.annotation.Nullable
+    public java.util.List<AdditionalSkuInfo> getAdditionalSkuInfo() {
+        return this.additionalSkuInfo;
+    }
+    /**
      * Gets the cpscProfileId property value. The unique identifier of a CPSC profile.
      * @return a {@link String}
      */
@@ -160,7 +172,8 @@ public class SkuRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(17);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(18);
+        deserializerMap.put("additionalSkuInfo", (n) -> { this.setAdditionalSkuInfo(n.getCollectionOfObjectValues(AdditionalSkuInfo::createFromDiscriminatorValue)); });
         deserializerMap.put("cpscProfileId", (n) -> { this.setCpscProfileId(n.getStringValue()); });
         deserializerMap.put("elecQualificationId", (n) -> { this.setElecQualificationId(n.getStringValue()); });
         deserializerMap.put("exemptionType", (n) -> { this.setExemptionType(n.getEnumValue(ExemptionTypeEnum::forValue)); });
@@ -290,6 +303,7 @@ public class SkuRequest implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeCollectionOfObjectValues("additionalSkuInfo", this.getAdditionalSkuInfo());
         writer.writeStringValue("cpscProfileId", this.getCpscProfileId());
         writer.writeStringValue("elecQualificationId", this.getElecQualificationId());
         writer.writeEnumValue("exemptionType", this.getExemptionType());
@@ -315,6 +329,13 @@ public class SkuRequest implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
+    }
+    /**
+     * Sets the additionalSkuInfo property value. Additional SKU information.
+     * @param value Value to set for the additionalSkuInfo property.
+     */
+    public void setAdditionalSkuInfo(@jakarta.annotation.Nullable final java.util.List<AdditionalSkuInfo> value) {
+        this.additionalSkuInfo = value;
     }
     /**
      * Sets the cpscProfileId property value. The unique identifier of a CPSC profile.

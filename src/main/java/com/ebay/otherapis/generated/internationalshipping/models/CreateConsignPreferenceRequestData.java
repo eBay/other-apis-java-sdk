@@ -47,7 +47,7 @@ public class CreateConsignPreferenceRequestData implements AdditionalDataHolder,
      */
     private PickUpTimeTypeEnum pickupTime;
     /**
-     * The address type of the consign address.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;FORWARD_DEPLOYMENT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;RDC&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;HK_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+     * The address type of the consign address.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;FORWARD_DEPLOYMENT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;RDC&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;RDC_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;HK_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      */
     private ConsignTypeEnum type;
     /**
@@ -121,7 +121,7 @@ public class CreateConsignPreferenceRequestData implements AdditionalDataHolder,
         return this.pickupTime;
     }
     /**
-     * Gets the type property value. The address type of the consign address.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;FORWARD_DEPLOYMENT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;RDC&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;HK_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+     * Gets the type property value. The address type of the consign address.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;FORWARD_DEPLOYMENT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;RDC&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;RDC_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;HK_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      * @return a {@link ConsignTypeEnum}
      */
     @jakarta.annotation.Nullable
@@ -177,7 +177,7 @@ public class CreateConsignPreferenceRequestData implements AdditionalDataHolder,
         this.pickupTime = value;
     }
     /**
-     * Sets the type property value. The address type of the consign address.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;FORWARD_DEPLOYMENT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;RDC&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;HK_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+     * Sets the type property value. The address type of the consign address.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;FORWARD_DEPLOYMENT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;RDC&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;RDC_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;CN_POST_PICK_UP&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;HK_POST_DROP_OFF&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      * @param value Value to set for the type property.
      */
     public void setType(@jakarta.annotation.Nullable final ConsignTypeEnum value) {
